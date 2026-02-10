@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucas Bonavina</title>
+    <title>Lucas Bonavina | Development Team Lead</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -110,12 +111,6 @@
             font-size: 0.9rem;
             transition: color 0.3s ease;
             position: relative;
-        }
-
-        .nav-links a::before {
-            content: '';
-            color: var(--cor-acento);
-            margin-right: 5px;
         }
 
         .nav-links a:hover {
@@ -247,7 +242,7 @@
             color: rgba(255, 255, 255, 0.8);
             font-size: 1.1rem;
             line-height: 1.8;
-            max-width: 700px;
+            max-width: 800px;
         }
 
         .cta-buttons {
@@ -541,85 +536,6 @@
             padding-left: 1rem;
         }
 
-        /* ===== PROJETOS ===== */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--cor-secundaria);
-            border: 1px solid var(--cor-detalhes);
-            border-radius: 8px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--cor-acento), var(--cor-destaque));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .project-card:hover {
-            border-color: var(--cor-acento);
-            transform: translateY(-5px);
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .project-icon {
-            font-size: 2rem;
-            color: var(--cor-acento);
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-links a {
-            color: var(--cor-acento);
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .project-links a:hover {
-            color: var(--cor-destaque);
-            transform: translateY(-3px);
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            color: var(--cor-destaque);
-            margin-bottom: 1rem;
-            font-family: var(--fonte-mono);
-        }
-
-        .project-description {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
         /* ===== CONTATO ===== */
         .contact-content {
             max-width: 800px;
@@ -658,7 +574,7 @@
 
         .contact-links {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
@@ -767,7 +683,6 @@
                 font-size: 1.3rem;
             }
 
-            .projects-grid,
             .skills-grid {
                 grid-template-columns: 1fr;
             }
@@ -804,14 +719,13 @@
     <!-- HEADER -->
     <header>
         <nav>
-            <div class="logo">{<span>YN</span>}</div>
+            <div class="logo">{<span>LB</span>}</div>
             <ul class="nav-links">
-                <li><a href="#home">home()</a></li>
-                <li><a href="#about">about()</a></li>
-                <li><a href="#experience">experience()</a></li>
+                <li><a href="#home">inicio()</a></li>
+                <li><a href="#sobre">sobre()</a></li>
+                <li><a href="#experiencia">experiencia()</a></li>
                 <li><a href="#skills">skills()</a></li>
-                <li><a href="#projects">projects()</a></li>
-                <li><a href="#contact">contact()</a></li>
+                <li><a href="#contato">contato()</a></li>
             </ul>
             <div class="menu-toggle" id="mobile-menu">
                 <span></span>
@@ -829,7 +743,7 @@
                     <div class="terminal-button red"></div>
                     <div class="terminal-button yellow"></div>
                     <div class="terminal-button green"></div>
-                    <div class="terminal-title">seu-nome@dev: ~</div>
+                    <div class="terminal-title">lucas@dev: ~</div>
                 </div>
                 <div class="terminal-body">
                     <div class="terminal-line">
@@ -838,7 +752,7 @@
                     </div>
                     <div class="terminal-line">
                         <div class="output">
-                            <h1 class="hero-title"># SeuNome</h1>
+                            <h1 class="hero-title"># LucasBonavina</h1>
                         </div>
                     </div>
                     <div class="terminal-line">
@@ -847,7 +761,7 @@
                     </div>
                     <div class="terminal-line">
                         <div class="output">
-                            <h2 class="hero-subtitle">## Desenvolvedor Full Stack</h2>
+                            <h2 class="hero-subtitle">## Development Team Lead | Full-Stack WordPress Specialist</h2>
                         </div>
                     </div>
                     <div class="terminal-line">
@@ -857,12 +771,12 @@
                     <div class="terminal-line">
                         <div class="output">
                             <p class="hero-description">
-                                Construindo sistemas escaláveis e aplicações web modernas com 3+ anos de experiência.<br>
-                                Especializado em desenvolvimento full-stack, arquitetura de software e soluções inovadoras.
+                                Construindo sistemas WordPress de alta performance com 8 anos de experiência.<br>
+                                Especializado em liderança de equipe, arquitetura técnica, otimização de performance e soluções corporativas escaláveis.
                             </p>
                             <div class="cta-buttons">
-                                <a href="#contact" class="btn btn-primary">./contact.sh ></a>
-                                <a href="#experience" class="btn">ver experiência</a>
+                                <a href="#contato" class="btn btn-primary">./contato.sh ></a>
+                                <a href="#experiencia" class="btn">ver experiência</a>
                             </div>
                         </div>
                     </div>
@@ -874,115 +788,146 @@
         </section>
 
         <!-- SEÇÃO SOBRE -->
-        <section class="sobre" id="about">
+        <section class="sobre" id="sobre">
             <div class="section-number">01</div>
-            <h2 class="section-title">## about()</h2>
+            <h2 class="section-title">## sobre()</h2>
             <div class="sobre-content">
                 <div class="code-block reveal">
                     <div class="code-comment">// developer.ts</div>
                     <br>
                     <span class="code-keyword">interface</span> Developer {<br>
-                    &nbsp;&nbsp;name: <span class="code-string">"Seu Nome"</span>;<br>
-                    &nbsp;&nbsp;role: <span class="code-string">"Full Stack Developer"</span>;<br>
-                    &nbsp;&nbsp;experience: <span class="code-string">"3+ anos"</span>;<br>
-                    &nbsp;&nbsp;location: <span class="code-string">"Brasil"</span>;<br>
+                    &nbsp;&nbsp;name: <span class="code-string">"Lucas Bonavina"</span>;<br>
+                    &nbsp;&nbsp;role: <span class="code-string">"Development Team Lead"</span>;<br>
+                    &nbsp;&nbsp;experience: <span class="code-string">"8 anos"</span>;<br>
+                    &nbsp;&nbsp;location: <span class="code-string">"São Paulo, Brasil"</span>;<br>
                     &nbsp;&nbsp;remote: <span class="code-keyword">true</span>;<br>
+                    &nbsp;&nbsp;english: <span class="code-string">"B2 Intermediário"</span>;<br>
                     }<br><br>
-                    <span class="code-keyword">const</span> passion = [<br>
-                    &nbsp;&nbsp;<span class="code-string">"Arquiteturas escaláveis"</span>,<br>
-                    &nbsp;&nbsp;<span class="code-string">"Código limpo e manutenível"</span>,<br>
-                    &nbsp;&nbsp;<span class="code-string">"Otimização de performance"</span>,<br>
-                    &nbsp;&nbsp;<span class="code-string">"Experiências do usuário"</span><br>
+                    <span class="code-keyword">const</span> especialidades = [<br>
+                    &nbsp;&nbsp;<span class="code-string">"WordPress Core & Headless"</span>,<br>
+                    &nbsp;&nbsp;<span class="code-string">"Performance Optimization"</span>,<br>
+                    &nbsp;&nbsp;<span class="code-string">"Liderança Técnica"</span>,<br>
+                    &nbsp;&nbsp;<span class="code-string">"Arquitetura de Software"</span><br>
                     ];
                 </div>
                 <div class="sobre-text reveal">
                     <p>
-                        Sou um <strong>Desenvolvedor Full Stack</strong> apaixonado por criar sistemas escaláveis e aplicações web que resolvem problemas reais. Minha expertise está em construir soluções completas, desde o backend robusto até interfaces de usuário intuitivas.
+                        Sou <strong>Development Team Lead</strong> com 8 anos de experiência total, sendo 3 anos liderando projetos WordPress/PHP de alta performance para clientes corporativos nos setores de seguros, imóveis, saúde e e-commerce.
                     </p>
                     <p>
-                        Desenvolvo <strong>sistemas tolerantes a falhas</strong> que equilibram performance, manutenibilidade e conformidade. Experiente em deploys baseados em Docker, pipelines CI/CD, e colaboração com equipes distribuídas.
+                        Estruturo times do zero, estabeleço padrões de código e conduzo entregas end-to-end da arquitetura à produção. Especialista em <strong>WordPress core</strong> (temas/plugins custom, headless/REST API), otimização de performance (Core Web Vitals, query optimization, caching) e WooCommerce.
                     </p>
                     <p>
-                        Acredito em código limpo, testes automatizados e documentação clara. Sempre buscando aprender novas tecnologias e compartilhar conhecimento com a comunidade.
+                        Atuo próximo a clientes e times internos em discovery técnico, estimativa de esforço e planejamento de roadmap, sempre focado em reduzir retrabalho e incidentes em produção através de processos sólidos e código de qualidade.
                     </p>
                 </div>
             </div>
             
             <div class="stats-grid">
                 <div class="stat-card reveal">
-                    <div class="stat-number">3+</div>
+                    <div class="stat-number">8+</div>
                     <div class="stat-label">Anos de Experiência</div>
                 </div>
                 <div class="stat-card reveal">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Projetos Concluídos</div>
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Anos em Liderança</div>
                 </div>
                 <div class="stat-card reveal">
-                    <div class="stat-number">98%</div>
-                    <div class="stat-label">Satisfação do Cliente</div>
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Projetos WordPress</div>
                 </div>
                 <div class="stat-card reveal">
-                    <div class="stat-number">15k+</div>
-                    <div class="stat-label">Commits no GitHub</div>
+                    <div class="stat-number">B2</div>
+                    <div class="stat-label">Nível de Inglês</div>
                 </div>
             </div>
         </section>
 
         <!-- SEÇÃO EXPERIÊNCIA -->
-        <section class="experience" id="experience">
+        <section class="experience" id="experiencia">
             <div class="section-number">02</div>
-            <h2 class="section-title">## experience()</h2>
+            <h2 class="section-title">## experiencia()</h2>
             
             <div class="experience-item reveal">
                 <div class="experience-header">
                     <div>
-                        <h3 class="experience-title">Full Stack Developer</h3>
-                        <div class="experience-company">Nome da Empresa</div>
+                        <h3 class="experience-title">Líder de Equipe de Desenvolvimento / Full Stack</h3>
+                        <div class="experience-company">Studio Visual</div>
                     </div>
                     <div class="experience-meta">
-                        <span>Jan 2022 - Presente</span>
+                        <span>2020 - Atual</span>
                         <span>Remoto</span>
                     </div>
                 </div>
                 <ul class="experience-description">
-                    <li>Arquitetei e liderei o desenvolvimento de plataforma SaaS multi-tenant para CRM e suporte ao cliente</li>
-                    <li>Desenvolvi APIs RESTful de alto volume processando +50k requisições diárias</li>
-                    <li>Implementei microsserviços com NestJS, PostgreSQL e RabbitMQ para processamento assíncrono</li>
-                    <li>Reduzi tempo de resposta da API em 60% através de otimizações e caching inteligente</li>
+                    <li>Lidero time de desenvolvimento em projetos WordPress de média escala (multisites, e-commerce, integrações corporativas)</li>
+                    <li>Estabeleço arquitetura técnica, padrões de código e processos para reduzir retrabalho e incidentes em produção</li>
+                    <li>Conduzo otimizações de performance e Core Web Vitals, elevando Lighthouse scores e melhorando SEO de sites-chave</li>
+                    <li>Atuo próximo a clientes e times internos em discovery técnico, estimativa de esforço e planejamento de roadmap</li>
+                    <li>Presto suporte ao time de desenvolvimento e otimização contínua dos processos</li>
                 </ul>
                 <div class="tech-tags">
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">WordPress</span>
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">Laravel</span>
+                    <span class="tech-tag">WooCommerce</span>
+                    <span class="tech-tag">Tailwind CSS</span>
+                    <span class="tech-tag">Sage Framework</span>
                     <span class="tech-tag">Docker</span>
                     <span class="tech-tag">AWS</span>
+                    <span class="tech-tag">CI/CD</span>
                 </div>
             </div>
 
             <div class="experience-item reveal">
                 <div class="experience-header">
                     <div>
-                        <h3 class="experience-title">Desenvolvedor Backend</h3>
-                        <div class="experience-company">Outra Empresa</div>
+                        <h3 class="experience-title">Web Developer</h3>
+                        <div class="experience-company">Mufasa Creative Agency</div>
                     </div>
                     <div class="experience-meta">
-                        <span>Jun 2020 - Dez 2021</span>
+                        <span>2018 - 2020</span>
                         <span>Remoto</span>
                     </div>
                 </div>
                 <ul class="experience-description">
-                    <li>Desenvolvi e mantive serviços backend focados em integrações de pagamento</li>
-                    <li>Entreguei soluções personalizadas para PMEs incluindo APIs de alta performance</li>
-                    <li>Construí dashboards customizados e features de CRM usando estratégias de cache e filas</li>
-                    <li>Implementei práticas de código limpo e testes automatizados aumentando cobertura em 40%</li>
+                    <li>Desenvolvedor Fullstack PHP, trabalhando com desenvolvimento de sites institucionais, e-commerces, landing pages e sistemas corporativos com foco em WordPress</li>
+                    <li>Implementação de soluções custom com temas e plugins personalizados</li>
+                    <li>Otimização de performance e SEO técnico para melhorar rankeamento</li>
+                    <li>Integração com APIs de terceiros e desenvolvimento de REST APIs</li>
                 </ul>
                 <div class="tech-tags">
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">Express</span>
-                    <span class="tech-tag">MongoDB</span>
-                    <span class="tech-tag">Redis</span>
-                    <span class="tech-tag">Vue.js</span>
+                    <span class="tech-tag">WordPress</span>
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Bootstrap</span>
+                    <span class="tech-tag">MySQL</span>
+                </div>
+            </div>
+
+            <div class="experience-item reveal">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Analista de TI</h3>
+                        <div class="experience-company">TI Tech Solutions</div>
+                    </div>
+                    <div class="experience-meta">
+                        <span>2017 - 2018</span>
+                        <span>Presencial</span>
+                    </div>
+                </div>
+                <ul class="experience-description">
+                    <li>Desenvolvimento de aplicações para uso interno e uso em coletores de dados / dispositivos mobile</li>
+                    <li>Gerência do ambiente/infraestrutura local e suporte ao cliente N3 focado em dispositivos mobile (Coletores de dados / Impressoras)</li>
+                    <li>Pré/Pós-venda de software e soluções em AC/AIDC</li>
+                    <li>Especialista em Bitdefender, Ivanti Speakeasy & Aruba Networking</li>
+                    <li>Manutenção das redes sociais e desenvolvimento de artes gráficas</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">Infraestrutura</span>
+                    <span class="tech-tag">Mobile</span>
+                    <span class="tech-tag">Networking</span>
+                    <span class="tech-tag">Suporte N3</span>
                 </div>
             </div>
         </section>
@@ -993,35 +938,35 @@
             <h2 class="section-title">## skills()</h2>
             <div class="skills-grid">
                 <div class="skill-category reveal">
-                    <h3>{ } Languages</h3>
+                    <h3>💻 Linguagens</h3>
                     <div class="skill-list">
-                        <div class="skill-item">TypeScript</div>
+                        <div class="skill-item">PHP</div>
                         <div class="skill-item">JavaScript</div>
-                        <div class="skill-item">Python</div>
-                        <div class="skill-item">Go</div>
                         <div class="skill-item">SQL</div>
+                        <div class="skill-item">HTML5</div>
+                        <div class="skill-item">CSS3</div>
                     </div>
                 </div>
 
                 <div class="skill-category reveal">
-                    <h3>⚛ Frameworks</h3>
+                    <h3>🔧 Frameworks & CMS</h3>
                     <div class="skill-list">
-                        <div class="skill-item">Node.js</div>
-                        <div class="skill-item">NestJS</div>
-                        <div class="skill-item">React</div>
-                        <div class="skill-item">Next.js</div>
-                        <div class="skill-item">Express</div>
+                        <div class="skill-item">WordPress Core</div>
+                        <div class="skill-item">Laravel</div>
+                        <div class="skill-item">Sage Framework</div>
+                        <div class="skill-item">WooCommerce</div>
+                        <div class="skill-item">Blade</div>
                     </div>
                 </div>
 
                 <div class="skill-category reveal">
-                    <h3>💾 Databases</h3>
+                    <h3>🎨 Frontend</h3>
                     <div class="skill-list">
-                        <div class="skill-item">PostgreSQL</div>
-                        <div class="skill-item">MongoDB</div>
-                        <div class="skill-item">Redis</div>
-                        <div class="skill-item">MySQL</div>
-                        <div class="skill-item">SQLite</div>
+                        <div class="skill-item">Tailwind CSS</div>
+                        <div class="skill-item">Bootstrap</div>
+                        <div class="skill-item">JavaScript ES6+</div>
+                        <div class="skill-item">Responsive Design</div>
+                        <div class="skill-item">WordPress REST API</div>
                     </div>
                 </div>
 
@@ -1029,220 +974,82 @@
                     <h3>🚀 DevOps & Cloud</h3>
                     <div class="skill-list">
                         <div class="skill-item">Docker</div>
-                        <div class="skill-item">Kubernetes</div>
                         <div class="skill-item">AWS</div>
-                        <div class="skill-item">GitHub Actions</div>
+                        <div class="skill-item">Digital Ocean</div>
+                        <div class="skill-item">Azure</div>
+                        <div class="skill-item">CI/CD</div>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <h3>⚙️ Infraestrutura</h3>
+                    <div class="skill-list">
                         <div class="skill-item">Nginx</div>
-                    </div>
-                </div>
-
-                <div class="skill-category reveal">
-                    <h3>🛠 Tools</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">Git</div>
-                        <div class="skill-item">VS Code</div>
-                        <div class="skill-item">Postman</div>
-                        <div class="skill-item">Figma</div>
+                        <div class="skill-item">Apache</div>
                         <div class="skill-item">Linux</div>
+                        <div class="skill-item">MySQL</div>
+                        <div class="skill-item">Redis</div>
                     </div>
                 </div>
 
                 <div class="skill-category reveal">
-                    <h3>⭐ Specialties</h3>
+                    <h3>⭐ Especialidades</h3>
                     <div class="skill-list">
-                        <div class="skill-item">API Development</div>
-                        <div class="skill-item">Microservices</div>
-                        <div class="skill-item">System Design</div>
                         <div class="skill-item">Performance Optimization</div>
-                        <div class="skill-item">Testing & QA</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO PROJETOS -->
-        <section class="projects" id="projects">
-            <div class="section-number">04</div>
-            <h2 class="section-title">## projects()</h2>
-            <div class="projects-grid">
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="#" aria-label="Demo"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                    <h3 class="project-title">E-commerce Platform</h3>
-                    <p class="project-description">
-                        Plataforma completa de e-commerce com processamento de pagamentos, gerenciamento de estoque e painel administrativo. Integração com APIs de pagamento e envio.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">Stripe</span>
-                    </div>
-                </div>
-
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="#" aria-label="Demo"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                    <h3 class="project-title">Analytics Dashboard</h3>
-                    <p class="project-description">
-                        Dashboard em tempo real para visualização de métricas e KPIs. Processamento de grandes volumes de dados com gráficos interativos e filtros dinâmicos.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Next.js</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Redis</span>
-                        <span class="tech-tag">Chart.js</span>
-                    </div>
-                </div>
-
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="#" aria-label="Demo"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                    <h3 class="project-title">Real-time Chat App</h3>
-                    <p class="project-description">
-                        Aplicativo de chat em tempo real com salas, mensagens privadas e suporte a mídia. Arquitetura escalável usando WebSockets e microsserviços.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Socket.io</span>
-                        <span class="tech-tag">NestJS</span>
-                        <span class="tech-tag">RabbitMQ</span>
-                        <span class="tech-tag">Docker</span>
-                    </div>
-                </div>
-
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-tasks"></i>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="#" aria-label="Demo"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                    <h3 class="project-title">Task Management System</h3>
-                    <p class="project-description">
-                        Sistema de gerenciamento de tarefas com funcionalidades Kanban, notificações em tempo real e colaboração em equipe. API RESTful completa.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Express</span>
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">JWT</span>
-                    </div>
-                </div>
-
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="#" aria-label="Demo"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                    <h3 class="project-title">AI Chatbot Assistant</h3>
-                    <p class="project-description">
-                        Assistente virtual inteligente com processamento de linguagem natural. Integração com APIs de IA e sistema de aprendizado contextual.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">FastAPI</span>
-                        <span class="tech-tag">OpenAI</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                    </div>
-                </div>
-
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-code-branch"></i>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="#" aria-label="Demo"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                    <h3 class="project-title">DevOps Pipeline</h3>
-                    <p class="project-description">
-                        Pipeline CI/CD automatizado com testes, builds e deploys. Infraestrutura como código usando Docker, Kubernetes e GitHub Actions.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Kubernetes</span>
-                        <span class="tech-tag">GitHub Actions</span>
-                        <span class="tech-tag">Terraform</span>
+                        <div class="skill-item">Core Web Vitals</div>
+                        <div class="skill-item">Technical SEO</div>
+                        <div class="skill-item">WordPress Headless</div>
+                        <div class="skill-item">Team Leadership</div>
+                        <div class="skill-item">HubSpot Integration</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- SEÇÃO CONTATO -->
-        <section class="contact" id="contact">
-            <div class="section-number">05</div>
-            <h2 class="section-title">## contact()</h2>
+        <section class="contact" id="contato">
+            <div class="section-number">04</div>
+            <h2 class="section-title">## contato()</h2>
             <div class="contact-content">
                 <div class="contact-terminal reveal">
                     <div class="terminal-header">
                         <div class="terminal-button red"></div>
                         <div class="terminal-button yellow"></div>
                         <div class="terminal-button green"></div>
-                        <div class="terminal-title">contact@seu-nome: ~</div>
+                        <div class="terminal-title">contato@lucas: ~</div>
                     </div>
                     <div class="terminal-body">
                         <div>
                             <span class="prompt">$</span>
-                            <span class="command">cat message.txt</span>
+                            <span class="command">cat mensagem.txt</span>
                         </div>
                         <p class="contact-message">
-                            Estou sempre aberto a discutir novas oportunidades, projetos interessantes ou apenas conversar sobre arquitetura de software e sistemas escaláveis.
+                            Estou sempre aberto a discutir projetos interessantes ou conversar sobre arquitetura WordPress, otimização de performance e liderança de equipes técnicas.
                         </p>
                         <div>
                             <span class="prompt">$</span>
                             <span class="command">echo $STATUS</span>
                         </div>
-                        <div class="status-badge">Aberto para oportunidades remotas</div>
+                        <div class="status-badge">Disponível para projetos remotos</div>
                     </div>
                 </div>
 
                 <div class="contact-links">
-                    <a href="mailto:seuemail@exemplo.com" class="contact-link reveal">
+                    <a href="mailto:lbonavin@gmail.com" class="contact-link reveal">
                         <i class="fas fa-envelope"></i>
-                        <span>seuemail@exemplo.com</span>
+                        <span>lbonavin@gmail.com</span>
                     </a>
-                    <a href="https://github.com/seu-usuario" class="contact-link reveal" target="_blank">
-                        <i class="fab fa-github"></i>
-                        <span>github.com/seu-usuario</span>
+                    <a href="https://wa.link/df68ke" class="contact-link reveal">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>(11) 99990-6996</span>
                     </a>
-                    <a href="https://linkedin.com/in/seu-perfil" class="contact-link reveal" target="_blank">
+                    <a href="https://www.linkedin.com/in/lbonavina/" class="contact-link reveal" target="_blank">
                         <i class="fab fa-linkedin-in"></i>
-                        <span>linkedin.com/in/seu-perfil</span>
+                        <span>lbonavina</span>
                     </a>
-                    <a href="https://twitter.com/seu-usuario" class="contact-link reveal" target="_blank">
-                        <i class="fab fa-twitter"></i>
-                        <span>@seu_usuario</span>
+                    <a href="#" class="contact-link reveal">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>São Paulo, SP</span>
                     </a>
                 </div>
             </div>
@@ -1252,7 +1059,7 @@
     <!-- FOOTER -->
     <footer>
         <div class="footer-content">
-            <p>// Built with <span>Next.js</span> • const year = 2026;</p>
+            <p>// Desenvolvido com café e código</span> • const ano = 2026;</p>
         </div>
     </footer>
 
@@ -1287,21 +1094,21 @@
         };
 
         window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll(); // Trigger on load
+        revealOnScroll();
 
         // ===== BACKGROUND CODE ANIMATION =====
         const bgAnimation = document.getElementById('bgAnimation');
         const codeSnippets = [
-            'const server = new Server();',
-            'await db.connect();',
-            'app.listen(3000);',
-            'export { router };',
-            'return Response.ok();',
-            'interface Developer {',
-            'const result = await query();',
-            'try { ... } catch (err) { }',
-            'function handleRequest() {',
-            'const middleware = async () =>',
+            'add_action("init", "custom_post_type");',
+            'wp_enqueue_script("main-js");',
+            'get_template_part("template");',
+            'new WP_Query($args);',
+            'apply_filters("content");',
+            'register_nav_menus();',
+            'add_theme_support("post-thumbnails");',
+            'wp_cache_set($key, $value);',
+            'function optimize_performance() {',
+            'const CACHE_KEY = "wp_cache";',
         ];
 
         let bgContent = '';
@@ -1328,7 +1135,11 @@
         });
 
         // ===== STATS COUNTER ANIMATION =====
-        const animateValue = (element, start, end, duration) => {
+        const animateValue = (element, start, end, duration, isString = false) => {
+            if (isString) {
+                element.textContent = end;
+                return;
+            }
             let startTimestamp = null;
             const step = (timestamp) => {
                 if (!startTimestamp) startTimestamp = timestamp;
@@ -1348,10 +1159,15 @@
                     entry.target.classList.add('animated');
                     const statNumber = entry.target.querySelector('.stat-number');
                     const text = statNumber.textContent;
-                    const number = parseInt(text.replace(/\D/g, ''));
-                    const suffix = text.replace(/[0-9]/g, '');
-                    statNumber.dataset.suffix = suffix;
-                    animateValue(statNumber, 0, number, 2000);
+                    
+                    if (text === 'B2') {
+                        statNumber.textContent = 'B2';
+                    } else {
+                        const number = parseInt(text.replace(/\D/g, ''));
+                        const suffix = text.replace(/[0-9]/g, '');
+                        statNumber.dataset.suffix = suffix;
+                        animateValue(statNumber, 0, number, 2000);
+                    }
                 }
             });
         }, { threshold: 0.5 });
