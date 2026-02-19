@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucas Bonavina | Development Team Lead</title>
-    <link rel="icon" type="image/png" href="favicon.svg">
+    <title>Lucas Bonavina | IT Manager & Product Owner</title>
+    <meta name="description" content="IT Manager & Development Team Lead | Product Owner (PSPO) certificado com 8+ anos liderando equipes e produtos digitais">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
     <style>
         /* ===== RESET E VARIÁVEIS ===== */
@@ -42,7 +45,6 @@
             overflow-x: hidden;
         }
 
-        /* ===== SELEÇÃO DE TEXTO ===== */
         ::selection {
             background: var(--cor-acento);
             color: var(--cor-principal);
@@ -110,7 +112,6 @@
             font-family: var(--fonte-mono);
             font-size: 0.9rem;
             transition: color 0.3s ease;
-            position: relative;
         }
 
         .nav-links a:hover {
@@ -233,16 +234,29 @@
         }
 
         .hero-subtitle {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--cor-acento);
             margin-bottom: 1.5rem;
+            line-height: 1.4;
         }
 
         .hero-description {
             color: rgba(255, 255, 255, 0.8);
             font-size: 1.1rem;
             line-height: 1.8;
-            max-width: 800px;
+            max-width: 850px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(12, 126, 126, 0.2);
+            color: var(--cor-acento);
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-family: var(--fonte-mono);
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            border: 1px solid var(--cor-acento);
         }
 
         .cta-buttons {
@@ -340,10 +354,6 @@
 
         .code-string {
             color: var(--cor-destaque);
-        }
-
-        .code-number {
-            color: var(--cor-acento);
         }
 
         .sobre-text p {
@@ -480,14 +490,14 @@
             border-color: var(--cor-acento);
         }
 
-        /* ===== HABILIDADES ===== */
-        .skills-grid {
+        /* ===== COMPETÊNCIAS ===== */
+        .competencias-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
-        .skill-category {
+        .competencia-category {
             background: var(--cor-secundaria);
             border: 1px solid var(--cor-detalhes);
             border-radius: 8px;
@@ -495,43 +505,45 @@
             transition: all 0.3s ease;
         }
 
-        .skill-category:hover {
+        .competencia-category:hover {
             border-color: var(--cor-acento);
+            transform: translateY(-5px);
         }
 
-        .skill-category h3 {
+        .competencia-category h3 {
             color: var(--cor-destaque);
             font-family: var(--fonte-mono);
             margin-bottom: 1.5rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
         }
 
-        .skill-category h3::before {
-            content: '';
+        .competencia-category h3 i {
             color: var(--cor-acento);
-            margin-right: 0.5rem;
+            font-size: 1.5rem;
         }
 
-        .skill-list {
+        .competencia-list {
             display: flex;
             flex-direction: column;
             gap: 0.8rem;
         }
 
-        .skill-item {
+        .competencia-item {
             color: rgba(255, 255, 255, 0.8);
-            font-family: var(--fonte-mono);
-            font-size: 0.9rem;
-            padding: 0.5rem 0;
+            font-size: 0.95rem;
+            padding: 0.6rem 0;
             border-bottom: 1px solid rgba(12, 126, 126, 0.2);
             transition: all 0.3s ease;
         }
 
-        .skill-item:last-child {
+        .competencia-item:last-child {
             border-bottom: none;
         }
 
-        .skill-item:hover {
+        .competencia-item:hover {
             color: var(--cor-acento);
             padding-left: 1rem;
         }
@@ -570,6 +582,7 @@
             font-family: var(--fonte-mono);
             font-size: 0.9rem;
             margin-top: 1rem;
+            border: 1px solid var(--cor-acento);
         }
 
         .contact-links {
@@ -683,7 +696,7 @@
                 font-size: 1.3rem;
             }
 
-            .skills-grid {
+            .competencias-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -724,7 +737,7 @@
                 <li><a href="#home">inicio()</a></li>
                 <li><a href="#sobre">sobre()</a></li>
                 <li><a href="#experiencia">experiencia()</a></li>
-                <li><a href="#skills">skills()</a></li>
+                <li><a href="#competencias">competencias()</a></li>
                 <li><a href="#contato">contato()</a></li>
             </ul>
             <div class="menu-toggle" id="mobile-menu">
@@ -743,7 +756,7 @@
                     <div class="terminal-button red"></div>
                     <div class="terminal-button yellow"></div>
                     <div class="terminal-button green"></div>
-                    <div class="terminal-title">lucas@dev: ~</div>
+                    <div class="terminal-title">lucas@manager: ~</div>
                 </div>
                 <div class="terminal-body">
                     <div class="terminal-line">
@@ -761,7 +774,7 @@
                     </div>
                     <div class="terminal-line">
                         <div class="output">
-                            <h2 class="hero-subtitle">## Development Team Lead | Full-Stack WordPress Specialist</h2>
+                            <h2 class="hero-subtitle">## IT Manager & Development Team Lead | Product Owner (PSPO)</h2>
                         </div>
                     </div>
                     <div class="terminal-line">
@@ -771,9 +784,10 @@
                     <div class="terminal-line">
                         <div class="output">
                             <p class="hero-description">
-                                Construindo sistemas WordPress de alta performance com 8 anos de experiência.<br>
-                                Especializado em liderança de equipe, arquitetura técnica, otimização de performance e soluções corporativas escaláveis.
+                                Líder de TI com 8+ anos de experiência em gestão de equipes, produtos digitais e infraestrutura cloud.<br>
+                                Conectando execução técnica ao planejamento estratégico para entregar valor real ao negócio.
                             </p>
+                            <div class="badge">✓ PSPO Certificado — Scrum.org 2026</div>
                             <div class="cta-buttons">
                                 <a href="#contato" class="btn btn-primary">./contato.sh ></a>
                                 <a href="#experiencia" class="btn">ver experiência</a>
@@ -793,32 +807,32 @@
             <h2 class="section-title">## sobre()</h2>
             <div class="sobre-content">
                 <div class="code-block reveal">
-                    <div class="code-comment">// developer.ts</div>
+                    <div class="code-comment">// professional.ts</div>
                     <br>
-                    <span class="code-keyword">interface</span> Developer {<br>
+                    <span class="code-keyword">interface</span> ITManager {<br>
                     &nbsp;&nbsp;name: <span class="code-string">"Lucas Bonavina"</span>;<br>
-                    &nbsp;&nbsp;role: <span class="code-string">"Development Team Lead"</span>;<br>
-                    &nbsp;&nbsp;experience: <span class="code-string">"8 anos"</span>;<br>
+                    &nbsp;&nbsp;role: <span class="code-string">"IT Manager & Product Owner"</span>;<br>
+                    &nbsp;&nbsp;experience: <span class="code-string">"8+ anos"</span>;<br>
+                    &nbsp;&nbsp;certification: <span class="code-string">"PSPO (Scrum.org)"</span>;<br>
                     &nbsp;&nbsp;location: <span class="code-string">"São Paulo, Brasil"</span>;<br>
-                    &nbsp;&nbsp;remote: <span class="code-keyword">true</span>;<br>
-                    &nbsp;&nbsp;english: <span class="code-string">"B2 Intermediário"</span>;<br>
+                    &nbsp;&nbsp;focus: <span class="code-string">"Gestão & Produto"</span>;<br>
                     }<br><br>
                     <span class="code-keyword">const</span> especialidades = [<br>
-                    &nbsp;&nbsp;<span class="code-string">"WordPress Core & Headless"</span>,<br>
-                    &nbsp;&nbsp;<span class="code-string">"Performance Optimization"</span>,<br>
-                    &nbsp;&nbsp;<span class="code-string">"Liderança Técnica"</span>,<br>
-                    &nbsp;&nbsp;<span class="code-string">"Arquitetura de Software"</span><br>
+                    &nbsp;&nbsp;<span class="code-string">"Gestão de Equipes"</span>,<br>
+                    &nbsp;&nbsp;<span class="code-string">"Product Ownership"</span>,<br>
+                    &nbsp;&nbsp;<span class="code-string">"Planejamento Estratégico"</span>,<br>
+                    &nbsp;&nbsp;<span class="code-string">"Infraestrutura Cloud"</span><br>
                     ];
                 </div>
                 <div class="sobre-text reveal">
                     <p>
-                        Sou <strong>Development Team Lead</strong> com 8 anos de experiência total, sendo 3 anos liderando projetos WordPress/PHP de alta performance para clientes corporativos nos setores de seguros, imóveis, saúde e e-commerce.
+                        Sou <strong>IT Manager e Product Owner certificado (PSPO)</strong> com 8+ anos de experiência liderando equipes de desenvolvimento, produtos digitais e infraestrutura cloud. Atuei em empresas dos setores de seguros, saúde, imóveis e e-commerce.
                     </p>
                     <p>
-                        Estruturo times do zero, estabeleço padrões de código e conduzo entregas end-to-end da arquitetura à produção. Especialista em <strong>WordPress core</strong> (temas/plugins custom, headless/REST API), otimização de performance (Core Web Vitals, query optimization, caching) e WooCommerce.
+                        Meu foco está em <strong>conectar execução técnica ao planejamento estratégico</strong>, liderando times multidisciplinares e garantindo que soluções de TI gerem valor real ao negócio. Especialista em metodologias ágeis, gestão de produto e tomada de decisões baseada em dados.
                     </p>
                     <p>
-                        Atuo próximo a clientes e times internos em discovery técnico, estimativa de esforço e planejamento de roadmap, sempre focado em reduzir retrabalho e incidentes em produção através de processos sólidos e código de qualidade.
+                        Com sólida base técnica em desenvolvimento full-stack e infraestrutura cloud (AWS, Azure, Docker), compreendo profundamente os desafios técnicos e traduzo necessidades de negócio em roadmaps executáveis, sempre priorizando entrega de valor e excelência operacional.
                     </p>
                 </div>
             </div>
@@ -829,16 +843,16 @@
                     <div class="stat-label">Anos de Experiência</div>
                 </div>
                 <div class="stat-card reveal">
-                    <div class="stat-number">3</div>
+                    <div class="stat-number">3+</div>
                     <div class="stat-label">Anos em Liderança</div>
                 </div>
                 <div class="stat-card reveal">
-                    <div class="stat-number">100+</div>
-                    <div class="stat-label">Projetos WordPress</div>
+                    <div class="stat-number">PSPO</div>
+                    <div class="stat-label">Certificação Scrum.org</div>
                 </div>
                 <div class="stat-card reveal">
                     <div class="stat-number">B2</div>
-                    <div class="stat-label">Nível de Inglês</div>
+                    <div class="stat-label">Inglês Avançado</div>
                 </div>
             </div>
         </section>
@@ -851,30 +865,55 @@
             <div class="experience-item reveal">
                 <div class="experience-header">
                     <div>
-                        <h3 class="experience-title">Líder de Equipe de Desenvolvimento / Full Stack</h3>
-                        <div class="experience-company">Studio Visual</div>
+                        <h3 class="experience-title">Development Team Lead</h3>
+                        <div class="experience-company">Too Seguros</div>
                     </div>
                     <div class="experience-meta">
-                        <span>2020 - Atual</span>
-                        <span>Remoto</span>
+                        <span>Atual</span>
+                        <span>Insurtech</span>
                     </div>
                 </div>
                 <ul class="experience-description">
-                    <li>Lidero time de desenvolvimento em projetos WordPress de média escala (multisites, e-commerce, integrações corporativas)</li>
-                    <li>Estabeleço arquitetura técnica, padrões de código e processos para reduzir retrabalho e incidentes em produção</li>
-                    <li>Conduzo otimizações de performance e Core Web Vitals, elevando Lighthouse scores e melhorando SEO de sites-chave</li>
-                    <li>Atuo próximo a clientes e times internos em discovery técnico, estimativa de esforço e planejamento de roadmap</li>
-                    <li>Presto suporte ao time de desenvolvimento e otimização contínua dos processos</li>
+                    <li>Liderança de equipe de desenvolvimento em empresa de insurtech, gerenciando projetos digitais e infraestrutura de sistemas</li>
+                    <li>Alinhamento de TI com objetivos estratégicos de negócio, traduzindo requisitos em roadmaps técnicos executáveis</li>
+                    <li>Gestão de stakeholders e facilitação de comunicação entre áreas técnicas e de negócio</li>
+                    <li>Implementação de metodologias ágeis (Scrum/Kanban) e melhoria contínua de processos</li>
+                    <li>Definição de padrões técnicos, code review e mentoria de desenvolvedores</li>
                 </ul>
                 <div class="tech-tags">
+                    <span class="tech-tag">Gestão de Equipes</span>
+                    <span class="tech-tag">Product Management</span>
+                    <span class="tech-tag">Scrum</span>
+                    <span class="tech-tag">AWS</span>
+                    <span class="tech-tag">Infraestrutura</span>
+                    <span class="tech-tag">Stakeholder Management</span>
+                </div>
+            </div>
+
+            <div class="experience-item reveal">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Team Lead / Full Stack Developer</h3>
+                        <div class="experience-company">Agências WordPress</div>
+                    </div>
+                    <div class="experience-meta">
+                        <span>2018 - 2024</span>
+                        <span>Diversos Setores</span>
+                    </div>
+                </div>
+                <ul class="experience-description">
+                    <li>Liderança de projetos WordPress de média escala para clientes corporativos (multisites, e-commerce, integrações)</li>
+                    <li>Gestão de times e processos ágeis, estabelecendo arquitetura técnica e padrões de código</li>
+                    <li>Planejamento estratégico e estimativa de esforço em discovery técnico com clientes</li>
+                    <li>Otimização de performance e SEO técnico, elevando Core Web Vitals e Lighthouse scores</li>
+                    <li>Mentoria técnica e desenvolvimento de competências do time</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">Liderança Técnica</span>
+                    <span class="tech-tag">Agile</span>
                     <span class="tech-tag">WordPress</span>
                     <span class="tech-tag">PHP</span>
-                    <span class="tech-tag">Laravel</span>
-                    <span class="tech-tag">WooCommerce</span>
-                    <span class="tech-tag">Tailwind CSS</span>
-                    <span class="tech-tag">Sage Framework</span>
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">AWS</span>
+                    <span class="tech-tag">Cloud (AWS/DO)</span>
                     <span class="tech-tag">CI/CD</span>
                 </div>
             </div>
@@ -882,125 +921,76 @@
             <div class="experience-item reveal">
                 <div class="experience-header">
                     <div>
-                        <h3 class="experience-title">Web Developer</h3>
-                        <div class="experience-company">Mufasa Creative Agency</div>
-                    </div>
-                    <div class="experience-meta">
-                        <span>2018 - 2020</span>
-                        <span>Remoto</span>
-                    </div>
-                </div>
-                <ul class="experience-description">
-                    <li>Desenvolvedor Fullstack PHP, trabalhando com desenvolvimento de sites institucionais, e-commerces, landing pages e sistemas corporativos com foco em WordPress</li>
-                    <li>Implementação de soluções custom com temas e plugins personalizados</li>
-                    <li>Otimização de performance e SEO técnico para melhorar rankeamento</li>
-                    <li>Integração com APIs de terceiros e desenvolvimento de REST APIs</li>
-                </ul>
-                <div class="tech-tags">
-                    <span class="tech-tag">WordPress</span>
-                    <span class="tech-tag">PHP</span>
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">Bootstrap</span>
-                    <span class="tech-tag">MySQL</span>
-                </div>
-            </div>
-
-            <div class="experience-item reveal">
-                <div class="experience-header">
-                    <div>
-                        <h3 class="experience-title">Analista de TI</h3>
+                        <h3 class="experience-title">Infraestrutura & Automação de TI</h3>
                         <div class="experience-company">TI Tech Solutions</div>
                     </div>
                     <div class="experience-meta">
                         <span>2017 - 2018</span>
-                        <span>Presencial</span>
+                        <span>Infraestrutura</span>
                     </div>
                 </div>
                 <ul class="experience-description">
-                    <li>Desenvolvimento de aplicações para uso interno e uso em coletores de dados / dispositivos mobile</li>
-                    <li>Gerência do ambiente/infraestrutura local e suporte ao cliente N3 focado em dispositivos mobile (Coletores de dados / Impressoras)</li>
-                    <li>Pré/Pós-venda de software e soluções em AC/AIDC</li>
-                    <li>Especialista em Bitdefender, Ivanti Speakeasy & Aruba Networking</li>
-                    <li>Manutenção das redes sociais e desenvolvimento de artes gráficas</li>
+                    <li>Provisionamento e administração de VMs em Azure e AWS para ambientes corporativos</li>
+                    <li>Desenvolvimento de scripts PowerShell para automação de processos e geração de relatórios gerenciais</li>
+                    <li>Gestão de segurança de endpoints (Bitdefender), redes (Aruba Networking) e dispositivos mobile (Ivanti Speakeasy)</li>
+                    <li>Suporte técnico N1 e N3 com foco em solução de incidentes críticos</li>
+                    <li>Pré e pós-venda de soluções AutoID/AIDC, atuando como ponte entre cliente e equipe técnica</li>
                 </ul>
                 <div class="tech-tags">
-                    <span class="tech-tag">Infraestrutura</span>
-                    <span class="tech-tag">Mobile</span>
-                    <span class="tech-tag">Networking</span>
-                    <span class="tech-tag">Suporte N3</span>
+                    <span class="tech-tag">Azure</span>
+                    <span class="tech-tag">AWS</span>
+                    <span class="tech-tag">PowerShell</span>
+                    <span class="tech-tag">Bitdefender</span>
+                    <span class="tech-tag">Aruba Networking</span>
+                    <span class="tech-tag">Ivanti</span>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO HABILIDADES -->
-        <section class="skills" id="skills">
+        <!-- SEÇÃO COMPETÊNCIAS -->
+        <section class="competencias" id="competencias">
             <div class="section-number">03</div>
-            <h2 class="section-title">## skills()</h2>
-            <div class="skills-grid">
-                <div class="skill-category reveal">
-                    <h3>💻 Linguagens</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">PHP</div>
-                        <div class="skill-item">JavaScript</div>
-                        <div class="skill-item">SQL</div>
-                        <div class="skill-item">HTML5</div>
-                        <div class="skill-item">CSS3</div>
+            <h2 class="section-title">## competencias()</h2>
+            <div class="competencias-grid">
+                <div class="competencia-category reveal">
+                    <h3><i class="fas fa-users-cog"></i>Gestão & Produto</h3>
+                    <div class="competencia-list">
+                        <div class="competencia-item">Gestão de equipes de desenvolvimento</div>
+                        <div class="competencia-item">Product Owner (PSPO certificado)</div>
+                        <div class="competencia-item">Metodologias ágeis (Scrum, Kanban)</div>
+                        <div class="competencia-item">Planejamento estratégico de TI</div>
+                        <div class="competencia-item">Stakeholder management</div>
+                        <div class="competencia-item">Code review e padrões técnicos</div>
+                        <div class="competencia-item">Mentoria de desenvolvedores</div>
+                        <div class="competencia-item">Discovery técnico e estimativas</div>
                     </div>
                 </div>
 
-                <div class="skill-category reveal">
-                    <h3>🔧 Frameworks & CMS</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">WordPress Core</div>
-                        <div class="skill-item">Laravel</div>
-                        <div class="skill-item">Sage Framework</div>
-                        <div class="skill-item">WooCommerce</div>
-                        <div class="skill-item">Blade</div>
+                <div class="competencia-category reveal">
+                    <h3><i class="fas fa-cloud"></i>Infraestrutura & Cloud</h3>
+                    <div class="competencia-list">
+                        <div class="competencia-item">AWS (provisionamento e administração)</div>
+                        <div class="competencia-item">Azure (máquinas virtuais, infra)</div>
+                        <div class="competencia-item">Digital Ocean</div>
+                        <div class="competencia-item">Docker e CI/CD pipelines</div>
+                        <div class="competencia-item">Segurança de endpoints (Bitdefender)</div>
+                        <div class="competencia-item">Redes (Aruba Networking)</div>
+                        <div class="competencia-item">Gestão de dispositivos mobile (Ivanti)</div>
+                        <div class="competencia-item">Automação (PowerShell)</div>
                     </div>
                 </div>
 
-                <div class="skill-category reveal">
-                    <h3>🎨 Frontend</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">Tailwind CSS</div>
-                        <div class="skill-item">Bootstrap</div>
-                        <div class="skill-item">JavaScript ES6+</div>
-                        <div class="skill-item">Responsive Design</div>
-                        <div class="skill-item">WordPress REST API</div>
-                    </div>
-                </div>
-
-                <div class="skill-category reveal">
-                    <h3>🚀 DevOps & Cloud</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">Docker</div>
-                        <div class="skill-item">AWS</div>
-                        <div class="skill-item">Digital Ocean</div>
-                        <div class="skill-item">Azure</div>
-                        <div class="skill-item">CI/CD</div>
-                    </div>
-                </div>
-
-                <div class="skill-category reveal">
-                    <h3>⚙️ Infraestrutura</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">Nginx</div>
-                        <div class="skill-item">Apache</div>
-                        <div class="skill-item">Linux</div>
-                        <div class="skill-item">MySQL</div>
-                        <div class="skill-item">Redis</div>
-                    </div>
-                </div>
-
-                <div class="skill-category reveal">
-                    <h3>⭐ Especialidades</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">Performance Optimization</div>
-                        <div class="skill-item">Core Web Vitals</div>
-                        <div class="skill-item">Technical SEO</div>
-                        <div class="skill-item">WordPress Headless</div>
-                        <div class="skill-item">Team Leadership</div>
-                        <div class="skill-item">HubSpot Integration</div>
+                <div class="competencia-category reveal">
+                    <h3><i class="fas fa-code"></i>Base Técnica</h3>
+                    <div class="competencia-list">
+                        <div class="competencia-item">PHP & Laravel</div>
+                        <div class="competencia-item">JavaScript (ES6+, React)</div>
+                        <div class="competencia-item">WordPress (temas, plugins, headless)</div>
+                        <div class="competencia-item">WooCommerce & ACF</div>
+                        <div class="competencia-item">Sage Framework (9/10/11)</div>
+                        <div class="competencia-item">REST APIs & integrações</div>
+                        <div class="competencia-item">Otimização de performance</div>
+                        <div class="competencia-item">SEO técnico</div>
                     </div>
                 </div>
             </div>
@@ -1024,13 +1014,13 @@
                             <span class="command">cat mensagem.txt</span>
                         </div>
                         <p class="contact-message">
-                            Estou sempre aberto a discutir projetos interessantes ou conversar sobre arquitetura WordPress, otimização de performance e liderança de equipes técnicas.
+                            Estou aberto a oportunidades em Gestão de TI, Product Owner e liderança de equipes técnicas. Vamos conversar sobre como posso agregar valor ao seu time ou projeto!
                         </p>
                         <div>
                             <span class="prompt">$</span>
                             <span class="command">echo $STATUS</span>
                         </div>
-                        <div class="status-badge">Disponível para projetos remotos</div>
+                        <div class="status-badge">Disponível para posições de liderança</div>
                     </div>
                 </div>
 
@@ -1039,13 +1029,13 @@
                         <i class="fas fa-envelope"></i>
                         <span>lbonavin@gmail.com</span>
                     </a>
-                    <a href="https://wa.link/df68ke" class="contact-link reveal">
-                        <i class="fa-brands fa-whatsapp"></i>
+                    <a href="tel:+5511999906996" class="contact-link reveal">
+                        <i class="fas fa-phone"></i>
                         <span>(11) 99990-6996</span>
                     </a>
                     <a href="https://www.linkedin.com/in/lbonavina/" class="contact-link reveal" target="_blank">
                         <i class="fab fa-linkedin-in"></i>
-                        <span>lbonavina</span>
+                        <span>linkedin.com/in/lbonavina</span>
                     </a>
                     <a href="#" class="contact-link reveal">
                         <i class="fas fa-map-marker-alt"></i>
@@ -1059,7 +1049,7 @@
     <!-- FOOTER -->
     <footer>
         <div class="footer-content">
-            <p>// Desenvolvido com café e código</span> • const ano = 2026;</p>
+            <p>// IT Manager & <span>Product Owner</span> • PSPO Certified • const ano = 2026;</p>
         </div>
     </footer>
 
@@ -1099,16 +1089,16 @@
         // ===== BACKGROUND CODE ANIMATION =====
         const bgAnimation = document.getElementById('bgAnimation');
         const codeSnippets = [
-            'add_action("init", "custom_post_type");',
-            'wp_enqueue_script("main-js");',
-            'get_template_part("template");',
-            'new WP_Query($args);',
-            'apply_filters("content");',
-            'register_nav_menus();',
-            'add_theme_support("post-thumbnails");',
-            'wp_cache_set($key, $value);',
-            'function optimize_performance() {',
-            'const CACHE_KEY = "wp_cache";',
+            'class ProductOwner {',
+            'function leadTeam() {',
+            'const sprint = planSprint();',
+            'await deliverValue();',
+            'interface TeamLead {',
+            'const roadmap = defineStrategy();',
+            'stakeholder.align(goals);',
+            'team.mentorship();',
+            'agile.methodology();',
+            'cloud.infrastructure();',
         ];
 
         let bgContent = '';
@@ -1160,8 +1150,8 @@
                     const statNumber = entry.target.querySelector('.stat-number');
                     const text = statNumber.textContent;
                     
-                    if (text === 'B2') {
-                        statNumber.textContent = 'B2';
+                    if (text === 'PSPO' || text === 'B2') {
+                        statNumber.textContent = text;
                     } else {
                         const number = parseInt(text.replace(/\D/g, ''));
                         const suffix = text.replace(/[0-9]/g, '');
