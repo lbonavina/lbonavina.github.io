@@ -134,7 +134,6 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
         }
@@ -248,6 +247,9 @@
         /* ===== SEÇÕES ===== */
         section {
             padding: 5rem 2rem;
+        }
+
+        .section-container {
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -356,16 +358,19 @@
         }
 
         .cert-badge {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--cor-acento), var(--cor-detalhes));
+            width: 100px;
+            height: 100px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             font-size: 2rem;
             color: white;
+        }
+
+        .cert-badge img {
+            width: 100%;
         }
 
         .cert-title {
@@ -641,9 +646,65 @@
         /* ===== FOOTER ===== */
         footer {
             background: var(--cor-principal);
-            color: rgba(255,255,255,0.7);
-            text-align: center;
-            padding: 2rem;
+            color: rgba(255,255,255,0.8);
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            width: 40px;
+            height: 40px;
+            background: var(--cor-acento);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .footer-text {
+            font-size: 0.95rem;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-social {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .footer-social:hover {
+            background: var(--cor-acento);
+            transform: translateY(-3px);
         }
 
         footer a {
@@ -725,6 +786,15 @@
             .cta-buttons {
                 flex-direction: column;
             }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-left {
+                flex-direction: column;
+            }
         }
 
         @media (max-width: 480px) {
@@ -769,8 +839,7 @@
                 <h1>Lucas Bonavina</h1>
                 <div class="hero-subtitle">IT Manager · Team Lead · Product Owner</div>
                 <p class="hero-description">
-                    Tech Lead & Full-Stack Developer com 8+ anos de experiência em WordPress, PHP e liderança de equipes de desenvolvimento. Experiência em projetos de grande escala, metodologias ágeis e entrega de resultados.
-                </p>
+Profissional de TI com 8+ anos de experiência evoluindo de desenvolvedor full stack a líder técnico. Atuo na intersecção entre tecnologia e negócio, gerenciando equipes, definindo roadmaps e garantindo que soluções digitais gerem resultados reais.                </p>
                 <div class="hero-badges">
                     <span class="badge"><i class="fas fa-certificate"></i>PSPO I — Scrum.org</span>
                     <span class="badge"><i class="fas fa-certificate"></i>Google PM Certificate</span>
@@ -786,7 +855,8 @@
 
     <!-- SOBRE -->
     <section class="sobre" id="sobre">
-        <div class="section-header">
+        <div class="section-container">
+            <div class="section-header">
             <div class="section-tag">Sobre Mim</div>
             <h2 class="section-title">Conectando Tecnologia e Negócios</h2>
             <p class="section-description">
@@ -828,6 +898,7 @@
 
     <!-- CERTIFICAÇÕES -->
     <section class="certificacoes" id="certificacoes">
+        <div class="section-container">
         <div class="section-header">
             <div class="section-tag">Certificações</div>
             <h2 class="section-title">Desenvolvimento Profissional Contínuo</h2>
@@ -838,13 +909,13 @@
         <div class="cert-grid">
             <div class="cert-card fade-in">
                 <div class="cert-badge">
-                    <img href="badges/pspo-badge.png" />
+                    <img src="badges/pspo-badge.png" alt="PSPO I Certificate">
                 </div>
-                <h3 class="cert-title">Professional Scrum Product Owner I</h3>
+                <h3 class="cert-title">Professional Scrum Product Owner (PSPO I)</h3>
                 <p class="cert-issuer">Scrum.org</p>
                 <p class="cert-year">2026</p>
                 <div class="cert-verify">
-                    <a href="#" target="_blank">
+                    <a href="" target="_blank">
                         <i class="fas fa-external-link-alt"></i> Verificar Certificação
                     </a>
                 </div>
@@ -852,13 +923,13 @@
 
             <div class="cert-card fade-in">
                 <div class="cert-badge">
-                    <img href="badges/googlepm-badge.png" />
+                    <img src="badges/googlepm-badge.png" alt="Google Certificate">
                 </div>
                 <h3 class="cert-title">Google Project Management Certificate</h3>
                 <p class="cert-issuer">Coursera</p>
                 <p class="cert-year">2026</p>
                 <div class="cert-verify">
-                    <a href="#" target="_blank">
+                    <a href="https://www.credly.com/badges/a5e84b9b-97d8-423d-88f0-1113f7d6e802" target="_blank">
                         <i class="fas fa-external-link-alt"></i> Verificar Certificação
                     </a>
                 </div>
@@ -866,13 +937,13 @@
 
             <div class="cert-card fade-in">
                 <div class="cert-badge">
-                    <img href="badges/sfpc-badge.png" />
+                    <img src="badges/sfpc-badge.png" alt="SFPC Certificate">
                 </div>
-                <h3 class="cert-title">Scrum Foundation Professional Certificate</h3>
+                <h3 class="cert-title">Scrum Foundation Professional Certificate (SFPC™)</h3>
                 <p class="cert-issuer">CertiProf</p>
                 <p class="cert-year">2026</p>
                 <div class="cert-verify">
-                    <a href="#" target="_blank">
+                    <a href="https://my-certificates.com/certificates/699753425e5ce0c4c7f96e93" target="_blank">
                         <i class="fas fa-external-link-alt"></i> Verificar Certificação
                     </a>
                 </div>
@@ -880,8 +951,9 @@
         </div>
     </section>
 
-    <!-- EXPERIÊNCIA -->
+   <!-- EXPERIÊNCIA -->
     <section class="experiencia" id="experiencia">
+        <div class="section-container">
         <div class="section-header">
             <div class="section-tag">Experiência Profissional</div>
             <h2 class="section-title">Trajetória de Liderança e Inovação</h2>
@@ -891,28 +963,32 @@
                 <div class="timeline-content">
                     <div class="timeline-header">
                         <div>
-                            <h3 class="timeline-title">Development Team Lead</h3>
-                            <div class="timeline-company">Too Seguros</div>
+                            <h3 class="timeline-title">Líder de Equipe de Desenvolvimento / Full Stack</h3>
+                            <div class="timeline-company">Studio Visual</div>
                         </div>
                         <div class="timeline-meta">
-                            <span><i class="far fa-calendar"></i> Atual</span>
-                            <span><i class="fas fa-building"></i> Insurtech</span>
+                            <span><i class="far fa-calendar"></i> 2020 - Atual</span>
+                            <span><i class="fas fa-building"></i> Remoto</span>
                         </div>
                     </div>
                     <div class="timeline-description">
                         <ul>
-                            <li>Liderança de equipe de desenvolvimento em empresa de insurtech, gerenciando projetos digitais e infraestrutura de sistemas</li>
-                            <li>Alinhamento de TI com objetivos estratégicos de negócio, traduzindo requisitos em roadmaps técnicos executáveis</li>
-                            <li>Gestão de stakeholders e facilitação de comunicação entre áreas técnicas e de negócio</li>
-                            <li>Implementação de metodologias ágeis (Scrum/Kanban) e melhoria contínua de processos</li>
-                            <li>Definição de padrões técnicos, code review e mentoria de desenvolvedores</li>
+                            <li>Lidero time de desenvolvimento em projetos WordPress de média escala (multisites, e-commerce, integrações corporativas)</li>
+                            <li>Estabeleço arquitetura técnica, padrões de código e processos para reduzir retrabalho e incidentes em produção</li>
+                            <li>Conduzo otimizações de performance e Core Web Vitals, elevando Lighthouse scores e melhorando SEO de sites-chave</li>
+                            <li>Atuo próximo a clientes e times internos em discovery técnico, estimativa de esforço e planejamento de roadmap</li>
+                            <li>Presto suporte ao time de desenvolvimento e otimização contínua dos processos</li>
                         </ul>
                         <div class="tech-tags">
-                            <span class="tech-tag">Gestão de Equipes</span>
-                            <span class="tech-tag">Product Management</span>
-                            <span class="tech-tag">Scrum</span>
+                            <span class="tech-tag">WordPress</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">WooCommerce</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                            <span class="tech-tag">Sage Framework</span>
+                            <span class="tech-tag">Docker</span>
                             <span class="tech-tag">AWS</span>
-                            <span class="tech-tag">Stakeholder Management</span>
+                            <span class="tech-tag">CI/CD</span>
                         </div>
                     </div>
                 </div>
@@ -922,27 +998,27 @@
                 <div class="timeline-content">
                     <div class="timeline-header">
                         <div>
-                            <h3 class="timeline-title">Team Lead / Full Stack Developer</h3>
-                            <div class="timeline-company">Studio Visual & Mufasa Agency</div>
+                            <h3 class="timeline-title">Web Developer</h3>
+                            <div class="timeline-company">Mufasa Creative Agency</div>
                         </div>
                         <div class="timeline-meta">
-                            <span><i class="far fa-calendar"></i> 2018 - 2024</span>
+                            <span><i class="far fa-calendar"></i> 2018 - 2020</span>
+                            <span><i class="fas fa-building"></i> Remoto</span>
                         </div>
                     </div>
                     <div class="timeline-description">
                         <ul>
-                            <li>Liderança de projetos WordPress de média escala para clientes corporativos (multisites, e-commerce, integrações)</li>
-                            <li>Gestão de times e processos ágeis, estabelecendo arquitetura técnica e padrões de código</li>
-                            <li>Planejamento estratégico e estimativa de esforço em discovery técnico com clientes</li>
-                            <li>Otimização de performance e SEO técnico, elevando Core Web Vitals</li>
-                            <li>Mentoria técnica e desenvolvimento de competências do time</li>
+                            <li>Desenvolvedor Fullstack PHP, trabalhando com desenvolvimento de sites institucionais, e-commerces, landing pages e sistemas corporativos com foco em WordPress</li>
+                            <li>Implementação de soluções custom com temas e plugins personalizados</li>
+                            <li>Otimização de performance e SEO técnico para melhorar rankeamento</li>
+                            <li>Integração com APIs de terceiros e desenvolvimento de REST APIs</li>
                         </ul>
                         <div class="tech-tags">
-                            <span class="tech-tag">Liderança Técnica</span>
                             <span class="tech-tag">WordPress</span>
                             <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">Cloud</span>
-                            <span class="tech-tag">CI/CD</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">MySQL</span>
                         </div>
                     </div>
                 </div>
@@ -957,20 +1033,22 @@
                         </div>
                         <div class="timeline-meta">
                             <span><i class="far fa-calendar"></i> 2017 - 2018</span>
+                            <span><i class="fas fa-building"></i> Presencial</span>
                         </div>
                     </div>
                     <div class="timeline-description">
                         <ul>
-                            <li>Provisionamento e administração de VMs em Azure e AWS</li>
-                            <li>Desenvolvimento de scripts PowerShell para automação</li>
-                            <li>Gestão de segurança (Bitdefender), redes (Aruba) e dispositivos mobile</li>
-                            <li>Suporte técnico N1 e N3</li>
+                            <li>Desenvolvimento de aplicações para uso interno e uso em coletores de dados / dispositivos mobile</li>
+                            <li>Gerência do ambiente/infraestrutura local e suporte ao cliente N3 focado em dispositivos mobile (Coletores de dados / Impressoras)</li>
+                            <li>Pré/Pós-venda de software e soluções em AC/AIDC</li>
+                            <li>Especialista em Bitdefender, Ivanti Speakeasy & Aruba Networking</li>
+                            <li>Manutenção das redes sociais e desenvolvimento de artes gráficas</li>
                         </ul>
                         <div class="tech-tags">
-                            <span class="tech-tag">Azure</span>
-                            <span class="tech-tag">AWS</span>
-                            <span class="tech-tag">PowerShell</span>
                             <span class="tech-tag">Infraestrutura</span>
+                            <span class="tech-tag">Mobile</span>
+                            <span class="tech-tag">Networking</span>
+                            <span class="tech-tag">Suporte N3</span>
                         </div>
                     </div>
                 </div>
@@ -980,6 +1058,7 @@
 
     <!-- COMPETÊNCIAS -->
     <section class="competencias" id="competencias">
+        <div class="section-container">
         <div class="section-header">
             <div class="section-tag">Competências</div>
             <h2 class="section-title">Áreas de Especialização</h2>
@@ -1035,55 +1114,31 @@
         </div>
     </section>
 
-    <!-- CONTATO -->
-    <section class="contato" id="contato">
-        <div class="section-header">
-            <div class="section-tag">Contato</div>
-        </div>
-        <div class="contact-grid">
-            <div class="contact-card fade-in">
-                <div class="contact-icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <div class="contact-label">Email</div>
-                <div class="contact-value">
-                    <a href="mailto:lbonavin@gmail.com">lbonavin@gmail.com</a>
-                </div>
-            </div>
-
-            <div class="contact-card fade-in">
-                <div class="contact-icon">
-                    <i class="fas fa-phone"></i>
-                </div>
-                <div class="contact-label">Telefone</div>
-                <div class="contact-value">
-                    <a href="tel:+5511999906996">(11) 99990-6996</a>
-                </div>
-            </div>
-
-            <div class="contact-card fade-in">
-                <div class="contact-icon">
-                    <i class="fab fa-linkedin"></i>
-                </div>
-                <div class="contact-label">LinkedIn</div>
-                <div class="contact-value">
-                    <a href="https://www.linkedin.com/in/lbonavina/" target="_blank">lbonavina</a>
-                </div>
-            </div>
-
-            <div class="contact-card fade-in">
-                <div class="contact-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div class="contact-label">Localização</div>
-                <div class="contact-value">São Paulo, SP</div>
-            </div>
-        </div>
-    </section>
-
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Lucas Bonavina. Todos os direitos reservados.</p>
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-logo">LB</div>
+                <div class="footer-text">
+                    <strong>Lucas Bonavina</strong><br>
+                    IT Manager & Product Owner
+                </div>
+            </div>
+            <div class="footer-text">
+                &copy; 2026 Lucas Bonavina. Todos os direitos reservados.
+            </div>
+            <div class="footer-right">
+                <a href="https://www.linkedin.com/in/lbonavina/" target="_blank" class="footer-social" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/lbonavina" target="_blank" class="footer-social" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:lbonavin@gmail.com" class="footer-social" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
     </footer>
 
     <!-- JAVASCRIPT -->
