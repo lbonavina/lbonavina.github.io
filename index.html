@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucas Bonavina | IT Manager & Product Owner</title>
-    <meta name="description" content="IT Manager & Development Team Lead | Product Owner (PSPO) certificado com 8+ anos liderando equipes e produtos digitais">
+    <meta name="description" content="Development Team Lead | IT Manager | Product Owner com 8+ anos liderando equipes e produtos digitais">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:wght@700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,7 +16,6 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
     <style>
-        /* ===== RESET E VARIÁVEIS ===== */
         * {
             margin: 0;
             padding: 0;
@@ -24,13 +23,15 @@
         }
 
         :root {
-            --cor-principal: #000706;
-            --cor-secundaria: #00272D;
-            --cor-detalhes: #134647;
-            --cor-acento: #0C7E7E;
-            --cor-destaque: #BFAC8B;
-            --fonte-mono: 'JetBrains Mono', monospace;
-            --fonte-sans: 'Inter', sans-serif;
+            --cor-principal: #1A237E;
+            --cor-secundaria: #283593;
+            --cor-detalhes: #3949AB;
+            --cor-acento: #2196F3;
+            --cor-destaque: #64B5F6;
+            --cor-background: #F5F7FA;
+            --cor-card: #FFFFFF;
+            --cor-text: #2C3E50;
+            --cor-text-light: #6C757D;
         }
 
         html {
@@ -38,51 +39,32 @@
         }
 
         body {
-            font-family: var(--fonte-sans);
-            background-color: var(--cor-principal);
-            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cor-background);
+            color: var(--cor-text);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         ::selection {
             background: var(--cor-acento);
-            color: var(--cor-principal);
+            color: white;
         }
 
-        /* ===== BACKGROUND ANIMADO ===== */
-        .background-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            opacity: 0.03;
-            pointer-events: none;
-            font-family: var(--fonte-mono);
-            font-size: 12px;
-            line-height: 1.5;
-            overflow: hidden;
-            color: var(--cor-acento);
-        }
-
-        /* ===== HEADER E NAVEGAÇÃO ===== */
+        /* ===== HEADER ===== */
         header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
-            background: rgba(0, 7, 6, 0.95);
-            backdrop-filter: blur(10px);
+            top: 0;
             z-index: 1000;
-            border-bottom: 1px solid var(--cor-detalhes);
+            transition: all 0.3s ease;
         }
 
         nav {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 1.2rem 3rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -91,27 +73,37 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--cor-destaque);
-            font-family: var(--fonte-mono);
-            cursor: pointer;
+            color: var(--cor-principal);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .logo span {
-            color: var(--cor-acento);
+        .logo-initial {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--cor-acento), var(--cor-detalhes));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.2rem;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
         .nav-links a {
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--cor-text);
             text-decoration: none;
-            font-family: var(--fonte-mono);
-            font-size: 0.9rem;
+            font-weight: 500;
             transition: color 0.3s ease;
+            font-size: 0.95rem;
         }
 
         .nav-links a:hover {
@@ -128,632 +120,545 @@
         .menu-toggle span {
             width: 25px;
             height: 2px;
-            background: var(--cor-destaque);
-            transition: 0.3s;
+            background: var(--cor-text);
         }
 
-        /* ===== CONTAINER PRINCIPAL ===== */
-        main {
-            position: relative;
-            z-index: 1;
-        }
-
-        section {
-            min-height: 100vh;
-            padding: 8rem 3rem 4rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        /* ===== SEÇÃO HERO ===== */
+        /* ===== HERO ===== */
         .hero {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
+            background: white;
+            padding: 8rem 2rem 4rem;
+            margin-top: 72px;
         }
 
-        .terminal-window {
-            background: var(--cor-secundaria);
-            border: 1px solid var(--cor-detalhes);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(12, 126, 126, 0.2);
-        }
-
-        .terminal-header {
-            background: var(--cor-detalhes);
-            padding: 0.8rem 1rem;
-            display: flex;
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
-            gap: 0.5rem;
         }
 
-        .terminal-button {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .terminal-button.red { background: #ff5f56; }
-        .terminal-button.yellow { background: #ffbd2e; }
-        .terminal-button.green { background: #27c93f; }
-
-        .terminal-title {
-            flex: 1;
-            text-align: center;
-            font-family: var(--fonte-mono);
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .terminal-body {
-            padding: 2rem;
-            font-family: var(--fonte-mono);
-            font-size: 0.95rem;
-        }
-
-        .terminal-line {
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--cor-principal);
             margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeIn 0.5s forwards;
-        }
-
-        .terminal-line:nth-child(1) { animation-delay: 0.1s; }
-        .terminal-line:nth-child(2) { animation-delay: 0.3s; }
-        .terminal-line:nth-child(3) { animation-delay: 0.5s; }
-        .terminal-line:nth-child(4) { animation-delay: 0.7s; }
-        .terminal-line:nth-child(5) { animation-delay: 0.9s; }
-        .terminal-line:nth-child(6) { animation-delay: 1.1s; }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        .prompt {
-            color: var(--cor-acento);
-            margin-right: 10px;
-        }
-
-        .command {
-            color: var(--cor-destaque);
-        }
-
-        .output {
-            color: rgba(255, 255, 255, 0.9);
-            margin-left: 0;
-            margin-top: 0.5rem;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--cor-destaque);
-            margin: 0.5rem 0;
-            font-family: var(--fonte-mono);
+            line-height: 1.2;
         }
 
         .hero-subtitle {
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             color: var(--cor-acento);
             margin-bottom: 1.5rem;
-            line-height: 1.4;
+            font-weight: 600;
         }
 
         .hero-description {
-            color: rgba(255, 255, 255, 0.8);
             font-size: 1.1rem;
+            color: var(--cor-text-light);
+            margin-bottom: 2rem;
             line-height: 1.8;
-            max-width: 850px;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
         }
 
         .badge {
-            display: inline-block;
-            background: rgba(12, 126, 126, 0.2);
+            background: var(--cor-background);
             color: var(--cor-acento);
-            padding: 0.4rem 1rem;
-            border-radius: 4px;
-            font-family: var(--fonte-mono);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
             font-size: 0.85rem;
-            margin-top: 1rem;
-            margin-right: 0.5rem;
+            font-weight: 500;
             border: 1px solid var(--cor-acento);
         }
 
-        /* ===== CERTIFICAÇÕES ===== */
-        .certificacoes {
-            background: var(--cor-secundaria);
-            padding: 4rem 3rem;
-        }
-
-        .cert-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.1rem;
-        }
-
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .cert-card {
-            background: var(--cor-detalhes);
-            border: 1px solid var(--cor-acento);
-            border-radius: 8px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .cert-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(12, 126, 126, 0.4);
-        }
-
-        .cert-image-wrapper {
-            width: 100%;
-            height: 200px;
-            background: var(--cor-secundaria);
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px dashed rgba(12, 126, 126, 0.3);
-            overflow: hidden;
-            position: relative;
-            padding: 20px;
-        }
-
-        .cert-image-wrapper img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .cert-placeholder {
-            color: rgba(255, 255, 255, 0.4);
-            font-family: var(--fonte-mono);
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 1rem;
-        }
-
-        .cert-title {
-            font-size: 1.2rem;
-            color: var(--cor-destaque);
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-            line-height: 1.4;
-        }
-
-        .cert-issuer {
-            color: var(--cor-acento);
-            font-family: var(--fonte-mono);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .cert-year {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.85rem;
-        }
-
-        .cert-verify {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(12, 126, 126, 0.3);
-        }
-
-        .cert-verify a {
-            color: var(--cor-acento);
-            text-decoration: none;
-            font-family: var(--fonte-mono);
-            font-size: 0.85rem;
-            transition: color 0.3s ease;
-        }
-
-        .cert-verify a:hover {
-            color: var(--cor-destaque);
-        }
-
-        .cert-verify i {
+        .badge i {
             margin-right: 0.5rem;
         }
 
         .cta-buttons {
             display: flex;
             gap: 1rem;
-            margin-top: 2rem;
         }
 
         .btn {
-            padding: 0.9rem 2rem;
-            border: 1px solid var(--cor-acento);
-            background: transparent;
-            color: var(--cor-acento);
-            font-family: var(--fonte-mono);
-            font-size: 0.9rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
         }
 
-        .btn:hover {
-            background: var(--cor-acento);
-            color: var(--cor-principal);
-            transform: translateY(-2px);
-        }
-
         .btn-primary {
             background: var(--cor-acento);
-            color: var(--cor-principal);
+            color: white;
         }
 
         .btn-primary:hover {
-            background: transparent;
-            color: var(--cor-acento);
+            background: var(--cor-detalhes);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(12, 126, 126, 0.3);
         }
 
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
+        .btn-secondary {
+            background: white;
             color: var(--cor-acento);
-            font-family: var(--fonte-mono);
-            font-size: 0.85rem;
-            animation: bounce 2s infinite;
+            border: 2px solid var(--cor-acento);
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-10px); }
+        .btn-secondary:hover {
+            background: var(--cor-acento);
+            color: white;
         }
 
-        /* ===== NÚMEROS ===== */
-        .section-number {
-            font-family: var(--fonte-mono);
-            font-size: 1rem;
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, var(--cor-acento), var(--cor-detalhes));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* ===== SEÇÕES ===== */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
             color: var(--cor-acento);
-            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
         }
 
         .section-title {
             font-size: 2.5rem;
-            font-family: var(--fonte-mono);
-            color: var(--cor-destaque);
-            margin-bottom: 3rem;
+            font-weight: 700;
+            color: var(--cor-principal);
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--cor-text-light);
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         /* ===== SOBRE ===== */
+        .sobre {
+            background: white;
+        }
+
         .sobre-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 2fr 1fr;
             gap: 4rem;
-            align-items: start;
-        }
-
-        .code-block {
-            background: var(--cor-secundaria);
-            border: 1px solid var(--cor-detalhes);
-            border-radius: 8px;
-            padding: 2rem;
-            font-family: var(--fonte-mono);
-            font-size: 0.9rem;
-            line-height: 1.8;
-        }
-
-        .code-comment {
-            color: var(--cor-acento);
-            opacity: 0.6;
-        }
-
-        .code-keyword {
-            color: var(--cor-acento);
-        }
-
-        .code-string {
-            color: var(--cor-destaque);
         }
 
         .sobre-text p {
-            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.05rem;
+            color: var(--cor-text-light);
             margin-bottom: 1.5rem;
             line-height: 1.8;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+        .sobre-text strong {
+            color: var(--cor-principal);
         }
 
-        .stat-card {
-            background: var(--cor-secundaria);
-            border: 1px solid var(--cor-detalhes);
-            padding: 2rem;
-            border-radius: 8px;
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .stat-box {
             text-align: center;
+            padding: 2rem;
+            background: var(--cor-background);
+            border-radius: 12px;
             transition: all 0.3s ease;
         }
 
-        .stat-card:hover {
-            border-color: var(--cor-acento);
+        .stat-box:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
 
         .stat-number {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--cor-acento);
-            font-family: var(--fonte-mono);
+            margin-bottom: 0.5rem;
         }
 
         .stat-label {
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--cor-text-light);
             font-size: 0.9rem;
-            margin-top: 0.5rem;
+        }
+
+        /* ===== CERTIFICAÇÕES ===== */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--cor-acento);
+            box-shadow: 0 15px 40px rgba(12, 126, 126, 0.15);
+        }
+
+        .cert-badge {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--cor-acento), var(--cor-detalhes));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .cert-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--cor-principal);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-issuer {
+            color: var(--cor-acento);
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .cert-year {
+            color: var(--cor-text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .cert-verify {
+            padding-top: 1rem;
+            border-top: 1px solid var(--cor-background);
+        }
+
+        .cert-verify a {
+            color: var(--cor-acento);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .cert-verify a:hover {
+            color: var(--cor-detalhes);
         }
 
         /* ===== EXPERIÊNCIA ===== */
-        .experience-item {
-            background: var(--cor-secundaria);
-            border: 1px solid var(--cor-detalhes);
-            border-radius: 8px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            transition: all 0.3s ease;
+        .experiencia {
+            background: white;
+        }
+
+        .timeline {
             position: relative;
+            padding-left: 3rem;
         }
 
-        .experience-item::before {
-            content: '//';
+        .timeline::before {
+            content: '';
             position: absolute;
-            left: -15px;
-            top: 2.5rem;
-            color: var(--cor-acento);
-            font-family: var(--fonte-mono);
-            font-size: 1.5rem;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--cor-background);
         }
 
-        .experience-item:hover {
-            border-color: var(--cor-acento);
+        .timeline-item {
+            position: relative;
+            padding-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--cor-acento);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--cor-background);
+        }
+
+        .timeline-content {
+            background: var(--cor-background);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transform: translateX(10px);
         }
 
-        .experience-header {
+        .timeline-header {
             display: flex;
             justify-content: space-between;
             align-items: start;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             flex-wrap: wrap;
             gap: 1rem;
         }
 
-        .experience-title {
-            font-size: 1.5rem;
-            color: var(--cor-destaque);
+        .timeline-title {
+            font-size: 1.4rem;
             font-weight: 600;
+            color: var(--cor-principal);
         }
 
-        .experience-company {
+        .timeline-company {
             color: var(--cor-acento);
-            font-family: var(--fonte-mono);
+            font-weight: 600;
             font-size: 1.1rem;
         }
 
-        .experience-meta {
+        .timeline-meta {
             display: flex;
-            gap: 2rem;
-            color: rgba(255, 255, 255, 0.6);
-            font-family: var(--fonte-mono);
-            font-size: 0.85rem;
+            gap: 1.5rem;
+            color: var(--cor-text-light);
+            font-size: 0.9rem;
         }
 
-        .experience-description {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
+        .timeline-description ul {
+            list-style: none;
+            margin: 1.5rem 0;
         }
 
-        .experience-description li {
+        .timeline-description li {
+            color: var(--cor-text-light);
             margin-bottom: 0.8rem;
-            padding-left: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
         }
 
-        .experience-description li::before {
-            content: '>';
+        .timeline-description li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
             color: var(--cor-acento);
-            margin-right: 0.5rem;
-            font-family: var(--fonte-mono);
+            font-weight: bold;
         }
 
         .tech-tags {
             display: flex;
-            gap: 0.8rem;
             flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
         }
 
         .tech-tag {
-            background: var(--cor-detalhes);
+            background: white;
             color: var(--cor-acento);
-            padding: 0.4rem 1rem;
-            border-radius: 4px;
-            font-family: var(--fonte-mono);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
             font-size: 0.8rem;
-            border: 1px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .tech-tag:hover {
-            border-color: var(--cor-acento);
+            font-weight: 500;
         }
 
         /* ===== COMPETÊNCIAS ===== */
         .competencias-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .competencia-category {
-            background: var(--cor-secundaria);
-            border: 1px solid var(--cor-detalhes);
-            border-radius: 8px;
+        .competencia-card {
+            background: white;
             padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
         }
 
-        .competencia-category:hover {
-            border-color: var(--cor-acento);
+        .competencia-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
         }
 
-        .competencia-category h3 {
-            color: var(--cor-destaque);
-            font-family: var(--fonte-mono);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
+        .competencia-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--cor-acento), var(--cor-detalhes));
+            border-radius: 12px;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 1.5rem;
         }
 
-        .competencia-category h3 i {
-            color: var(--cor-acento);
-            font-size: 1.5rem;
+        .competencia-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--cor-principal);
+            margin-bottom: 1rem;
         }
 
         .competencia-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
+            list-style: none;
         }
 
         .competencia-item {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.95rem;
+            color: var(--cor-text-light);
             padding: 0.6rem 0;
-            border-bottom: 1px solid rgba(12, 126, 126, 0.2);
-            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--cor-background);
+            font-size: 0.95rem;
         }
 
         .competencia-item:last-child {
             border-bottom: none;
         }
 
-        .competencia-item:hover {
-            color: var(--cor-acento);
-            padding-left: 1rem;
-        }
-
         /* ===== CONTATO ===== */
-        .contact-content {
-            max-width: 800px;
-            margin: 0 auto;
+        .contato {
+            background: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
+            color: white;
         }
 
-        .contact-terminal {
-            background: var(--cor-secundaria);
-            border: 1px solid var(--cor-detalhes);
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 3rem;
+        .contato .section-tag,
+        .contato .section-title,
+        .contato .section-description {
+            color: white;
         }
 
-        .contact-terminal .terminal-body {
-            padding: 3rem;
+        .contato .section-description {
+            opacity: 0.9;
         }
 
-        .contact-message {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin: 1.5rem 0;
-        }
-
-        .status-badge {
-            display: inline-block;
-            background: rgba(12, 126, 126, 0.2);
-            color: var(--cor-acento);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-family: var(--fonte-mono);
-            font-size: 0.9rem;
-            margin-top: 1rem;
-            border: 1px solid var(--cor-acento);
-        }
-
-        .contact-links {
+        .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.2rem;
-            background: var(--cor-secundaria);
-            border: 1px solid var(--cor-detalhes);
-            border-radius: 8px;
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            font-family: var(--fonte-mono);
-            font-size: 0.9rem;
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
             transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
-        .contact-link:hover {
-            border-color: var(--cor-acento);
-            color: var(--cor-acento);
-            transform: translateX(5px);
+        .contact-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
         }
 
-        .contact-link i {
-            font-size: 1.5rem;
-            color: var(--cor-acento);
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--cor-destaque);
+            margin-bottom: 1rem;
+        }
+
+        .contact-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-value a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            color: var(--cor-destaque);
         }
 
         /* ===== FOOTER ===== */
         footer {
-            background: var(--cor-secundaria);
-            border-top: 1px solid var(--cor-detalhes);
-            padding: 2rem 3rem;
+            background: var(--cor-principal);
+            color: rgba(255,255,255,0.7);
             text-align: center;
+            padding: 2rem;
         }
 
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            font-family: var(--fonte-mono);
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .footer-content span {
+        footer a {
             color: var(--cor-acento);
+            text-decoration: none;
         }
 
-        /* ===== SCROLL REVEAL ===== */
-        .reveal {
+        /* ===== ANIMAÇÕES ===== */
+        .fade-in {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.6s ease;
         }
 
-        .reveal.active {
+        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -763,13 +668,13 @@
             .nav-links {
                 position: fixed;
                 right: -100%;
-                top: 70px;
+                top: 72px;
                 flex-direction: column;
-                background: var(--cor-secundaria);
+                background: white;
                 width: 100%;
                 padding: 2rem;
                 transition: 0.3s;
-                border-top: 1px solid var(--cor-detalhes);
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             }
 
             .nav-links.active {
@@ -780,32 +685,41 @@
                 display: flex;
             }
 
-            section {
+            .hero {
                 padding: 6rem 1.5rem 3rem;
             }
 
-            nav {
-                padding: 1.2rem 1.5rem;
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
 
             .sobre-content {
                 grid-template-columns: 1fr;
             }
 
-            .stats-grid {
-                grid-template-columns: 1fr;
+            .timeline {
+                padding-left: 2rem;
             }
 
-            .hero-title {
-                font-size: 2.5rem;
+            .timeline-item::before {
+                left: -2.5rem;
             }
 
-            .hero-subtitle {
-                font-size: 1.3rem;
+            section {
+                padding: 3rem 1.5rem;
             }
 
-            .competencias-grid {
-                grid-template-columns: 1fr;
+            .section-title {
+                font-size: 2rem;
             }
 
             .cta-buttons {
@@ -814,40 +728,31 @@
         }
 
         @media (max-width: 480px) {
-            .terminal-body {
-                padding: 1.5rem;
-                font-size: 0.85rem;
+            .hero-text h1 {
+                font-size: 1.8rem;
             }
 
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .stat-number {
-                font-size: 2rem;
+            .stats {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Background Animation -->
-    <div class="background-animation" id="bgAnimation"></div>
-
     <!-- HEADER -->
     <header>
         <nav>
-            <div class="logo">{<span>LB</span>}</div>
+            <div class="logo">
+                <div class="logo-initial">LB</div>
+                <span>Lucas Bonavina</span>
+            </div>
             <ul class="nav-links">
-                <li><a href="#home">inicio()</a></li>
-                <li><a href="#sobre">sobre()</a></li>
-                <li><a href="#certificacoes">certificacoes()</a></li>
-                <li><a href="#experiencia">experiencia()</a></li>
-                <li><a href="#competencias">competencias()</a></li>
-                <li><a href="#contato">contato()</a></li>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#certificacoes">Certificações</a></li>
+                <li><a href="#experiencia">Experiência</a></li>
+                <li><a href="#competencias">Competências</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
             <div class="menu-toggle" id="mobile-menu">
                 <span></span>
@@ -857,367 +762,333 @@
         </nav>
     </header>
 
-    <main>
-        <!-- SEÇÃO HERO -->
-        <section class="hero" id="home">
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <div class="terminal-button red"></div>
-                    <div class="terminal-button yellow"></div>
-                    <div class="terminal-button green"></div>
-                    <div class="terminal-title">lucas@manager: ~</div>
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Lucas Bonavina</h1>
+                <div class="hero-subtitle">IT Manager · Team Lead · Product Owner</div>
+                <p class="hero-description">
+                    Tech Lead & Full-Stack Developer com 8+ anos de experiência em WordPress, PHP e liderança de equipes de desenvolvimento. Experiência em projetos de grande escala, metodologias ágeis e entrega de resultados.
+                </p>
+                <div class="hero-badges">
+                    <span class="badge"><i class="fas fa-certificate"></i>PSPO I — Scrum.org</span>
+                    <span class="badge"><i class="fas fa-certificate"></i>Google PM Certificate</span>
+                    <span class="badge"><i class="fas fa-certificate"></i>SFPC™ — CertiProf</span>
                 </div>
-                <div class="terminal-body">
-                    <div class="terminal-line">
-                        <span class="prompt">$</span>
-                        <span class="command">whoami</span>
-                    </div>
-                    <div class="terminal-line">
-                        <div class="output">
-                            <h1 class="hero-title"># LucasBonavina</h1>
-                        </div>
-                    </div>
-                    <div class="terminal-line">
-                        <span class="prompt">$</span>
-                        <span class="command">cat role.txt</span>
-                    </div>
-                    <div class="terminal-line">
-                        <div class="output">
-                            <h2 class="hero-subtitle">## IT Manager & Development Team Lead | Product Owner (PSPO)</h2>
-                        </div>
-                    </div>
-                    <div class="terminal-line">
-                        <span class="prompt">$</span>
-                        <span class="command">echo $SUMMARY</span>
-                    </div>
-                    <div class="terminal-line">
-                        <div class="output">
-                            <p class="hero-description">
-                                Líder de TI com 8+ anos de experiência em gestão de equipes, produtos digitais e infraestrutura cloud.<br>
-                                Conectando execução técnica ao planejamento estratégico para entregar valor real ao negócio.
-                            </p>
-                            <div class="badge">✓ PSPO I — Professional Scrum Product Owner · Scrum.org · 2026</div>
-                            <div class="badge">✓ Google Project Management Certificate · Coursera · 2026</div>
-                            <div class="badge">✓ Scrum Foundation Professional Certificate (SFPC™) · CertiProf · 2026</div>
-                            <div class="cta-buttons">
-                                <a href="#contato" class="btn btn-primary">./contato.sh ></a>
-                                <a href="#experiencia" class="btn">ver experiência</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="cta-buttons">
+                    <a href="#contato" class="btn btn-primary">Entre em Contato</a>
+                    <a href="#experiencia" class="btn btn-secondary">Ver Experiência</a>
                 </div>
             </div>
-            <div class="scroll-indicator">
-                scroll ↓
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SEÇÃO SOBRE -->
-        <section class="sobre" id="sobre">
-            <div class="section-number">01</div>
-            <h2 class="section-title">## sobre()</h2>
-            <div class="sobre-content">
-                <div class="code-block reveal">
-                    <div class="code-comment">// professional.ts</div>
-                    <br>
-                    <span class="code-keyword">interface</span> ITManager {<br>
-                    &nbsp;&nbsp;name: <span class="code-string">"Lucas Bonavina"</span>;<br>
-                    &nbsp;&nbsp;role: <span class="code-string">"IT Manager & Product Owner"</span>;<br>
-                    &nbsp;&nbsp;experience: <span class="code-string">"8+ anos"</span>;<br>
-                    &nbsp;&nbsp;certification: <span class="code-string">"PSPO (Scrum.org)"</span>;<br>
-                    &nbsp;&nbsp;location: <span class="code-string">"São Paulo, Brasil"</span>;<br>
-                    &nbsp;&nbsp;focus: <span class="code-string">"Gestão & Produto"</span>;<br>
-                    }<br><br>
-                    <span class="code-keyword">const</span> especialidades = [<br>
-                    &nbsp;&nbsp;<span class="code-string">"Gestão de Equipes"</span>,<br>
-                    &nbsp;&nbsp;<span class="code-string">"Product Ownership"</span>,<br>
-                    &nbsp;&nbsp;<span class="code-string">"Planejamento Estratégico"</span>,<br>
-                    &nbsp;&nbsp;<span class="code-string">"Infraestrutura Cloud"</span><br>
-                    ];
-                </div>
-                <div class="sobre-text reveal">
-                    <p>
-                        Sou <strong>IT Manager e Product Owner certificado (PSPO)</strong> com 8+ anos de experiência liderando equipes de desenvolvimento, produtos digitais e infraestrutura cloud. Atuei em empresas dos setores de seguros, saúde, imóveis e e-commerce.
-                    </p>
-                    <p>
-                        Meu foco está em <strong>conectar execução técnica ao planejamento estratégico</strong>, liderando times multidisciplinares e garantindo que soluções de TI gerem valor real ao negócio. Especialista em metodologias ágeis, gestão de produto e tomada de decisões baseada em dados.
-                    </p>
-                    <p>
-                        Com sólida base técnica em desenvolvimento full-stack e infraestrutura cloud (AWS, Azure, Docker), compreendo profundamente os desafios técnicos e traduzo necessidades de negócio em roadmaps executáveis, sempre priorizando entrega de valor e excelência operacional.
-                    </p>
-                </div>
+    <!-- SOBRE -->
+    <section class="sobre" id="sobre">
+        <div class="section-header">
+            <div class="section-tag">Sobre Mim</div>
+            <h2 class="section-title">Conectando Tecnologia e Negócios</h2>
+            <p class="section-description">
+                Profissional experiente em liderar equipes técnicas e entregar soluções que geram valor real
+            </p>
+        </div>
+        <div class="sobre-content">
+            <div class="sobre-text fade-in">
+                <p>
+                    Sou <strong>IT Manager e Product Owner certificado (PSPO)</strong> com 8+ anos de experiência liderando equipes de desenvolvimento, produtos digitais e infraestrutura cloud. Atuei em empresas dos setores de seguros, saúde, imóveis e e-commerce.
+                </p>
+                <p>
+                    Meu foco está em <strong>conectar execução técnica ao planejamento estratégico</strong>, liderando times multidisciplinares e garantindo que soluções de TI gerem valor real ao negócio. Especialista em metodologias ágeis, gestão de produto e tomada de decisões baseada em dados.
+                </p>
+                <p>
+                    Com sólida base técnica em desenvolvimento full-stack e infraestrutura cloud (AWS, Azure, Docker), compreendo profundamente os desafios técnicos e traduzo necessidades de negócio em roadmaps executáveis.
+                </p>
             </div>
-            
-            <div class="stats-grid">
-                <div class="stat-card reveal">
+            <div class="stats fade-in">
+                <div class="stat-box">
                     <div class="stat-number">8+</div>
                     <div class="stat-label">Anos de Experiência</div>
                 </div>
-                <div class="stat-card reveal">
+                <div class="stat-box">
                     <div class="stat-number">3+</div>
                     <div class="stat-label">Anos em Liderança</div>
                 </div>
-                <div class="stat-card reveal">
-                    <div class="stat-number">PSPO</div>
-                    <div class="stat-label">Certificação Scrum.org</div>
+                <div class="stat-box">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Certificações</div>
                 </div>
-                <div class="stat-card reveal">
+                <div class="stat-box">
                     <div class="stat-number">B2</div>
                     <div class="stat-label">Inglês Avançado</div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SEÇÃO CERTIFICAÇÕES -->
-        <section class="certificacoes" id="certificacoes">
-            <div class="section-number">02</div>
-            <h2 class="section-title">## certificacoes()</h2>
-            <p class="cert-intro reveal">
-                Investimento contínuo em desenvolvimento profissional com foco em gestão de produtos, metodologias ágeis e liderança de projetos.
+    <!-- CERTIFICAÇÕES -->
+    <section class="certificacoes" id="certificacoes">
+        <div class="section-header">
+            <div class="section-tag">Certificações</div>
+            <h2 class="section-title">Desenvolvimento Profissional Contínuo</h2>
+            <p class="section-description">
+                Certificações em gestão de produtos, metodologias ágeis e liderança de projetos
             </p>
-            <div class="cert-grid">
-                <div class="cert-card reveal">
-                    <div class="cert-image-wrapper">
-                        <img src="badges/pspo-badge.png" alt="PSPO Certificate">
-                    </div>
-                    <h3 class="cert-title">Professional Scrum Product Owner I (PSPO I)</h3>
-                    <p class="cert-issuer">Scrum.org</p>
-                    <p class="cert-year">2026</p>
-                    <div class="cert-verify">
-                        <a href="#" target="_blank">
-                            <i class="fas fa-certificate"></i>Verificar Certificação
-                        </a>
-                    </div>
+        </div>
+        <div class="cert-grid">
+            <div class="cert-card fade-in">
+                <div class="cert-badge">
+                    <img href="badges/pspo-badge.png" />
                 </div>
-
-                <div class="cert-card reveal">
-                    <div class="cert-image-wrapper">
-                        <img src="badges/sfpc-badge.png" alt="PSPO Certificate">
-                    </div>
-                    <h3 class="cert-title">Scrum Foundation Professional Certificate (SFPC™)</h3>
-                    <p class="cert-issuer">CertiProf</p>
-                    <p class="cert-year">2026</p>
-                    <div class="cert-verify">
-                        <a href="https://profiles.badgeclaimed.com/lbonavina/badges/urn:uuid:ff4a9ecf-0f29-422b-ad98-1fbd688a3d9e.html" target="_blank">
-                            <i class="fas fa-certificate"></i>Verificar Certificação
-                        </a>
-                    </div>
-                </div>
-
-                <div class="cert-card reveal">
-                    <div class="cert-image-wrapper">
-                        <img src="badges/googlepm-badge.png" alt="PSPO Certificate">
-                    </div>
-                    <h3 class="cert-title">Google Project Management Certificate</h3>
-                    <p class="cert-issuer">Coursera</p>
-                    <p class="cert-year">2026</p>
-                    <div class="cert-verify">
-                        <a href="https://www.credly.com/badges/a5e84b9b-97d8-423d-88f0-1113f7d6e802/public_url" target="_blank">
-                            <i class="fas fa-certificate"></i>Verificar Certificação
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO EXPERIÊNCIA -->
-        <section class="experience" id="experiencia">
-            <div class="section-number">03</div>
-            <h2 class="section-title">## experiencia()</h2>
-            
-            <div class="experience-item reveal">
-                <div class="experience-header">
-                    <div>
-                        <h3 class="experience-title">Development Team Lead</h3>
-                        <div class="experience-company">Too Seguros</div>
-                    </div>
-                    <div class="experience-meta">
-                        <span>Atual</span>
-                        <span>Insurtech</span>
-                    </div>
-                </div>
-                <ul class="experience-description">
-                    <li>Liderança de equipe de desenvolvimento em empresa de insurtech, gerenciando projetos digitais e infraestrutura de sistemas</li>
-                    <li>Alinhamento de TI com objetivos estratégicos de negócio, traduzindo requisitos em roadmaps técnicos executáveis</li>
-                    <li>Gestão de stakeholders e facilitação de comunicação entre áreas técnicas e de negócio</li>
-                    <li>Implementação de metodologias ágeis (Scrum/Kanban) e melhoria contínua de processos</li>
-                    <li>Definição de padrões técnicos, code review e mentoria de desenvolvedores</li>
-                </ul>
-                <div class="tech-tags">
-                    <span class="tech-tag">Gestão de Equipes</span>
-                    <span class="tech-tag">Product Management</span>
-                    <span class="tech-tag">Scrum</span>
-                    <span class="tech-tag">AWS</span>
-                    <span class="tech-tag">Infraestrutura</span>
-                    <span class="tech-tag">Stakeholder Management</span>
+                <h3 class="cert-title">Professional Scrum Product Owner I</h3>
+                <p class="cert-issuer">Scrum.org</p>
+                <p class="cert-year">2026</p>
+                <div class="cert-verify">
+                    <a href="#" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Verificar Certificação
+                    </a>
                 </div>
             </div>
 
-            <div class="experience-item reveal">
-                <div class="experience-header">
-                    <div>
-                        <h3 class="experience-title">Team Lead / Full Stack Developer</h3>
-                        <div class="experience-company">Agências WordPress</div>
-                    </div>
-                    <div class="experience-meta">
-                        <span>2018 - 2024</span>
-                        <span>Diversos Setores</span>
-                    </div>
+            <div class="cert-card fade-in">
+                <div class="cert-badge">
+                    <img href="badges/googlepm-badge.png" />
                 </div>
-                <ul class="experience-description">
-                    <li>Liderança de projetos WordPress de média escala para clientes corporativos (multisites, e-commerce, integrações)</li>
-                    <li>Gestão de times e processos ágeis, estabelecendo arquitetura técnica e padrões de código</li>
-                    <li>Planejamento estratégico e estimativa de esforço em discovery técnico com clientes</li>
-                    <li>Otimização de performance e SEO técnico, elevando Core Web Vitals e Lighthouse scores</li>
-                    <li>Mentoria técnica e desenvolvimento de competências do time</li>
-                </ul>
-                <div class="tech-tags">
-                    <span class="tech-tag">Liderança Técnica</span>
-                    <span class="tech-tag">Agile</span>
-                    <span class="tech-tag">WordPress</span>
-                    <span class="tech-tag">PHP</span>
-                    <span class="tech-tag">Cloud (AWS/DO)</span>
-                    <span class="tech-tag">CI/CD</span>
+                <h3 class="cert-title">Google Project Management Certificate</h3>
+                <p class="cert-issuer">Coursera</p>
+                <p class="cert-year">2026</p>
+                <div class="cert-verify">
+                    <a href="#" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Verificar Certificação
+                    </a>
                 </div>
             </div>
 
-            <div class="experience-item reveal">
-                <div class="experience-header">
-                    <div>
-                        <h3 class="experience-title">Infraestrutura & Automação de TI</h3>
-                        <div class="experience-company">TI Tech Solutions</div>
-                    </div>
-                    <div class="experience-meta">
-                        <span>2017 - 2018</span>
-                        <span>Infraestrutura</span>
-                    </div>
+            <div class="cert-card fade-in">
+                <div class="cert-badge">
+                    <img href="badges/sfpc-badge.png" />
                 </div>
-                <ul class="experience-description">
-                    <li>Provisionamento e administração de VMs em Azure e AWS para ambientes corporativos</li>
-                    <li>Desenvolvimento de scripts PowerShell para automação de processos e geração de relatórios gerenciais</li>
-                    <li>Gestão de segurança de endpoints (Bitdefender), redes (Aruba Networking) e dispositivos mobile (Ivanti Speakeasy)</li>
-                    <li>Suporte técnico N1 e N3 com foco em solução de incidentes críticos</li>
-                    <li>Pré e pós-venda de soluções AutoID/AIDC, atuando como ponte entre cliente e equipe técnica</li>
-                </ul>
-                <div class="tech-tags">
-                    <span class="tech-tag">Azure</span>
-                    <span class="tech-tag">AWS</span>
-                    <span class="tech-tag">PowerShell</span>
-                    <span class="tech-tag">Bitdefender</span>
-                    <span class="tech-tag">Aruba Networking</span>
-                    <span class="tech-tag">Ivanti</span>
+                <h3 class="cert-title">Scrum Foundation Professional Certificate</h3>
+                <p class="cert-issuer">CertiProf</p>
+                <p class="cert-year">2026</p>
+                <div class="cert-verify">
+                    <a href="#" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Verificar Certificação
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SEÇÃO COMPETÊNCIAS -->
-        <section class="competencias" id="competencias">
-            <div class="section-number">04</div>
-            <h2 class="section-title">## competencias()</h2>
-            <div class="competencias-grid">
-                <div class="competencia-category reveal">
-                    <h3><i class="fas fa-users-cog"></i>Gestão & Produto</h3>
-                    <div class="competencia-list">
-                        <div class="competencia-item">Gestão de equipes de desenvolvimento</div>
-                        <div class="competencia-item">Product Owner (PSPO certificado)</div>
-                        <div class="competencia-item">Metodologias ágeis (Scrum, Kanban)</div>
-                        <div class="competencia-item">Planejamento estratégico de TI</div>
-                        <div class="competencia-item">Stakeholder management</div>
-                        <div class="competencia-item">Code review e padrões técnicos</div>
-                        <div class="competencia-item">Mentoria de desenvolvedores</div>
-                        <div class="competencia-item">Discovery técnico e estimativas</div>
-                    </div>
-                </div>
-
-                <div class="competencia-category reveal">
-                    <h3><i class="fas fa-cloud"></i>Infraestrutura & Cloud</h3>
-                    <div class="competencia-list">
-                        <div class="competencia-item">AWS (provisionamento e administração)</div>
-                        <div class="competencia-item">Azure (máquinas virtuais, infra)</div>
-                        <div class="competencia-item">Digital Ocean</div>
-                        <div class="competencia-item">Docker e CI/CD pipelines</div>
-                        <div class="competencia-item">Segurança de endpoints (Bitdefender)</div>
-                        <div class="competencia-item">Redes (Aruba Networking)</div>
-                        <div class="competencia-item">Gestão de dispositivos mobile (Ivanti)</div>
-                        <div class="competencia-item">Automação (PowerShell)</div>
-                    </div>
-                </div>
-
-                <div class="competencia-category reveal">
-                    <h3><i class="fas fa-code"></i>Base Técnica</h3>
-                    <div class="competencia-list">
-                        <div class="competencia-item">PHP & Laravel</div>
-                        <div class="competencia-item">JavaScript (ES6+, React)</div>
-                        <div class="competencia-item">WordPress (temas, plugins, headless)</div>
-                        <div class="competencia-item">WooCommerce & ACF</div>
-                        <div class="competencia-item">Sage Framework (9/10/11)</div>
-                        <div class="competencia-item">REST APIs & integrações</div>
-                        <div class="competencia-item">Otimização de performance</div>
-                        <div class="competencia-item">SEO técnico</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO CONTATO -->
-        <section class="contact" id="contato">
-            <div class="section-number">05</div>
-            <h2 class="section-title">## contato()</h2>
-            <div class="contact-content">
-                <div class="contact-terminal reveal">
-                    <div class="terminal-header">
-                        <div class="terminal-button red"></div>
-                        <div class="terminal-button yellow"></div>
-                        <div class="terminal-button green"></div>
-                        <div class="terminal-title">contato@lucas: ~</div>
-                    </div>
-                    <div class="terminal-body">
+    <!-- EXPERIÊNCIA -->
+    <section class="experiencia" id="experiencia">
+        <div class="section-header">
+            <div class="section-tag">Experiência Profissional</div>
+            <h2 class="section-title">Trajetória de Liderança e Inovação</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-header">
                         <div>
-                            <span class="prompt">$</span>
-                            <span class="command">cat mensagem.txt</span>
+                            <h3 class="timeline-title">Development Team Lead</h3>
+                            <div class="timeline-company">Too Seguros</div>
                         </div>
-                        <p class="contact-message">
-                            Tech Lead & Full-Stack Developer com 8+ anos de experiência em WordPress, PHP e liderança de equipes de desenvolvimento. Experiência em projetos de grande escala, metodologias ágeis e entrega de resultados.
-                        </p>
-                        <div>
-                            <span class="prompt">$</span>
-                            <span class="command">echo $STATUS</span>
+                        <div class="timeline-meta">
+                            <span><i class="far fa-calendar"></i> Atual</span>
+                            <span><i class="fas fa-building"></i> Insurtech</span>
+                        </div>
+                    </div>
+                    <div class="timeline-description">
+                        <ul>
+                            <li>Liderança de equipe de desenvolvimento em empresa de insurtech, gerenciando projetos digitais e infraestrutura de sistemas</li>
+                            <li>Alinhamento de TI com objetivos estratégicos de negócio, traduzindo requisitos em roadmaps técnicos executáveis</li>
+                            <li>Gestão de stakeholders e facilitação de comunicação entre áreas técnicas e de negócio</li>
+                            <li>Implementação de metodologias ágeis (Scrum/Kanban) e melhoria contínua de processos</li>
+                            <li>Definição de padrões técnicos, code review e mentoria de desenvolvedores</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Gestão de Equipes</span>
+                            <span class="tech-tag">Product Management</span>
+                            <span class="tech-tag">Scrum</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Stakeholder Management</span>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="contact-links">
-                    <a href="mailto:lbonavin@gmail.com" class="contact-link reveal">
-                        <i class="fas fa-envelope"></i>
-                        <span>lbonavin@gmail.com</span>
-                    </a>
-                    <a href="tel:+5511999906996" class="contact-link reveal">
-                        <i class="fas fa-phone"></i>
-                        <span>(11) 99990-6996</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/lbonavina/" class="contact-link reveal" target="_blank">
-                        <i class="fab fa-linkedin-in"></i>
-                        <span>linkedin.com/in/lbonavina</span>
-                    </a>
-                    <a href="#" class="contact-link reveal">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>São Paulo, SP</span>
-                    </a>
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <div>
+                            <h3 class="timeline-title">Team Lead / Full Stack Developer</h3>
+                            <div class="timeline-company">Studio Visual & Mufasa Agency</div>
+                        </div>
+                        <div class="timeline-meta">
+                            <span><i class="far fa-calendar"></i> 2018 - 2024</span>
+                        </div>
+                    </div>
+                    <div class="timeline-description">
+                        <ul>
+                            <li>Liderança de projetos WordPress de média escala para clientes corporativos (multisites, e-commerce, integrações)</li>
+                            <li>Gestão de times e processos ágeis, estabelecendo arquitetura técnica e padrões de código</li>
+                            <li>Planejamento estratégico e estimativa de esforço em discovery técnico com clientes</li>
+                            <li>Otimização de performance e SEO técnico, elevando Core Web Vitals</li>
+                            <li>Mentoria técnica e desenvolvimento de competências do time</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Liderança Técnica</span>
+                            <span class="tech-tag">WordPress</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">Cloud</span>
+                            <span class="tech-tag">CI/CD</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <div>
+                            <h3 class="timeline-title">Analista de TI</h3>
+                            <div class="timeline-company">TI Tech Solutions</div>
+                        </div>
+                        <div class="timeline-meta">
+                            <span><i class="far fa-calendar"></i> 2017 - 2018</span>
+                        </div>
+                    </div>
+                    <div class="timeline-description">
+                        <ul>
+                            <li>Provisionamento e administração de VMs em Azure e AWS</li>
+                            <li>Desenvolvimento de scripts PowerShell para automação</li>
+                            <li>Gestão de segurança (Bitdefender), redes (Aruba) e dispositivos mobile</li>
+                            <li>Suporte técnico N1 e N3</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Azure</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">PowerShell</span>
+                            <span class="tech-tag">Infraestrutura</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPETÊNCIAS -->
+    <section class="competencias" id="competencias">
+        <div class="section-header">
+            <div class="section-tag">Competências</div>
+            <h2 class="section-title">Áreas de Especialização</h2>
+        </div>
+        <div class="competencias-grid">
+            <div class="competencia-card fade-in">
+                <div class="competencia-icon">
+                    <i class="fas fa-users-cog"></i>
+                </div>
+                <h3 class="competencia-title">Gestão & Produto</h3>
+                <ul class="competencia-list">
+                    <li class="competencia-item">Gestão de equipes de desenvolvimento</li>
+                    <li class="competencia-item">Product Owner (PSPO certificado)</li>
+                    <li class="competencia-item">Metodologias ágeis (Scrum, Kanban)</li>
+                    <li class="competencia-item">Planejamento estratégico de TI</li>
+                    <li class="competencia-item">Stakeholder management</li>
+                    <li class="competencia-item">Code review e padrões técnicos</li>
+                    <li class="competencia-item">Mentoria de desenvolvedores</li>
+                </ul>
+            </div>
+
+            <div class="competencia-card fade-in">
+                <div class="competencia-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3 class="competencia-title">Infraestrutura & Cloud</h3>
+                <ul class="competencia-list">
+                    <li class="competencia-item">AWS (provisionamento e administração)</li>
+                    <li class="competencia-item">Azure (máquinas virtuais)</li>
+                    <li class="competencia-item">Digital Ocean</li>
+                    <li class="competencia-item">Docker e CI/CD pipelines</li>
+                    <li class="competencia-item">Segurança de endpoints</li>
+                    <li class="competencia-item">Gestão de redes</li>
+                    <li class="competencia-item">Automação (PowerShell)</li>
+                </ul>
+            </div>
+
+            <div class="competencia-card fade-in">
+                <div class="competencia-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="competencia-title">Desenvolvimento</h3>
+                <ul class="competencia-list">
+                    <li class="competencia-item">PHP & Laravel</li>
+                    <li class="competencia-item">JavaScript (ES6+, React)</li>
+                    <li class="competencia-item">WordPress (temas, plugins, headless)</li>
+                    <li class="competencia-item">WooCommerce & ACF</li>
+                    <li class="competencia-item">REST APIs & integrações</li>
+                    <li class="competencia-item">Otimização de performance</li>
+                    <li class="competencia-item">SEO técnico</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="contato" id="contato">
+        <div class="section-header">
+            <div class="section-tag">Contato</div>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-card fade-in">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-label">Email</div>
+                <div class="contact-value">
+                    <a href="mailto:lbonavin@gmail.com">lbonavin@gmail.com</a>
+                </div>
+            </div>
+
+            <div class="contact-card fade-in">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-label">Telefone</div>
+                <div class="contact-value">
+                    <a href="tel:+5511999906996">(11) 99990-6996</a>
+                </div>
+            </div>
+
+            <div class="contact-card fade-in">
+                <div class="contact-icon">
+                    <i class="fab fa-linkedin"></i>
+                </div>
+                <div class="contact-label">LinkedIn</div>
+                <div class="contact-value">
+                    <a href="https://www.linkedin.com/in/lbonavina/" target="_blank">lbonavina</a>
+                </div>
+            </div>
+
+            <div class="contact-card fade-in">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-label">Localização</div>
+                <div class="contact-value">São Paulo, SP</div>
+            </div>
+        </div>
+    </section>
 
     <!-- FOOTER -->
     <footer>
-        <div class="footer-content">
-            <p>// IT Manager & <span>Product Owner</span> • PSPO Certified • const ano = 2026;</p>
-        </div>
+        <p>&copy; 2026 Lucas Bonavina. Todos os direitos reservados.</p>
     </footer>
 
     <!-- JAVASCRIPT -->
     <script>
-        // ===== MENU MOBILE =====
+        // Menu Mobile
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
 
@@ -1231,16 +1102,16 @@
             });
         });
 
-        // ===== SCROLL REVEAL =====
-        const reveals = document.querySelectorAll('.reveal');
+        // Scroll Reveal
+        const fadeElements = document.querySelectorAll('.fade-in');
         
         const revealOnScroll = () => {
-            reveals.forEach(element => {
+            fadeElements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
                 
                 if (elementTop < windowHeight - 100) {
-                    element.classList.add('active');
+                    element.classList.add('visible');
                 }
             });
         };
@@ -1248,34 +1119,13 @@
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
 
-        // ===== BACKGROUND CODE ANIMATION =====
-        const bgAnimation = document.getElementById('bgAnimation');
-        const codeSnippets = [
-            'class ProductOwner {',
-            'function leadTeam() {',
-            'const sprint = planSprint();',
-            'await deliverValue();',
-            'interface TeamLead {',
-            'const roadmap = defineStrategy();',
-            'stakeholder.align(goals);',
-            'team.mentorship();',
-            'agile.methodology();',
-            'cloud.infrastructure();',
-        ];
-
-        let bgContent = '';
-        for (let i = 0; i < 100; i++) {
-            bgContent += codeSnippets[Math.floor(Math.random() * codeSnippets.length)] + '\n';
-        }
-        bgAnimation.textContent = bgContent;
-
-        // ===== SMOOTH SCROLL =====
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const headerHeight = 70;
+                    const headerHeight = 72;
                     const targetPosition = target.offsetTop - headerHeight;
                     
                     window.scrollTo({
@@ -1284,48 +1134,6 @@
                     });
                 }
             });
-        });
-
-        // ===== STATS COUNTER ANIMATION =====
-        const animateValue = (element, start, end, duration, isString = false) => {
-            if (isString) {
-                element.textContent = end;
-                return;
-            }
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                const value = Math.floor(progress * (end - start) + start);
-                element.textContent = value + (element.dataset.suffix || '');
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        };
-
-        const observeStats = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
-                    entry.target.classList.add('animated');
-                    const statNumber = entry.target.querySelector('.stat-number');
-                    const text = statNumber.textContent;
-                    
-                    if (text === 'PSPO' || text === 'B2') {
-                        statNumber.textContent = text;
-                    } else {
-                        const number = parseInt(text.replace(/\D/g, ''));
-                        const suffix = text.replace(/[0-9]/g, '');
-                        statNumber.dataset.suffix = suffix;
-                        animateValue(statNumber, 0, number, 2000);
-                    }
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll('.stat-card').forEach(card => {
-            observeStats.observe(card);
         });
     </script>
 </body>
