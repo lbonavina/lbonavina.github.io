@@ -256,7 +256,114 @@
             font-family: var(--fonte-mono);
             font-size: 0.85rem;
             margin-top: 1rem;
+            margin-right: 0.5rem;
             border: 1px solid var(--cor-acento);
+        }
+
+        /* ===== CERTIFICAÇÕES ===== */
+        .certificacoes {
+            background: var(--cor-secundaria);
+            padding: 4rem 3rem;
+        }
+
+        .cert-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background: var(--cor-detalhes);
+            border: 1px solid var(--cor-acento);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(12, 126, 126, 0.4);
+        }
+
+        .cert-image-wrapper {
+            width: 100%;
+            height: 200px;
+            background: var(--cor-secundaria);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed rgba(12, 126, 126, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cert-image-wrapper img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .cert-placeholder {
+            color: rgba(255, 255, 255, 0.4);
+            font-family: var(--fonte-mono);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .cert-title {
+            font-size: 1.2rem;
+            color: var(--cor-destaque);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .cert-issuer {
+            color: var(--cor-acento);
+            font-family: var(--fonte-mono);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-year {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+        }
+
+        .cert-verify {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(12, 126, 126, 0.3);
+        }
+
+        .cert-verify a {
+            color: var(--cor-acento);
+            text-decoration: none;
+            font-family: var(--fonte-mono);
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .cert-verify a:hover {
+            color: var(--cor-destaque);
+        }
+
+        .cert-verify i {
+            margin-right: 0.5rem;
         }
 
         .cta-buttons {
@@ -736,6 +843,7 @@
             <ul class="nav-links">
                 <li><a href="#home">inicio()</a></li>
                 <li><a href="#sobre">sobre()</a></li>
+                <li><a href="#certificacoes">certificacoes()</a></li>
                 <li><a href="#experiencia">experiencia()</a></li>
                 <li><a href="#competencias">competencias()</a></li>
                 <li><a href="#contato">contato()</a></li>
@@ -859,9 +967,61 @@
             </div>
         </section>
 
+        <!-- SEÇÃO CERTIFICAÇÕES -->
+        <section class="certificacoes" id="certificacoes">
+            <div class="section-number">02</div>
+            <h2 class="section-title">## certificacoes()</h2>
+            <p class="cert-intro reveal">
+                Investimento contínuo em desenvolvimento profissional com foco em gestão de produtos, metodologias ágeis e liderança de projetos.
+            </p>
+            <div class="cert-grid">
+                <div class="cert-card reveal">
+                    <div class="cert-image-wrapper">
+                        <img src="badges/pspo-badge.png" alt="PSPO Certificate">
+                    </div>
+                    <h3 class="cert-title">Professional Scrum Product Owner I (PSPO I)</h3>
+                    <p class="cert-issuer">Scrum.org</p>
+                    <p class="cert-year">2026</p>
+                    <div class="cert-verify">
+                        <a href="#" target="_blank">
+                            <i class="fas fa-certificate"></i>Verificar Certificação
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card reveal">
+                    <div class="cert-image-wrapper">
+                        <img src="badges/sfpc-badge.png" alt="PSPO Certificate">
+                    </div>
+                    <h3 class="cert-title">Scrum Foundation Professional Certificate (SFPC™)</h3>
+                    <p class="cert-issuer">CertiProf</p>
+                    <p class="cert-year">2026</p>
+                    <div class="cert-verify">
+                        <a href="https://profiles.badgeclaimed.com/lbonavina/badges/urn:uuid:ff4a9ecf-0f29-422b-ad98-1fbd688a3d9e.html" target="_blank">
+                            <i class="fas fa-certificate"></i>Verificar Certificação
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card reveal">
+                    <div class="cert-image-wrapper">
+                        <img src="badges/googlepm-badge.png" alt="PSPO Certificate">
+                    </div>
+                    <h3 class="cert-title">Google Project Management Certificate</h3>
+                    <p class="cert-issuer">Coursera</p>
+                    <p class="cert-year">2026</p>
+                    <div class="cert-verify">
+                        <a href="https://www.credly.com/badges/a5e84b9b-97d8-423d-88f0-1113f7d6e802/public_url" target="_blank">
+                            <i class="fas fa-certificate"></i>Verificar Certificação
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- SEÇÃO EXPERIÊNCIA -->
         <section class="experience" id="experiencia">
-            <div class="section-number">02</div>
+            <div class="section-number">03</div>
             <h2 class="section-title">## experiencia()</h2>
             
             <div class="experience-item reveal">
@@ -951,7 +1111,7 @@
 
         <!-- SEÇÃO COMPETÊNCIAS -->
         <section class="competencias" id="competencias">
-            <div class="section-number">03</div>
+            <div class="section-number">04</div>
             <h2 class="section-title">## competencias()</h2>
             <div class="competencias-grid">
                 <div class="competencia-category reveal">
@@ -1000,7 +1160,7 @@
 
         <!-- SEÇÃO CONTATO -->
         <section class="contact" id="contato">
-            <div class="section-number">04</div>
+            <div class="section-number">05</div>
             <h2 class="section-title">## contato()</h2>
             <div class="contact-content">
                 <div class="contact-terminal reveal">
@@ -1037,7 +1197,7 @@
                     </a>
                     <a href="https://www.linkedin.com/in/lbonavina/" class="contact-link reveal" target="_blank">
                         <i class="fab fa-linkedin-in"></i>
-                        <span>lbonavina</span>
+                        <span>linkedin.com/in/lbonavina</span>
                     </a>
                     <a href="#" class="contact-link reveal">
                         <i class="fas fa-map-marker-alt"></i>
