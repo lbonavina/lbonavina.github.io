@@ -375,7 +375,6 @@
         }
 
         .btn-primary:hover {
-            background: var(--cor-detalhes);
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(33, 150, 243, 0.3);
         }
@@ -1188,6 +1187,56 @@
 
         /* ===== RESPONSIVO ===== */
         @media (max-width: 968px) {
+
+            /* MODAL MOBILE */
+            .modal.active {
+                padding: 1rem;
+                align-items: flex-end;
+            }
+
+            .modal-content {
+                max-height: 95vh;
+                border-radius: 16px 16px 0 0;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+            }
+
+            .modal-title {
+                font-size: 1.4rem;
+            }
+
+            .modal-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .modal-section h3 {
+                font-size: 1.1rem;
+            }
+
+            .modal-section p,
+            .modal-section li {
+                font-size: 0.9rem;
+            }
+
+            .modal-header {
+                height: 220px;
+            }
+
+            .result-number {
+                font-size: 1.5rem;
+            }
+
+            .result-label {
+                font-size: 0.8rem;
+            }
+
+            .modal-close {
+                top: 1rem;
+                right: 1rem;
+            }
+
             .nav-links {
                 position: fixed;
                 right: -100%;
@@ -1267,6 +1316,20 @@
             .stats {
                 grid-template-columns: 1fr;
             }
+
+            .modal-body {
+                padding: 1rem;
+            }
+
+            .modal-title {
+                font-size: 1.2rem;
+            }
+
+            .tech-tag {
+                font-size: 0.75rem;
+                padding: 0.3rem 0.6rem;
+            }
+
         }
 
         /* ===== LIGHTBOX ===== */
@@ -1420,7 +1483,8 @@
                 <div class="section-tag">Sobre Mim</div>
                 <h2 class="section-title">Conectando Tecnologia e Negócios</h2>
                 <p class="section-description">
-                    Profissional experiente em liderar equipes técnicas e entregar soluções que geram valor real
+                    Profissional experiente em liderar equipes técnicas e entregar soluções que geram valor real. Sem
+                    abrir mão do operacional, com sólida experiência em desenvolvimento.
                 </p>
             </div>
             <div class="sobre-content">
@@ -1447,12 +1511,12 @@
                         <div class="stat-label">Anos em Liderança</div>
                     </div>
                     <div class="stat-box">
-                        <div class="stat-number">3</div>
+                        <div class="stat-number">2</div>
                         <div class="stat-label">Certificações</div>
                     </div>
                     <div class="stat-box">
                         <div class="stat-number">B2</div>
-                        <div class="stat-label">Inglês Avançado</div>
+                        <div class="stat-label">Inglês</div>
                     </div>
                 </div>
             </div>
@@ -1472,7 +1536,7 @@
             <div class="cert-grid">
                 <div class="cert-card fade-in">
                     <div class="cert-badge">
-                        <img src="badges/googlepm-badge.png" alt="Google Certificate">
+                        <img src="badges/googlepm-badge.webp" alt="Google Certificate">
                     </div>
                     <h3 class="cert-title">Google Project Management Certificate</h3>
                     <p class="cert-issuer">Coursera</p>
@@ -1486,7 +1550,7 @@
 
                 <div class="cert-card fade-in">
                     <div class="cert-badge">
-                        <img src="badges/sfpc-badge.png" alt="SFPC Certificate">
+                        <img src="badges/sfpc-badge.webp" alt="SFPC Certificate">
                     </div>
                     <h3 class="cert-title">Scrum Foundation Professional Certificate (SFPC™)</h3>
                     <p class="cert-issuer">CertiProf</p>
@@ -1629,7 +1693,7 @@
                 <!-- Projeto 1 -->
                 <div class="portfolio-card fade-in" onclick="openModal('modal1')">
                     <div class="portfolio-image">
-                        <img src="projetos/dny.png" alt="Projeto Dicas Nova York">
+                        <img src="projetos/dny.webp" alt="Projeto Dicas Nova York">
                         <div class="portfolio-overlay">
                             <span class="portfolio-category">Portal de Notícias</span>
                         </div>
@@ -1660,7 +1724,7 @@
                 <!-- Projeto 2 -->
                 <div class="portfolio-card fade-in" onclick="openModal('modal2')">
                     <div class="portfolio-image">
-                        <img src="projetos/gab1.png" alt="Projeto GAB">
+                        <img src="projetos/gab1.webp" alt="Projeto GAB">
                         <div class="portfolio-overlay">
                             <span class="portfolio-category">Portal do Cliente</span>
                         </div>
@@ -1688,7 +1752,7 @@
                 <!-- Projeto 3 -->
                 <div class="portfolio-card fade-in" onclick="openModal('modal3')">
                     <div class="portfolio-image">
-                        <img src="projetos/too1.png" alt="Projeto Universidade Too">
+                        <img src="projetos/too1.webp" alt="Projeto Universidade Too">
                         <div class="portfolio-overlay">
                             <span class="portfolio-category">Plataforma de Treinamento</span>
                         </div>
@@ -1725,7 +1789,7 @@
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal('modal1')">&times;</button>
             <div class="modal-header">
-                <img src="projetos/dny.png" style="object-position: top;" alt="Projeto Dicas Nova York">
+                <img src="projetos/dny.webp" style="object-position: top;" alt="Projeto Dicas Nova York">
             </div>
             <div class="modal-body">
                 <a style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;"
@@ -1798,25 +1862,25 @@
                         <div class="modal-gallery-item">
                             <div
                                 style="width:100%;height:100%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#999;">
-                                <img src="projetos/dny.png" alt="Dicas Nova York">
+                                <img src="projetos/dny.webp" alt="Dicas Nova York">
                             </div>
                         </div>
                         <div class="modal-gallery-item">
                             <div
                                 style="width:100%;height:100%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#999;">
-                                <img src="projetos/dny2.png" alt="Dicas Nova York">
+                                <img src="projetos/dny2.webp" alt="Dicas Nova York">
                             </div>
                         </div>
                         <div class="modal-gallery-item">
                             <div
                                 style="width:100%;height:100%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#999;">
-                                <img src="projetos/dny3.png" alt="Dicas Nova York">
+                                <img src="projetos/dny3.webp" alt="Dicas Nova York">
                             </div>
                         </div>
                         <div class="modal-gallery-item">
                             <div
                                 style="width:100%;height:100%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#999;">
-                                <img src="projetos/dny4.png" alt="Dicas Nova York">
+                                <img src="projetos/dny4.webp" alt="Dicas Nova York">
                             </div>
                         </div>
                     </div>
@@ -1829,7 +1893,7 @@
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal('modal2')">&times;</button>
             <div class="modal-header">
-                <img src="projetos/gab1.png" style="object-position: top;" alt="Projeto Dicas Nova York">
+                <img src="projetos/gab1.webp" style="object-position: top;" alt="Projeto Dicas Nova York">
             </div>
             <div class="modal-body">
                 <a style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;"
@@ -1905,13 +1969,13 @@
                     <h3><i class="fas fa-images"></i> Galeria</h3>
                     <div class="modal-gallery">
                         <div class="modal-gallery-item">
-                            <img src="projetos/gab1.png" alt="GAB - Tela de Login">
+                            <img src="projetos/gab1.webp" alt="GAB - Tela de Login">
                         </div>
                         <div class="modal-gallery-item">
-                            <img src="projetos/gab2.png" alt="GAB - Dashboard do Cliente">
+                            <img src="projetos/gab2.webp" alt="GAB - Dashboard do Cliente">
                         </div>
                         <div class="modal-gallery-item">
-                            <img src="projetos/gab3.png" alt="GAB - Consulta de Conta">
+                            <img src="projetos/gab3.webp" alt="GAB - Consulta de Conta">
                         </div>
                     </div>
                 </div>
@@ -1924,7 +1988,7 @@
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal('modal3')">&times;</button>
             <div class="modal-header">
-                <img src="projetos/too1.png" style="object-position: top;" alt="Projeto Universidade TOo">
+                <img src="projetos/too1.webp" style="object-position: top;" alt="Projeto Universidade TOo">
             </div>
             <div class="modal-body">
                 <h2 class="modal-title">Universidade Too Seguros</h2>
@@ -1991,16 +2055,16 @@
                     <h3><i class="fas fa-images"></i> Galeria</h3>
                     <div class="modal-gallery">
                         <div class="modal-gallery-item">
-                            <img src="projetos/too1.png" alt="Universidade Too Seguros - Home">
+                            <img src="projetos/too1.webp" alt="Universidade Too Seguros - Home">
                         </div>
                         <div class="modal-gallery-item">
-                            <img src="projetos/too2.png" alt="Universidade Too Seguros - Cursos">
+                            <img src="projetos/too2.webp" alt="Universidade Too Seguros - Cursos">
                         </div>
                         <div class="modal-gallery-item">
-                            <img src="projetos/too3.png" alt="Universidade Too Seguros - Gamificação">
+                            <img src="projetos/too3.webp" alt="Universidade Too Seguros - Gamificação">
                         </div>
                         <div class="modal-gallery-item">
-                            <img src="projetos/too4.png" alt="Universidade Too Seguros - Gamificação">
+                            <img src="projetos/too4.webp" alt="Universidade Too Seguros - Gamificação">
                         </div>
                     </div>
                 </div>
@@ -2178,10 +2242,9 @@
 
         // Typing Effect
         const phrases = [
-            "IT Manager",
-            "Development Team Lead",
             "Full-Stack Developer",
-            "Product Owner"
+            "Development Team Lead",
+            "Product Owner / Gestão"
         ];
 
         let phraseIndex = 0;
