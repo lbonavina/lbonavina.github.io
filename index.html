@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucas Bonavina | IT Manager & Product Owner</title>
-    <meta name="description" content="Development Team Lead | IT Manager | Product Owner com 8+ anos liderando equipes e produtos digitais">
-    
+    <meta name="description"
+        content="Development Team Lead | IT Manager | Product Owner com 8+ anos liderando equipes e produtos digitais">
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:wght@700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:wght@700&display=swap"
+        rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="favicon.png">
-    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
     <style>
         * {
             margin: 0;
@@ -53,7 +57,7 @@
         /* ===== HEADER ===== */
         header {
             background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: fixed;
             width: 100%;
             top: 0;
@@ -124,10 +128,152 @@
         }
 
         /* ===== HERO ===== */
+        /* ===== HERO ===== */
         .hero {
-            background: white;
-            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, #0d1b5e 0%, #1A237E 40%, #1565C0 70%, #0d47a1 100%);
+            background-size: 300% 300%;
+            animation: gradientShift 8s ease infinite;
+            padding: 8rem 2rem 5rem;
             margin-top: 72px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(33, 150, 243, 0.15) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+            animation: pulse 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(100, 181, 246, 0.1) 0%, transparent 70%);
+            bottom: -80px;
+            left: -80px;
+            border-radius: 50%;
+            animation: pulse 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1) translate(0, 0);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: scale(1.2) translate(20px, -20px);
+                opacity: 1;
+            }
+        }
+
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .hero-particles span {
+            position: absolute;
+            display: block;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            animation: floatParticle linear infinite;
+        }
+
+        .hero-particles span:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            left: 10%;
+            animation-duration: 12s;
+            animation-delay: 0s;
+        }
+
+        .hero-particles span:nth-child(2) {
+            width: 50px;
+            height: 50px;
+            left: 25%;
+            animation-duration: 16s;
+            animation-delay: 2s;
+        }
+
+        .hero-particles span:nth-child(3) {
+            width: 120px;
+            height: 120px;
+            left: 50%;
+            animation-duration: 10s;
+            animation-delay: 1s;
+        }
+
+        .hero-particles span:nth-child(4) {
+            width: 40px;
+            height: 40px;
+            left: 65%;
+            animation-duration: 14s;
+            animation-delay: 3s;
+        }
+
+        .hero-particles span:nth-child(5) {
+            width: 90px;
+            height: 90px;
+            left: 80%;
+            animation-duration: 18s;
+            animation-delay: 0.5s;
+        }
+
+        .hero-particles span:nth-child(6) {
+            width: 60px;
+            height: 60px;
+            left: 90%;
+            animation-duration: 11s;
+            animation-delay: 4s;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                bottom: -150px;
+                transform: rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 0.5;
+            }
+
+            100% {
+                bottom: 110%;
+                transform: rotate(720deg);
+                opacity: 0;
+            }
         }
 
         .hero-content {
@@ -136,26 +282,51 @@
             display: grid;
             gap: 4rem;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
 
         .hero-text h1 {
             font-size: 3rem;
             font-weight: 800;
-            color: var(--cor-principal);
+            color: #ffffff;
             margin-bottom: 1rem;
             line-height: 1.2;
         }
 
         .hero-subtitle {
             font-size: 1.3rem;
-            color: var(--cor-acento);
+            color: var(--cor-destaque);
             margin-bottom: 1.5rem;
             font-weight: 600;
+            min-height: 2rem;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.1em;
+            background: var(--cor-destaque);
+            margin-left: 2px;
+            vertical-align: middle;
+            animation: blink 0.8s step-end infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
         }
 
         .hero-description {
             font-size: 1.1rem;
-            color: var(--cor-text-light);
+            color: rgba(255, 255, 255, 0.75);
             margin-bottom: 2rem;
             line-height: 1.8;
         }
@@ -168,13 +339,13 @@
         }
 
         .badge {
-            background: var(--cor-background);
-            color: var(--cor-acento);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--cor-destaque);
             padding: 0.5rem 1rem;
             border-radius: 6px;
             font-size: 0.85rem;
             font-weight: 500;
-            border: 1px solid var(--cor-acento);
+            border: 1px solid rgba(100, 181, 246, 0.4);
         }
 
         .badge i {
@@ -206,18 +377,19 @@
         .btn-primary:hover {
             background: var(--cor-detalhes);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(12, 126, 126, 0.3);
+            box-shadow: 0 10px 25px rgba(33, 150, 243, 0.3);
         }
 
         .btn-secondary {
-            background: white;
-            color: var(--cor-acento);
-            border: 2px solid var(--cor-acento);
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
         }
 
         .btn-secondary:hover {
-            background: var(--cor-acento);
+            background: rgba(255, 255, 255, 0.15);
             color: white;
+            transform: translateY(-2px);
         }
 
         .hero-image {
@@ -227,21 +399,7 @@
         .hero-image img {
             width: 100%;
             border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-        }
-
-        .hero-image-placeholder {
-            width: 100%;
-            height: 500px;
-            background: linear-gradient(135deg, var(--cor-acento), var(--cor-detalhes));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            text-align: center;
-            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
         }
 
         /* ===== SEÇÕES ===== */
@@ -320,7 +478,7 @@
 
         .stat-box:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
         .stat-number {
@@ -346,7 +504,7 @@
             background: white;
             border-radius: 12px;
             padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             border: 2px solid transparent;
         }
@@ -354,7 +512,7 @@
         .cert-card:hover {
             transform: translateY(-10px);
             border-color: var(--cor-acento);
-            box-shadow: 0 15px 40px rgba(12, 126, 126, 0.15);
+            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.15);
         }
 
         .cert-badge {
@@ -364,13 +522,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 2rem;
-            color: white;
+            margin-bottom: 1.5rem;
         }
 
         .cert-badge img {
             width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .cert-title {
@@ -455,7 +613,7 @@
         }
 
         .timeline-content:hover {
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transform: translateX(10px);
         }
 
@@ -534,13 +692,13 @@
             background: white;
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
         }
 
         .competencia-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
 
         .competencia-icon {
@@ -578,6 +736,310 @@
             border-bottom: none;
         }
 
+        /* ===== PORTFOLIO ===== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--cor-acento);
+            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.15);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--cor-acento), var(--cor-detalhes));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-image-placeholder {
+            color: white;
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+
+        .portfolio-category {
+            background: var(--cor-acento);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .portfolio-info {
+            padding: 2rem;
+        }
+
+        .portfolio-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--cor-principal);
+            margin-bottom: 0.8rem;
+        }
+
+        .portfolio-description {
+            color: var(--cor-text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .portfolio-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--cor-text-light);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-meta i {
+            color: var(--cor-acento);
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--cor-principal);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--cor-acento);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, var(--cor-acento), var(--cor-detalhes));
+            overflow: hidden;
+        }
+
+        .modal-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 3rem;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--cor-principal);
+            margin-bottom: 1rem;
+        }
+
+        .modal-subtitle {
+            color: var(--cor-acento);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .modal-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .modal-section h3 {
+            font-size: 1.3rem;
+            color: var(--cor-principal);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-section h3 i {
+            color: var(--cor-acento);
+        }
+
+        .modal-section p,
+        .modal-section li {
+            color: var(--cor-text-light);
+            line-height: 1.8;
+        }
+
+        .modal-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .modal-section li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.8rem;
+        }
+
+        .modal-section li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--cor-acento);
+            font-weight: bold;
+        }
+
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .modal-gallery-item {
+            height: 150px;
+            background: var(--cor-background);
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .result-box {
+            background: var(--cor-background);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .result-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--cor-acento);
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            font-size: 0.85rem;
+            color: var(--cor-text-light);
+        }
+
         /* ===== CONTATO ===== */
         .contato {
             background: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
@@ -602,17 +1064,17 @@
         }
 
         .contact-card {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             padding: 2rem;
             border-radius: 12px;
             text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .contact-card:hover {
-            background: rgba(255,255,255,0.15);
+            background: rgba(255, 255, 255, 0.15);
             transform: translateY(-5px);
         }
 
@@ -646,7 +1108,7 @@
         /* ===== FOOTER ===== */
         footer {
             background: var(--cor-principal);
-            color: rgba(255,255,255,0.8);
+            color: rgba(255, 255, 255, 0.8);
             padding: 3rem 2rem;
         }
 
@@ -691,7 +1153,7 @@
         .footer-social {
             width: 40px;
             height: 40px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             color: white;
             display: flex;
             align-items: center;
@@ -735,7 +1197,7 @@
                 width: 100%;
                 padding: 2rem;
                 transition: 0.3s;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             }
 
             .nav-links.active {
@@ -806,14 +1268,106 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* ===== LIGHTBOX ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 8px;
+            object-fit: contain;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10000;
+        }
+
+        .lightbox-close:hover {
+            background: var(--cor-acento);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-prev,
+        .lightbox-next {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10000;
+        }
+
+        .lightbox-prev {
+            left: 1.5rem;
+        }
+
+        .lightbox-next {
+            right: 1.5rem;
+        }
+
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            background: var(--cor-acento);
+        }
+
+        .lightbox-counter {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+        }
     </style>
 </head>
+
 <body>
     <!-- HEADER -->
     <header>
         <nav>
             <div class="logo">
-                <div class="logo-initial">LB</div>
                 <span>Lucas Bonavina</span>
             </div>
             <ul class="nav-links">
@@ -821,8 +1375,8 @@
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#certificacoes">Certificações</a></li>
                 <li><a href="#experiencia">Experiência</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#competencias">Competências</a></li>
-                <li><a href="#contato">Contato</a></li>
             </ul>
             <div class="menu-toggle" id="mobile-menu">
                 <span></span>
@@ -834,19 +1388,25 @@
 
     <!-- HERO -->
     <section class="hero" id="home">
+        <div class="hero-particles">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+        </div>
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Lucas Bonavina</h1>
-                <div class="hero-subtitle">IT Manager · Team Lead · Product Owner</div>
+                <div class="hero-subtitle"><span id="typing-text"></span><span class="cursor"></span></div>
                 <p class="hero-description">
-Profissional de TI com 8+ anos de experiência evoluindo de desenvolvedor full stack a líder técnico. Atuo na intersecção entre tecnologia e negócio, gerenciando equipes, definindo roadmaps e garantindo que soluções digitais gerem resultados reais.                </p>
+                    Profissional de TI com 8+ anos de experiência evoluindo de desenvolvedor full stack a líder técnico.
+                    Atuo na intersecção entre tecnologia e negócio, gerenciando equipes, definindo roadmaps e garantindo
+                    que soluções digitais gerem resultados reais.
+                </p>
                 <div class="hero-badges">
-                    <span class="badge"><i class="fas fa-certificate"></i>PSPO I — Scrum.org</span>
                     <span class="badge"><i class="fas fa-certificate"></i>Google PM Certificate</span>
                     <span class="badge"><i class="fas fa-certificate"></i>SFPC™ — CertiProf</span>
                 </div>
                 <div class="cta-buttons">
-                    <a href="#contato" class="btn btn-primary">Entre em Contato</a>
+                    <a href="#portfolio" class="btn btn-primary">Ver Projetos</a>
                     <a href="#experiencia" class="btn btn-secondary">Ver Experiência</a>
                 </div>
             </div>
@@ -857,38 +1417,43 @@ Profissional de TI com 8+ anos de experiência evoluindo de desenvolvedor full s
     <section class="sobre" id="sobre">
         <div class="section-container">
             <div class="section-header">
-            <div class="section-tag">Sobre Mim</div>
-            <h2 class="section-title">Conectando Tecnologia e Negócios</h2>
-            <p class="section-description">
-                Profissional experiente em liderar equipes técnicas e entregar soluções que geram valor real
-            </p>
-        </div>
-        <div class="sobre-content">
-            <div class="sobre-text fade-in">
-                <p>
-                    Líder de TI e gestor de produto com 8 anos de experiência, sendo 3 anos liderando equipes de
-                    desenvolvimento em projetos de alta complexidade para clientes corporativos (seguros, imóveis, blogs, portais de noticias e
-                    e-commerce). Certificado PSPO (Scrum.org, 2026). Atuo na estruturação de times, definição de processos
-                    ágeis, governança técnica e alinhamento da TI à estratégia do negócio, conduzindo entregas end-to-end
-                    da concepção à produção.
+                <div class="section-tag">Sobre Mim</div>
+                <h2 class="section-title">Conectando Tecnologia e Negócios</h2>
+                <p class="section-description">
+                    Profissional experiente em liderar equipes técnicas e entregar soluções que geram valor real
                 </p>
             </div>
-            <div class="stats fade-in">
-                <div class="stat-box">
-                    <div class="stat-number">8+</div>
-                    <div class="stat-label">Anos de Experiência</div>
+            <div class="sobre-content">
+                <div class="sobre-text fade-in">
+                    <p>
+                        Líder de desenvolvimento e engenheiro full-stack WordPress com 8 anos de experiência construindo
+                        e escalando produtos digitais com performance para agências e clientes corporativos (seguros,
+                        saúde, imóveis, e-commerce e notícias). Estruturo times de desenvolvimento do zero, estabeleço
+                        padrões técnicos e lidero entregas end-to-end da arquitetura à produção.
+                    </p>
+                    <p>
+                        Foco em liderança: Processos de code review, workflows ágeis, mentoria de desenvolvedores,
+                        colaboração multifuncional com times de produto e negócio. Conecto execução técnica e
+                        planejamento estratégico, garantindo soluções escaláveis e sustentáveis.
+                    </p>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number">3+</div>
-                    <div class="stat-label">Anos em Liderança</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">3</div>
-                    <div class="stat-label">Certificações</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">B2</div>
-                    <div class="stat-label">Inglês Avançado</div>
+                <div class="stats fade-in">
+                    <div class="stat-box">
+                        <div class="stat-number">8+</div>
+                        <div class="stat-label">Anos de Experiência</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Anos em Liderança</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Certificações</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">B2</div>
+                        <div class="stat-label">Inglês Avançado</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -897,217 +1462,607 @@ Profissional de TI com 8+ anos de experiência evoluindo de desenvolvedor full s
     <!-- CERTIFICAÇÕES -->
     <section class="certificacoes" id="certificacoes">
         <div class="section-container">
-        <div class="section-header">
-            <div class="section-tag">Certificações</div>
-            <h2 class="section-title">Desenvolvimento Profissional Contínuo</h2>
-            <p class="section-description">
-                Certificações em gestão de produtos, metodologias ágeis e liderança de projetos
-            </p>
-        </div>
-        <div class="cert-grid">
-            <div class="cert-card fade-in">
-                <div class="cert-badge">
-                    <img src="badges/pspo-badge.png" alt="PSPO I Certificate">
-                </div>
-                <h3 class="cert-title">Professional Scrum Product Owner (PSPO I)</h3>
-                <p class="cert-issuer">Scrum.org</p>
-                <p class="cert-year">2026</p>
-                <div class="cert-verify">
-                    <a href="" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Verificar Certificação
-                    </a>
-                </div>
+            <div class="section-header">
+                <div class="section-tag">Certificações</div>
+                <h2 class="section-title">Desenvolvimento Profissional Contínuo</h2>
+                <p class="section-description">
+                    Certificações em gestão de produtos, metodologias ágeis e liderança de projetos
+                </p>
             </div>
+            <div class="cert-grid">
+                <div class="cert-card fade-in">
+                    <div class="cert-badge">
+                        <img src="badges/googlepm-badge.png" alt="Google Certificate">
+                    </div>
+                    <h3 class="cert-title">Google Project Management Certificate</h3>
+                    <p class="cert-issuer">Coursera</p>
+                    <p class="cert-year">2026</p>
+                    <div class="cert-verify">
+                        <a href="https://www.credly.com/badges/a5e84b9b-97d8-423d-88f0-1113f7d6e802" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Verificar Certificação
+                        </a>
+                    </div>
+                </div>
 
-            <div class="cert-card fade-in">
-                <div class="cert-badge">
-                    <img src="badges/googlepm-badge.png" alt="Google Certificate">
-                </div>
-                <h3 class="cert-title">Google Project Management Certificate</h3>
-                <p class="cert-issuer">Coursera</p>
-                <p class="cert-year">2026</p>
-                <div class="cert-verify">
-                    <a href="https://www.credly.com/badges/a5e84b9b-97d8-423d-88f0-1113f7d6e802" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Verificar Certificação
-                    </a>
-                </div>
-            </div>
-
-            <div class="cert-card fade-in">
-                <div class="cert-badge">
-                    <img src="badges/sfpc-badge.png" alt="SFPC Certificate">
-                </div>
-                <h3 class="cert-title">Scrum Foundation Professional Certificate (SFPC™)</h3>
-                <p class="cert-issuer">CertiProf</p>
-                <p class="cert-year">2026</p>
-                <div class="cert-verify">
-                    <a href="https://my-certificates.com/certificates/699753425e5ce0c4c7f96e93" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Verificar Certificação
-                    </a>
+                <div class="cert-card fade-in">
+                    <div class="cert-badge">
+                        <img src="badges/sfpc-badge.png" alt="SFPC Certificate">
+                    </div>
+                    <h3 class="cert-title">Scrum Foundation Professional Certificate (SFPC™)</h3>
+                    <p class="cert-issuer">CertiProf</p>
+                    <p class="cert-year">2026</p>
+                    <div class="cert-verify">
+                        <a href="https://my-certificates.com/certificates/699753425e5ce0c4c7f96e93" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Verificar Certificação
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-   <!-- EXPERIÊNCIA -->
+    <!-- EXPERIÊNCIA -->
     <section class="experiencia" id="experiencia">
         <div class="section-container">
-        <div class="section-header">
-            <div class="section-tag">Experiência Profissional</div>
-            <h2 class="section-title">Trajetória de Liderança e Inovação</h2>
-        </div>
-        <div class="timeline">
-            <div class="timeline-item fade-in">
-                <div class="timeline-content">
-                    <div class="timeline-header">
-                        <div>
-                            <h3 class="timeline-title">Líder de Equipe de Desenvolvimento / Full Stack</h3>
-                            <div class="timeline-company">Studio Visual</div>
+            <div class="section-header">
+                <div class="section-tag">Experiência Profissional</div>
+                <h2 class="section-title">Trajetória de Liderança e Inovação</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-title">Líder de Equipe de Desenvolvimento / Full Stack</h3>
+                                <div class="timeline-company">Studio Visual</div>
+                            </div>
+                            <div class="timeline-meta">
+                                <span><i class="far fa-calendar"></i> fev 2020 - fev 2026</span>
+                                <span><i class="fas fa-building"></i> Remoto</span>
+                            </div>
                         </div>
-                        <div class="timeline-meta">
-                            <span><i class="far fa-calendar"></i> 2020 - Atual</span>
-                            <span><i class="fas fa-building"></i> Remoto</span>
-                        </div>
-                    </div>
-                    <div class="timeline-description">
-                        <ul>
-                            <li>Lidero time de desenvolvimento em projetos WordPress de média escala (multisites, e-commerce, integrações corporativas)</li>
-                            <li>Estabeleço arquitetura técnica, padrões de código e processos para reduzir retrabalho e incidentes em produção</li>
-                            <li>Conduzo otimizações de performance e Core Web Vitals, elevando Lighthouse scores e melhorando SEO de sites-chave</li>
-                            <li>Atuo próximo a clientes e times internos em discovery técnico, estimativa de esforço e planejamento de roadmap</li>
-                            <li>Presto suporte ao time de desenvolvimento e otimização contínua dos processos</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span class="tech-tag">WordPress</span>
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">Laravel</span>
-                            <span class="tech-tag">WooCommerce</span>
-                            <span class="tech-tag">Tailwind CSS</span>
-                            <span class="tech-tag">Sage Framework</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">AWS</span>
-                            <span class="tech-tag">CI/CD</span>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Lidero time de desenvolvimento em projetos WordPress de média escala (multisites,
+                                    e-commerce, integrações corporativas)</li>
+                                <li>Estabeleço arquitetura técnica, padrões de código e processos para reduzir
+                                    retrabalho e incidentes em produção</li>
+                                <li>Conduzo otimizações de performance e Core Web Vitals, elevando Lighthouse scores e
+                                    melhorando SEO de sites-chave</li>
+                                <li>Atuo próximo a clientes e times internos em discovery técnico, estimativa de esforço
+                                    e planejamento de roadmap</li>
+                                <li>Presto suporte ao time de desenvolvimento e otimização contínua dos processos</li>
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="tech-tag">WordPress</span>
+                                <span class="tech-tag">PHP</span>
+                                <span class="tech-tag">Laravel</span>
+                                <span class="tech-tag">WooCommerce</span>
+                                <span class="tech-tag">Tailwind CSS</span>
+                                <span class="tech-tag">Sage Framework</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">AWS</span>
+                                <span class="tech-tag">CI/CD</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="timeline-item fade-in">
-                <div class="timeline-content">
-                    <div class="timeline-header">
-                        <div>
-                            <h3 class="timeline-title">Web Developer</h3>
-                            <div class="timeline-company">Mufasa Creative Agency</div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-title">Web Developer</h3>
+                                <div class="timeline-company">Mufasa Creative Agency</div>
+                            </div>
+                            <div class="timeline-meta">
+                                <span><i class="far fa-calendar"></i> 2018 - 2020</span>
+                                <span><i class="fas fa-building"></i> Remoto</span>
+                            </div>
                         </div>
-                        <div class="timeline-meta">
-                            <span><i class="far fa-calendar"></i> 2018 - 2020</span>
-                            <span><i class="fas fa-building"></i> Remoto</span>
-                        </div>
-                    </div>
-                    <div class="timeline-description">
-                        <ul>
-                            <li>Desenvolvedor Fullstack PHP, trabalhando com desenvolvimento de sites institucionais, e-commerces, landing pages e sistemas corporativos com foco em WordPress</li>
-                            <li>Implementação de soluções custom com temas e plugins personalizados</li>
-                            <li>Otimização de performance e SEO técnico para melhorar rankeamento</li>
-                            <li>Integração com APIs de terceiros e desenvolvimento de REST APIs</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span class="tech-tag">WordPress</span>
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Bootstrap</span>
-                            <span class="tech-tag">MySQL</span>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Desenvolvedor Fullstack PHP, trabalhando com desenvolvimento de sites
+                                    institucionais, e-commerces, landing pages e sistemas corporativos com foco em
+                                    WordPress</li>
+                                <li>Implementação de soluções custom com temas e plugins personalizados</li>
+                                <li>Otimização de performance e SEO técnico para melhorar rankeamento</li>
+                                <li>Integração com APIs de terceiros e desenvolvimento de REST APIs</li>
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="tech-tag">WordPress</span>
+                                <span class="tech-tag">PHP</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">MySQL</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="timeline-item fade-in">
-                <div class="timeline-content">
-                    <div class="timeline-header">
-                        <div>
-                            <h3 class="timeline-title">Analista de TI</h3>
-                            <div class="timeline-company">TI Tech Solutions</div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-title">Analista de TI</h3>
+                                <div class="timeline-company">TI Tech Solutions</div>
+                            </div>
+                            <div class="timeline-meta">
+                                <span><i class="far fa-calendar"></i> 2017 - 2018</span>
+                                <span><i class="fas fa-building"></i> Presencial</span>
+                            </div>
                         </div>
-                        <div class="timeline-meta">
-                            <span><i class="far fa-calendar"></i> 2017 - 2018</span>
-                            <span><i class="fas fa-building"></i> Presencial</span>
-                        </div>
-                    </div>
-                    <div class="timeline-description">
-                        <ul>
-                            <li>Desenvolvimento de aplicações para uso interno e uso em coletores de dados / dispositivos mobile</li>
-                            <li>Gerência do ambiente/infraestrutura local e suporte ao cliente N3 focado em dispositivos mobile (Coletores de dados / Impressoras)</li>
-                            <li>Pré/Pós-venda de software e soluções em AC/AIDC</li>
-                            <li>Especialista em Bitdefender, Ivanti Speakeasy & Aruba Networking</li>
-                            <li>Manutenção das redes sociais e desenvolvimento de artes gráficas</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Infraestrutura</span>
-                            <span class="tech-tag">Mobile</span>
-                            <span class="tech-tag">Networking</span>
-                            <span class="tech-tag">Suporte N3</span>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Desenvolvimento de aplicações para uso interno e uso em coletores de dados /
+                                    dispositivos mobile</li>
+                                <li>Gerência do ambiente/infraestrutura local e suporte ao cliente N3 focado em
+                                    dispositivos mobile (Coletores de dados / Impressoras)</li>
+                                <li>Pré/Pós-venda de software e soluções em AC/AIDC</li>
+                                <li>Especialista em Bitdefender, Ivanti Speakeasy & Aruba Networking</li>
+                                <li>Manutenção das redes sociais e desenvolvimento de artes gráficas</li>
+                            </ul>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Infraestrutura</span>
+                                <span class="tech-tag">Mobile</span>
+                                <span class="tech-tag">Networking</span>
+                                <span class="tech-tag">Suporte N3</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- PORTFOLIO -->
+    <section class="portfolio" id="portfolio">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-tag">Portfolio</div>
+                <h2 class="section-title">Projetos em Destaque</h2>
+                <p class="section-description">
+                    Alguns dos projetos que liderei ou desenvolvi ao longo da minha carreira
+                </p>
+            </div>
+            <div class="portfolio-grid">
+                <!-- Projeto 1 -->
+                <div class="portfolio-card fade-in" onclick="openModal('modal1')">
+                    <div class="portfolio-image">
+                        <img src="projetos/dny.png" alt="Projeto Dicas Nova York">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Portal de Notícias</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Dicas Nova York</h3>
+                        <p class="portfolio-description">
+                            Guia turístico completo sobre Nova York desenvolvido em WordPress com Sage 10 e Tailwind
+                            CSS. Projeto com migração de infraestrutura para Cloudways, otimização avançada de
+                            performance e SEO técnico — atingindo 90+ no Lighthouse em mobile e desktop.
+                        </p>
+                        <div class="portfolio-meta">
+                            <span><i class="fas fa-user-tie"></i> Team Lead</span>
+                            <span><i class="fas fa-calendar"></i> 2024</span>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">WordPress</span>
+                            <span class="tech-tag">Sage 10</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                            <span class="tech-tag">Cloudways</span>
+                            <span class="tech-tag">SEO Técnico</span>
+                            <span class="tech-tag">Core Web Vitals</span>
+                            <span class="tech-tag">Performance 90+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 2 -->
+                <div class="portfolio-card fade-in" onclick="openModal('modal2')">
+                    <div class="portfolio-image">
+                        <img src="projetos/gab1.png" alt="Projeto GAB">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Portal do Cliente</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Grupo Águas do Brasil — Agência Virtual</h3>
+                        <p class="portfolio-description">
+                            Agência virtual desenvolvida para o Grupo Águas do Brasil. Portal de autoatendimento para
+                            clientes consultarem contas, realizarem pagamentos e acessarem serviços online. Sistema
+                            crítico com autenticação segura via API interna, sessões persistentes e alta exigência de
+                            estabilidade, além de infraestrutura configurada do zero em Oracle Linux.
+                        </p>
+                        <div class="portfolio-meta">
+                            <span><i class="fas fa-code"></i> Full Stack</span>
+                            <span><i class="fas fa-calendar"></i> 2023</span>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">WordPress</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">Sage 9</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 3 -->
+                <div class="portfolio-card fade-in" onclick="openModal('modal3')">
+                    <div class="portfolio-image">
+                        <img src="projetos/too1.png" alt="Projeto Universidade Too">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-category">Plataforma de Treinamento</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Universidade Too Seguros</h3>
+                        <p class="portfolio-description">
+                            Plataforma de treinamento corporativo desenvolvida para a Too Seguros e Banco Pan, voltada à
+                            capacitação de operadores comerciais. O sistema oferece cursos online com emissão de
+                            certificados, sistema de gamificação customizado com badges e pontuação progressiva, e uma
+                            biblioteca de conteúdos para download de materiais de apoio — tudo integrado em um ambiente
+                            WordPress com LearnDash.
+                        </p>
+                        <div class="portfolio-meta">
+                            <span><i class="fas fa-users"></i> Team Lead / Full Stack</span>
+                            <span><i class="fas fa-calendar"></i> 2025</span>
+                        </div>
+                        <div class="tech-tags">
+                            <span class="tech-tag">WordPress</span>
+                            <span class="tech-tag">LearnDash</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">ACF</span>
+                            <span class="tech-tag">Plugin Customizado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODALS -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal1')">&times;</button>
+            <div class="modal-header">
+                <img src="projetos/dny.png" style="object-position: top;" alt="Projeto Dicas Nova York">
+            </div>
+            <div class="modal-body">
+                <a style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;"
+                    href="https://dicasnovayork.com.br" target="_blank">
+                    <h2 class="modal-title">Dicas Nova York</h2>
+                    <i class="fas fa-external-link-alt"
+                        style="font-size: 1.2rem; color: var(--cor-principal); margin-top: -15px; margin-left: 10px;"></i>
+                </a>
+
+                <p class="modal-subtitle">Blog de viagem · SEO · Performance · WordPress</p>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-bullseye"></i> Desafio</h3>
+                    <ul>
+                        <li>Desenvolver tema performático e componentizado em nicho competitivo de viagens</li>
+                        <li>Migrar infraestrutura com zero downtime, preservando SEO e indexação existentes</li>
+                        <li>Atingir 90+ no Lighthouse em mobile — ambiente mais restritivo que desktop</li>
+                        <li>Aplicar SEO técnico completo para competir com portais de grande porte no Google</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-cog"></i> Solução Implementada</h3>
+                    <ul>
+                        <li>Tema customizado com <strong>Sage 10 + Tailwind CSS</strong> — código limpo, componentizado
+                            e sem CSS não utilizado</li>
+                        <li>Migração de infraestrutura para <strong>Cloudways</strong> com configuração de servidor,
+                            DNS, SSL e cache de servidor</li>
+                        <li>Otimização de performance: lazy loading, minificação de assets, compressão de imagens e
+                            estratégia de cache avançada</li>
+                        <li>SEO técnico: schema markup, Core Web Vitals, estrutura de URLs canônicas, sitemap e
+                            otimização de indexação</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-chart-line"></i> Resultados</h3>
+                    <div class="results-grid">
+                        <div class="result-box">
+                            <div class="result-number">90+</div>
+                            <div class="result-label">Lighthouse Mobile</div>
+                        </div>
+                        <div class="result-box">
+                            <div class="result-number">90+</div>
+                            <div class="result-label">Lighthouse Desktop</div>
+                        </div>
+                        <div class="result-box">
+                            <div class="result-number">0</div>
+                            <div class="result-label">Downtime na Migração</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <h3><i class="fas fa-tools"></i> Tecnologias</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">WordPress</span>
+                        <span class="tech-tag">Sage 10</span>
+                        <span class="tech-tag">Redis Cache</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">Cloudways</span>
+                        <span class="tech-tag">SEO Técnico</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">Javascript</span>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-images"></i> Galeria</h3>
+                    <div class="modal-gallery">
+                        <div class="modal-gallery-item">
+                            <div
+                                style="width:100%;height:100%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#999;">
+                                <img src="projetos/dny.png" alt="Dicas Nova York">
+                            </div>
+                        </div>
+                        <div class="modal-gallery-item">
+                            <div
+                                style="width:100%;height:100%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#999;">
+                                <img src="projetos/dny2.png" alt="Dicas Nova York">
+                            </div>
+                        </div>
+                        <div class="modal-gallery-item">
+                            <div
+                                style="width:100%;height:100%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#999;">
+                                <img src="projetos/dny3.png" alt="Dicas Nova York">
+                            </div>
+                        </div>
+                        <div class="modal-gallery-item">
+                            <div
+                                style="width:100%;height:100%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#999;">
+                                <img src="projetos/dny4.png" alt="Dicas Nova York">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal2')">&times;</button>
+            <div class="modal-header">
+                <img src="projetos/gab1.png" style="object-position: top;" alt="Projeto Dicas Nova York">
+            </div>
+            <div class="modal-body">
+                <a style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;"
+                    href="https://agenciavirtual.grupoaguasdobrasil.com.br" target="_blank">
+                    <h2 class="modal-title">Grupo Águas do Brasil - Agência Virtual</h2>
+                    <i class="fas fa-external-link-alt"
+                        style="font-size: 1.2rem; color: var(--cor-principal); margin-top: -15px; margin-left: 10px;"></i>
+                </a>
+                <p class="modal-subtitle">Portal do Cliente · WordPress · API Integration · Infraestrutura</p>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Desafios</h3>
+                    <ul>
+                        <li>Desenvolver portal de autoatendimento crítico em paralelo com o time de API, sem bloqueios
+                            de dependência</li>
+                        <li>Implementar autenticação segura e persistência de sessão para acesso a dados financeiros dos
+                            clientes</li>
+                        <li>Garantir estabilidade e experiência consistente mesmo em instabilidades pontuais da API</li>
+                        <li>Configurar infraestrutura do zero em Oracle Linux com Nginx para ambiente de produção
+                            crítico</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-cogs"></i> Soluções Aplicadas</h3>
+                    <ul>
+                        <li>Tema customizado com <strong>Sage 9 + PHP</strong> — separação entre camada de integração e
+                            camada de apresentação</li>
+                        <li>Desenvolvimento com <strong>mock data</strong> inicial, substituído pela API real sem
+                            refatoração</li>
+                        <li><strong>PHP Sessions</strong> para autenticação segura e persistência de login com
+                            tratamento centralizado de erros da API</li>
+                        <li>Configuração completa de servidor <strong>Oracle Linux + Nginx</strong> com otimizações de
+                            segurança, performance e disponibilidade</li>
+                        <li>Integração com API de dados do cliente (contas, faturas, pagamentos) com fallback em caso de
+                            instabilidade</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-chart-line"></i> Resultados</h3>
+                    <div class="results-grid">
+                        <div class="result-box">
+                            <div class="result-number">✓</div>
+                            <div class="result-label">Entrega no prazo</div>
+                        </div>
+                        <div class="result-box">
+                            <div class="result-number">0</div>
+                            <div class="result-label">Downtime em produção</div>
+                        </div>
+                        <div class="result-box">
+                            <div class="result-number">100%</div>
+                            <div class="result-label">Infra configurada do zero</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-tools"></i> Tecnologias</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">WordPress</span>
+                        <span class="tech-tag">Sage 9</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">Oracle Linux</span>
+                        <span class="tech-tag">Nginx</span>
+                        <span class="tech-tag">REST API</span>
+                        <span class="tech-tag">PHP Sessions</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-images"></i> Galeria</h3>
+                    <div class="modal-gallery">
+                        <div class="modal-gallery-item">
+                            <img src="projetos/gab1.png" alt="GAB - Tela de Login">
+                        </div>
+                        <div class="modal-gallery-item">
+                            <img src="projetos/gab2.png" alt="GAB - Dashboard do Cliente">
+                        </div>
+                        <div class="modal-gallery-item">
+                            <img src="projetos/gab3.png" alt="GAB - Consulta de Conta">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('modal3')">&times;</button>
+            <div class="modal-header">
+                <img src="projetos/too1.png" style="object-position: top;" alt="Projeto Universidade TOo">
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title">Universidade Too Seguros</h2>
+                <p class="modal-subtitle">LMS · LearnDash · WordPress · Gamificação</p>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Desafios</h3>
+                    <ul>
+                        <li>Desenvolver plataforma LMS robusta capaz de atender operadores de duas empresas diferentes
+                            (Too Seguros e Banco Pan)</li>
+                        <li>Criar sistema de gamificação customizado — badges e pontuação progressiva — além do que o
+                            LearnDash oferece nativamente</li>
+                        <li>Construir módulo independente de biblioteca de conteúdos com gestão de arquivos (PDFs,
+                            imagens, materiais)</li>
+                        <li>Garantir experiência fluida e intuitiva para usuários não técnicos (operadores comerciais)
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-cogs"></i> Soluções Aplicadas</h3>
+                    <ul>
+                        <li>Plataforma LMS com <strong>LearnDash</strong> — cursos, trilhas de aprendizado e emissão
+                            automática de certificados</li>
+                        <li>Sistema de gamificação <strong>customizado via plugin próprio</strong> — badges
+                            desbloqueáveis e pontuação acumulada por conclusão de cursos</li>
+                        <li>Módulo <strong>Biblioteca de Conteúdos</strong> desenvolvido do zero — upload e download de
+                            PDFs, imagens e materiais segmentados por categoria</li>
+                        <li>Controle de acesso por perfil de usuário — separação entre operadores Too Seguros e Banco
+                            Pan</li>
+                        <li>Integração entre o sistema de pontuação e o progresso dos cursos no LearnDash</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-chart-line"></i> Resultados</h3>
+                    <div class="results-grid">
+                        <div class="result-box">
+                            <div class="result-number">✓</div>
+                            <div class="result-label">Certificação automatizada</div>
+                        </div>
+                        <div class="result-box">
+                            <div class="result-number">✓</div>
+                            <div class="result-label">Gamificação customizada</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-tools"></i> Tecnologias</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">WordPress</span>
+                        <span class="tech-tag">LearnDash</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">ACF</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Plugin Customizado</span>
+                        <span class="tech-tag">Gestão de Arquivos</span>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-images"></i> Galeria</h3>
+                    <div class="modal-gallery">
+                        <div class="modal-gallery-item">
+                            <img src="projetos/too1.png" alt="Universidade Too Seguros - Home">
+                        </div>
+                        <div class="modal-gallery-item">
+                            <img src="projetos/too2.png" alt="Universidade Too Seguros - Cursos">
+                        </div>
+                        <div class="modal-gallery-item">
+                            <img src="projetos/too3.png" alt="Universidade Too Seguros - Gamificação">
+                        </div>
+                        <div class="modal-gallery-item">
+                            <img src="projetos/too4.png" alt="Universidade Too Seguros - Gamificação">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- COMPETÊNCIAS -->
     <section class="competencias" id="competencias">
         <div class="section-container">
-        <div class="section-header">
-            <div class="section-tag">Competências</div>
-            <h2 class="section-title">Áreas de Especialização</h2>
-        </div>
-        <div class="competencias-grid">
-            <div class="competencia-card fade-in">
-                <div class="competencia-icon">
-                    <i class="fas fa-users-cog"></i>
-                </div>
-                <h3 class="competencia-title">Gestão & Produto</h3>
-                <ul class="competencia-list">
-                    <li class="competencia-item">Gestão de equipes de desenvolvimento</li>
-                    <li class="competencia-item">Product Owner (PSPO certificado)</li>
-                    <li class="competencia-item">Metodologias ágeis (Scrum, Kanban)</li>
-                    <li class="competencia-item">Planejamento estratégico de TI</li>
-                    <li class="competencia-item">Stakeholder management</li>
-                    <li class="competencia-item">Code review e padrões técnicos</li>
-                    <li class="competencia-item">Mentoria de desenvolvedores</li>
-                </ul>
+            <div class="section-header">
+                <div class="section-tag">Competências</div>
+                <h2 class="section-title">Áreas de Especialização</h2>
             </div>
-
-            <div class="competencia-card fade-in">
-                <div class="competencia-icon">
-                    <i class="fas fa-cloud"></i>
+            <div class="competencias-grid">
+                <div class="competencia-card fade-in">
+                    <div class="competencia-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3 class="competencia-title">Gestão & Produto</h3>
+                    <ul class="competencia-list">
+                        <li class="competencia-item">Gestão de equipes de desenvolvimento</li>
+                        <li class="competencia-item">Product Owner (PSPO certificado)</li>
+                        <li class="competencia-item">Metodologias ágeis (Scrum, Kanban)</li>
+                        <li class="competencia-item">Planejamento estratégico de TI</li>
+                        <li class="competencia-item">Stakeholder management</li>
+                        <li class="competencia-item">Code review e padrões técnicos</li>
+                        <li class="competencia-item">Mentoria de desenvolvedores</li>
+                    </ul>
                 </div>
-                <h3 class="competencia-title">Infraestrutura & Cloud</h3>
-                <ul class="competencia-list">
-                    <li class="competencia-item">AWS (provisionamento e administração)</li>
-                    <li class="competencia-item">Azure (máquinas virtuais)</li>
-                    <li class="competencia-item">Digital Ocean</li>
-                    <li class="competencia-item">Docker e CI/CD pipelines</li>
-                    <li class="competencia-item">Segurança de endpoints</li>
-                    <li class="competencia-item">Gestão de redes</li>
-                    <li class="competencia-item">Automação (PowerShell)</li>
-                </ul>
-            </div>
 
-            <div class="competencia-card fade-in">
-                <div class="competencia-icon">
-                    <i class="fas fa-code"></i>
+                <div class="competencia-card fade-in">
+                    <div class="competencia-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="competencia-title">Infraestrutura & Cloud</h3>
+                    <ul class="competencia-list">
+                        <li class="competencia-item">AWS (provisionamento e administração)</li>
+                        <li class="competencia-item">Azure (máquinas virtuais)</li>
+                        <li class="competencia-item">Digital Ocean</li>
+                        <li class="competencia-item">Docker e CI/CD pipelines</li>
+                        <li class="competencia-item">Segurança de endpoints</li>
+                        <li class="competencia-item">Gestão de redes</li>
+                        <li class="competencia-item">Automação (PowerShell)</li>
+                    </ul>
                 </div>
-                <h3 class="competencia-title">Desenvolvimento</h3>
-                <ul class="competencia-list">
-                    <li class="competencia-item">PHP & Laravel</li>
-                    <li class="competencia-item">JavaScript (ES6+, React)</li>
-                    <li class="competencia-item">WordPress (temas, plugins, headless)</li>
-                    <li class="competencia-item">WooCommerce & ACF</li>
-                    <li class="competencia-item">REST APIs & integrações</li>
-                    <li class="competencia-item">Otimização de performance</li>
-                    <li class="competencia-item">SEO técnico</li>
-                </ul>
+
+                <div class="competencia-card fade-in">
+                    <div class="competencia-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="competencia-title">Desenvolvimento</h3>
+                    <ul class="competencia-list">
+                        <li class="competencia-item">PHP & Laravel</li>
+                        <li class="competencia-item">JavaScript (ES6+, React)</li>
+                        <li class="competencia-item">WordPress (temas, plugins, headless)</li>
+                        <li class="competencia-item">WooCommerce & ACF</li>
+                        <li class="competencia-item">REST APIs & integrações</li>
+                        <li class="competencia-item">Otimização de performance</li>
+                        <li class="competencia-item">SEO técnico</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -1126,7 +2081,8 @@ Profissional de TI com 8+ anos de experiência evoluindo de desenvolvedor full s
                 &copy; 2026 Lucas Bonavina. Todos os direitos reservados.
             </div>
             <div class="footer-right">
-                <a href="https://www.linkedin.com/in/lbonavina/" target="_blank" class="footer-social" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/lbonavina/" target="_blank" class="footer-social"
+                    aria-label="LinkedIn">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
                 <a href="https://github.com/lbonavina" target="_blank" class="footer-social" aria-label="GitHub">
@@ -1157,12 +2113,12 @@ Profissional de TI com 8+ anos de experiência evoluindo de desenvolvedor full s
 
         // Scroll Reveal
         const fadeElements = document.querySelectorAll('.fade-in');
-        
+
         const revealOnScroll = () => {
             fadeElements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
-                
+
                 if (elementTop < windowHeight - 100) {
                     element.classList.add('visible');
                 }
@@ -1180,7 +2136,7 @@ Profissional de TI com 8+ anos de experiência evoluindo de desenvolvedor full s
                 if (target) {
                     const headerHeight = 72;
                     const targetPosition = target.offsetTop - headerHeight;
-                    
+
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
@@ -1188,6 +2144,137 @@ Profissional de TI com 8+ anos de experiência evoluindo de desenvolvedor full s
                 }
             });
         });
+
+        // Modal Functions
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    closeModal(modal.id);
+                });
+            }
+        });
+
+        // Typing Effect
+        const phrases = [
+            "IT Manager",
+            "Development Team Lead",
+            "Full-Stack Developer",
+            "Product Owner"
+        ];
+
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingEl = document.getElementById("typing-text");
+
+        function type() {
+            const current = phrases[phraseIndex];
+            if (!isDeleting) {
+                typingEl.textContent = current.substring(0, charIndex + 1);
+                charIndex++;
+                if (charIndex === current.length) {
+                    isDeleting = true;
+                    setTimeout(type, 1800);
+                    return;
+                }
+            } else {
+                typingEl.textContent = current.substring(0, charIndex - 1);
+                charIndex--;
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                }
+            }
+            setTimeout(type, isDeleting ? 60 : 100);
+        }
+
+        type();
+
+        // ===== LIGHTBOX =====
+        let lightboxImages = [];
+        let lightboxIndex = 0;
+
+        function openLightbox(imgs, index) {
+            lightboxImages = imgs;
+            lightboxIndex = index;
+            updateLightbox();
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function closeLightboxOnBackdrop(e) {
+            if (e.target === document.getElementById('lightbox')) closeLightbox();
+        }
+
+        function lightboxNav(dir) {
+            lightboxIndex = (lightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
+            updateLightbox();
+        }
+
+        function updateLightbox() {
+            document.getElementById('lightbox-img').src = lightboxImages[lightboxIndex];
+            document.getElementById('lightbox-counter').textContent =
+                (lightboxIndex + 1) + ' / ' + lightboxImages.length;
+        }
+
+        // Ativa lightbox em todas as galerias dos modais
+        document.querySelectorAll('.modal-gallery').forEach(gallery => {
+            const items = gallery.querySelectorAll('.modal-gallery-item img');
+            const srcs = Array.from(items).map(img => img.src);
+            items.forEach((img, i) => {
+                img.parentElement.style.cursor = 'zoom-in';
+                img.parentElement.onclick = (e) => {
+                    e.stopPropagation();
+                    openLightbox(srcs, i);
+                };
+            });
+        });
+
+        // ESC fecha lightbox também
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') lightboxNav(-1);
+            if (e.key === 'ArrowRight') lightboxNav(1);
+        });
+
     </script>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox" onclick="closeLightboxOnBackdrop(event)">
+        <button class="lightbox-close" onclick="closeLightbox()">×</button>
+        <button class="lightbox-prev" onclick="lightboxNav(-1)">&#8249;</button>
+        <img class="lightbox-img" id="lightbox-img" src="" alt="">
+        <button class="lightbox-next" onclick="lightboxNav(1)">&#8250;</button>
+        <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+
 </body>
+
 </html>
