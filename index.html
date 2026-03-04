@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -847,6 +846,25 @@
                 </div>
             </div>
 
+            <div class="port-card reveal" onclick="openModal('m4')">
+                <div class="port-img" style="background: linear-gradient(135deg, #1a1200, #3a2800);">
+                    <img src="projetos/riva1.webp" alt="Riva Incorporadora" onerror="this.style.display='none'">
+                    <div class="port-img-overlay"></div>
+                    <span class="port-cat">Imobiliário / Corporativo</span>
+                </div>
+                <div class="port-body">
+                    <h3 class="port-title">Riva Incorporadora</h3>
+                    <p class="port-desc">Redesign completo do site institucional de uma das maiores incorporadoras do Brasil (Grupo Direcional). Foco em identidade visual, UX para busca de imóveis e competitividade SEO no mercado imobiliário.</p>
+                    <div class="port-meta">
+                        <span><i class="fas fa-user-tie"></i> Team Lead / Full Stack</span>
+                        <span><i class="fas fa-calendar"></i> 2024</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">WordPress</span><span class="tag">Sage 10</span><span class="tag">Tailwind CSS</span><span class="tag">PHP</span><span class="tag">UX</span><span class="tag">SEO</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="port-card reveal" onclick="openModal('m3')">
                 <div class="port-img">
                     <img src="projetos/too1.webp" alt="Universidade Too Seguros">
@@ -1028,6 +1046,85 @@
                     <div class="gallery-item"><img src="projetos/too2.webp" alt="Too 2"></div>
                     <div class="gallery-item"><img src="projetos/too3.webp" alt="Too 3"></div>
                     <div class="gallery-item"><img src="projetos/too4.webp" alt="Too 4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="m4" class="modal">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('m4')">×</button>
+        <div class="modal-hero-img" style="background: linear-gradient(135deg, #1a1200, #3a2800);">
+            <img src="riva1.webp" alt="Riva Incorporadora" onerror="this.style.display='none'">
+        </div>
+        <div class="modal-body">
+            <a href="https://www.rivaincorporadora.com.br" target="_blank" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem;">
+                <h2 class="modal-title">Riva Incorporadora</h2>
+                <i class="fas fa-external-link-alt" style="color:var(--accent); font-size:1rem; margin-top:-10px;"></i>
+            </a>
+            <p class="modal-sub">Imobiliário · WordPress · Sage 10 · Tailwind CSS · Grupo Direcional</p>
+
+            <div class="modal-section">
+                <h3><i class="fas fa-bullseye"></i> Contexto</h3>
+                <ul class="modal-list">
+                    <li>A Riva Incorporadora é uma das maiores do Brasil, parte do <strong>Grupo Direcional</strong> — com atuação em SP, RJ, MG, DF e AM</li>
+                    <li>O site existente não refletia o posicionamento da marca e dificultava a jornada do usuário na busca por empreendimentos</li>
+                    <li>Alta concorrência no mercado imobiliário digital exigia um site tecnicamente robusto e bem posicionado no Google</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3><i class="fas fa-exclamation-triangle"></i> Desafios</h3>
+                <ul class="modal-list">
+                    <li>Redesign completo da identidade visual sem comprometer o SEO já conquistado</li>
+                    <li>Estruturar UX que facilitasse a descoberta de imóveis por estado, tipo e faixa de preço</li>
+                    <li>Performance em mobile — público imobiliário acessa majoritariamente pelo celular</li>
+                    <li>Escala de conteúdo: múltiplos empreendimentos com galeria, plantas, localização e formulário de interesse</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3><i class="fas fa-cog"></i> Solução</h3>
+                <ul class="modal-list">
+                    <li>Tema customizado com <strong>Sage 10 + Tailwind CSS</strong> — componentizado, sem CSS morto, build otimizado</li>
+                    <li>Custom Post Types para empreendimentos com filtros dinâmicos por localização e tipologia</li>
+                    <li>Otimização focada em <strong>Core Web Vitals</strong> e Lighthouse mobile</li>
+                    <li>SEO técnico: schema markup, estrutura de URLs, sitemap e meta tags por empreendimento</li>
+                    <li>Integração de formulários de interesse com rastreamento de conversão</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3><i class="fas fa-chart-line"></i> Resultados</h3>
+                <div class="results-row">
+                    <div class="result-pill"><div class="result-num">✓</div><div class="result-lbl">Identidade visual renovada</div></div>
+                    <div class="result-pill"><div class="result-num">✓</div><div class="result-lbl">UX de busca de imóveis</div></div>
+                    <div class="result-pill"><div class="result-num">✓</div><div class="result-lbl">SEO técnico aplicado</div></div>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3><i class="fas fa-tools"></i> Tecnologias</h3>
+                <div class="tags">
+                    <span class="tag">WordPress</span>
+                    <span class="tag">Sage 10</span>
+                    <span class="tag">Tailwind CSS</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">ACF</span>
+                    <span class="tag">Custom Post Types</span>
+                    <span class="tag">SEO Técnico</span>
+                    <span class="tag">Core Web Vitals</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3><i class="fas fa-images"></i> Galeria</h3>
+                <div class="modal-gallery">
+                    <div class="gallery-item"><img src="projetos/riva1.webp" alt="Riva - Home" onerror="this.parentElement.style.display='none'"></div>
+                    <div class="gallery-item"><img src="projetos/riva2.webp" alt="Riva - Empreendimentos" onerror="this.parentElement.style.display='none'"></div>
+                    <div class="gallery-item"><img src="projetos/riva3.webp" alt="Riva - Detalhe" onerror="this.parentElement.style.display='none'"></div>
                 </div>
             </div>
         </div>
