@@ -1,2346 +1,1178 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucas Bonavina | Full-Stack & WordPress Specialist</title>
-    <meta name="description"
-        content="Development Team Lead | IT Manager | Product Owner com 8+ anos liderando equipes e produtos digitais">
-
-    <!-- Google Fonts -->
+    <title>Lucas Bonavina | Full-Stack & Team Lead</title>
+    <meta name="description" content="Full-Stack Developer & Team Lead | 9 anos de experiência em PHP, WordPress, Laravel e liderança de equipes">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"></noscript>
-
-    <!-- Font Awesome -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --cor-principal: #1A237E;
-            --cor-secundaria: #283593;
-            --cor-detalhes: #3949AB;
-            --cor-acento: #2196F3;
-            --cor-destaque: #64B5F6;
-            --cor-background: #F5F7FA;
-            --cor-card: #FFFFFF;
-            --cor-text: #2C3E50;
-            --cor-text-light: #6C757D;
+            --glass-bg: rgba(255,255,255,0.06);
+            --glass-bg-hover: rgba(255,255,255,0.11);
+            --glass-border: rgba(255,255,255,0.14);
+            --glass-border-bright: rgba(255,255,255,0.28);
+            --glass-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            --blur: blur(18px);
+            --blur-heavy: blur(40px);
+
+            --accent: #60a5fa;
+            --accent2: #a78bfa;
+            --accent3: #34d399;
+            --text: #f0f4ff;
+            --text-muted: rgba(200,215,255,0.6);
+            --text-dim: rgba(200,215,255,0.38);
+
+            --bg1: #060c1f;
+            --bg2: #0d1535;
+            --grad-primary: linear-gradient(135deg, #060c1f 0%, #0d1535 40%, #0a1628 70%, #060c1f 100%);
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--cor-background);
-            color: var(--cor-text);
-            line-height: 1.6;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg1);
+            color: var(--text);
+            line-height: 1.65;
+            overflow-x: hidden;
         }
 
-        ::selection {
-            background: var(--cor-acento);
-            color: white;
+        /* ─── ORBS / BACKGROUND ─── */
+        .bg-orbs {
+            position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+        }
+        .orb {
+            position: absolute; border-radius: 50%;
+            filter: blur(80px); opacity: 0.18;
+            animation: orbFloat 20s ease-in-out infinite;
+        }
+        .orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, #3b82f6, transparent 70%); top: -150px; left: -150px; animation-delay: 0s; }
+        .orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, #7c3aed, transparent 70%); top: 30%; right: -100px; animation-delay: -7s; }
+        .orb-3 { width: 400px; height: 400px; background: radial-gradient(circle, #059669, transparent 70%); bottom: 10%; left: 20%; animation-delay: -14s; }
+        .orb-4 { width: 350px; height: 350px; background: radial-gradient(circle, #0ea5e9, transparent 70%); bottom: -50px; right: 30%; animation-delay: -4s; }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0,0) scale(1); }
+            33% { transform: translate(30px, -40px) scale(1.05); }
+            66% { transform: translate(-20px, 25px) scale(0.95); }
         }
 
-        /* ===== HEADER ===== */
-        header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
+        /* Grid noise overlay */
+        body::before {
+            content: '';
+            position: fixed; inset: 0; z-index: 0; pointer-events: none;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 60px 60px;
         }
 
+        /* ─── GLASS UTILITY ─── */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+        .glass-bright {
+            background: rgba(255,255,255,0.09);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            border: 1px solid var(--glass-border-bright);
+        }
+
+        /* ─── NAV ─── */
         nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+            padding: 0 2rem;
+            background: rgba(6,12,31,0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--glass-border);
+            height: 68px;
+            display: flex; align-items: center; justify-content: space-between;
+            transition: background 0.3s;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--cor-principal);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .nav-logo {
+            font-family: 'Funnel Display', sans-serif;
+            font-weight: 800; font-size: 1.25rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        .logo-initial {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--cor-acento), var(--cor-detalhes));
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
         .nav-links a {
-            color: var(--cor-text);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            font-size: 0.95rem;
+            color: var(--text-muted); text-decoration: none;
+            font-size: 0.88rem; font-weight: 500; letter-spacing: 0.03em;
+            transition: color 0.25s;
         }
+        .nav-links a:hover { color: var(--text); }
 
-        .nav-links a:hover {
-            color: var(--cor-acento);
-        }
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .menu-toggle span { display: block; width: 22px; height: 1.5px; background: var(--text); border-radius: 2px; transition: 0.3s; }
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 2px;
-            background: var(--cor-text);
-        }
-
-        /* ===== HERO ===== */
-        /* ===== HERO ===== */
+        /* ─── HERO ─── */
         .hero {
-            background: linear-gradient(135deg, #0d1b5e 0%, #1A237E 40%, #1565C0 70%, #0d47a1 100%);
-            background-size: 300% 300%;
-            animation: gradientShift 8s ease infinite;
-            padding: 8rem 2rem 5rem;
-            margin-top: 72px;
-            position: relative;
-            overflow: hidden;
+            min-height: 100vh;
+            display: flex; align-items: center;
+            padding: 7rem 2rem 4rem;
+            position: relative; z-index: 1;
+        }
+        .hero-inner {
+            max-width: 1100px; margin: 0 auto; width: 100%;
         }
 
-        @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            background: rgba(96,165,250,0.1);
+            border: 1px solid rgba(96,165,250,0.25);
+            font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--accent); font-weight: 500;
+            margin-bottom: 1.8rem;
+            animation: fadeUp 0.8s ease both;
         }
+        .hero-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent3); animation: pulse-dot 2s ease infinite; }
+        @keyframes pulse-dot { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(33, 150, 243, 0.15) 0%, transparent 70%);
-            top: -100px;
-            right: -100px;
-            border-radius: 50%;
-            animation: pulse 6s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(100, 181, 246, 0.1) 0%, transparent 70%);
-            bottom: -80px;
-            left: -80px;
-            border-radius: 50%;
-            animation: pulse 8s ease-in-out infinite reverse;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1) translate(0, 0);
-                opacity: 0.6;
-            }
-
-            50% {
-                transform: scale(1.2) translate(20px, -20px);
-                opacity: 1;
-            }
-        }
-
-        .hero-particles {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .hero-particles span {
-            position: absolute;
-            display: block;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.06);
-            animation: floatParticle linear infinite;
-        }
-
-        .hero-particles span:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            left: 10%;
-            animation-duration: 12s;
-            animation-delay: 0s;
-        }
-
-        .hero-particles span:nth-child(2) {
-            width: 50px;
-            height: 50px;
-            left: 25%;
-            animation-duration: 16s;
-            animation-delay: 2s;
-        }
-
-        .hero-particles span:nth-child(3) {
-            width: 120px;
-            height: 120px;
-            left: 50%;
-            animation-duration: 10s;
-            animation-delay: 1s;
-        }
-
-        .hero-particles span:nth-child(4) {
-            width: 40px;
-            height: 40px;
-            left: 65%;
-            animation-duration: 14s;
-            animation-delay: 3s;
-        }
-
-        .hero-particles span:nth-child(5) {
-            width: 90px;
-            height: 90px;
-            left: 80%;
-            animation-duration: 18s;
-            animation-delay: 0.5s;
-        }
-
-        .hero-particles span:nth-child(6) {
-            width: 60px;
-            height: 60px;
-            left: 90%;
-            animation-duration: 11s;
-            animation-delay: 4s;
-        }
-
-        @keyframes floatParticle {
-            0% {
-                bottom: -150px;
-                transform: rotate(0deg);
-                opacity: 0;
-            }
-
-            10% {
-                opacity: 1;
-            }
-
-            90% {
-                opacity: 0.5;
-            }
-
-            100% {
-                bottom: 110%;
-                transform: rotate(720deg);
-                opacity: 0;
-            }
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-text h1 {
-            font-size: 3rem;
+        .hero h1 {
+            font-family: 'Funnel Display', sans-serif;
+            font-size: clamp(2.8rem, 6vw, 5rem);
             font-weight: 800;
-            color: #ffffff;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
             margin-bottom: 1rem;
-            line-height: 1.2;
+            animation: fadeUp 0.8s ease 0.1s both;
+        }
+        .hero h1 .name-grad {
+            background: linear-gradient(135deg, #fff 30%, var(--accent) 70%, var(--accent2) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: var(--cor-destaque);
-            margin-bottom: 1.5rem;
-            font-weight: 600;
+        .hero-typing-wrap {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--accent);
+            font-weight: 500; margin-bottom: 1.5rem;
             min-height: 2rem;
+            animation: fadeUp 0.8s ease 0.2s both;
         }
+        .cursor { display: inline-block; width: 2px; height: 1em; background: var(--accent); margin-left: 2px; vertical-align: middle; animation: blink 0.7s step-end infinite; }
+        @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
 
-        .cursor {
-            display: inline-block;
-            width: 3px;
-            height: 1.1em;
-            background: var(--cor-destaque);
-            margin-left: 2px;
-            vertical-align: middle;
-            animation: blink 0.8s step-end infinite;
-        }
-
-        @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.75);
-            margin-bottom: 2rem;
-            line-height: 1.8;
+        .hero-desc {
+            font-size: 1.05rem; color: var(--text-muted); max-width: 620px;
+            line-height: 1.8; margin-bottom: 2.5rem;
+            animation: fadeUp 0.8s ease 0.3s both;
         }
 
         .hero-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-bottom: 2rem;
+            display: flex; flex-wrap: wrap; gap: 0.7rem;
+            margin-bottom: 2.5rem;
+            animation: fadeUp 0.8s ease 0.4s both;
+        }
+        .badge-pill {
+            padding: 0.45rem 1rem;
+            border-radius: 100px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            font-size: 0.8rem; color: var(--text-muted); font-weight: 500;
+            display: flex; align-items: center; gap: 0.5rem;
+            transition: all 0.25s;
+        }
+        .badge-pill:hover { border-color: var(--accent); color: var(--text); }
+        .badge-pill i { color: var(--accent); font-size: 0.75rem; }
+
+        .hero-cta {
+            display: flex; gap: 1rem; flex-wrap: wrap;
+            animation: fadeUp 0.8s ease 0.5s both;
         }
 
-        .badge {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--cor-destaque);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid rgba(100, 181, 246, 0.4);
+        .btn-glass {
+            padding: 0.85rem 2rem; border-radius: 10px;
+            font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 500;
+            cursor: pointer; text-decoration: none; display: inline-block;
+            transition: all 0.25s; border: none; position: relative; overflow: hidden;
         }
-
-        .badge i {
-            margin-right: 0.5rem;
+        .btn-glass::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+            opacity: 0; transition: opacity 0.25s;
         }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
+        .btn-glass:hover::before { opacity: 1; }
 
         .btn-primary {
-            background: var(--cor-acento);
-            color: white;
+            background: linear-gradient(135deg, var(--accent), #3b82f6);
+            color: #fff;
+            box-shadow: 0 0 30px rgba(96,165,250,0.3);
         }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(96,165,250,0.5); }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(33, 150, 243, 0.3);
+        .btn-outline {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border-bright) !important;
+            color: var(--text);
+            backdrop-filter: blur(10px);
         }
+        .btn-outline:hover { border-color: var(--accent) !important; transform: translateY(-2px); }
 
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.5);
+        /* Floating stats strip */
+        .hero-stats {
+            display: flex; gap: 1px;
+            margin-top: 4rem;
+            background: var(--glass-border);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px; overflow: hidden;
+            backdrop-filter: var(--blur);
+            animation: fadeUp 0.8s ease 0.6s both;
         }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        /* ===== SEÇÕES ===== */
-        section {
-            padding: 5rem 2rem;
-        }
-
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
+        .hero-stat {
+            flex: 1; padding: 1.4rem 1.5rem;
+            background: var(--glass-bg);
             text-align: center;
-            margin-bottom: 4rem;
+            border-right: 1px solid var(--glass-border);
+            transition: background 0.25s;
+        }
+        .hero-stat:last-child { border-right: none; }
+        .hero-stat:hover { background: var(--glass-bg-hover); }
+        .hero-stat-num {
+            font-family: 'Funnel Display', sans-serif; font-size: 2rem; font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+        .hero-stat-label { font-size: 0.78rem; color: var(--text-dim); margin-top: 0.2rem; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .section-tag {
-            color: var(--cor-acento);
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
+        /* ─── SECTIONS ─── */
+        section { padding: 6rem 2rem; position: relative; z-index: 1; }
+        .container { max-width: 1100px; margin: 0 auto; }
 
+        .section-label {
+            font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--accent); font-weight: 600; margin-bottom: 0.8rem;
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+        .section-label::before {
+            content: ''; display: block; width: 24px; height: 1px; background: var(--accent);
+        }
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--cor-principal);
-            margin-bottom: 1rem;
+            font-family: 'Funnel Display', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem;
+            color: var(--text);
         }
+        .section-subtitle { font-size: 1rem; color: var(--text-muted); max-width: 600px; line-height: 1.8; }
 
-        .section-description {
-            font-size: 1.1rem;
-            color: var(--cor-text-light);
-            max-width: 700px;
-            margin: 0 auto;
+        /* ─── SOBRE ─── */
+        .sobre-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 3rem; align-items: start; margin-top: 3rem; }
+        .sobre-text p { color: var(--text-muted); margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.02rem; }
+        .sobre-text strong { color: var(--accent); font-weight: 500; }
+
+        .stats-glass {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+            background: var(--glass-border);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px; overflow: hidden;
         }
-
-        /* ===== SOBRE ===== */
-        .sobre {
-            background: white;
+        .stat-cell {
+            padding: 1.8rem 1.5rem; background: var(--glass-bg);
+            text-align: center; transition: background 0.25s;
         }
-
-        .sobre-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 4rem;
+        .stat-cell:hover { background: var(--glass-bg-hover); }
+        .stat-val {
+            font-family: 'Funnel Display', sans-serif; font-size: 2.2rem; font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
+        .stat-lbl { font-size: 0.78rem; color: var(--text-dim); margin-top: 0.3rem; }
 
-        .sobre-text p {
-            font-size: 1.05rem;
-            color: var(--cor-text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .sobre-text strong {
-            color: var(--cor-principal);
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .stat-box {
-            text-align: center;
-            padding: 2rem;
-            background: var(--cor-background);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .stat-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--cor-acento);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: var(--cor-text-light);
-            font-size: 0.9rem;
-        }
-
-        /* ===== CERTIFICAÇÕES ===== */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
+        /* ─── CERTIFICAÇÕES ─── */
+        .certs-section { background: rgba(255,255,255,0.02); }
+        .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
         .cert-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            padding: 2rem; border-radius: 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: var(--blur);
+            transition: all 0.3s;
+            position: relative; overflow: hidden;
         }
-
-        .cert-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--cor-acento);
-            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.15);
+        .cert-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0; transition: opacity 0.3s;
         }
+        .cert-card:hover { transform: translateY(-6px); border-color: rgba(96,165,250,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(96,165,250,0.08); }
+        .cert-card:hover::before { opacity: 1; }
 
-        .cert-badge {
-            width: 100px;
-            height: 100px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
+        .cert-icon-wrap {
+            width: 64px; height: 64px; border-radius: 14px;
+            background: linear-gradient(135deg, rgba(96,165,250,0.2), rgba(167,139,250,0.2));
+            border: 1px solid rgba(96,165,250,0.2);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; margin-bottom: 1.5rem;
         }
-
-        .cert-badge img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+        .cert-name { font-family: 'Funnel Display', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+        .cert-issuer { font-size: 0.85rem; color: var(--accent); font-weight: 500; margin-bottom: 0.2rem; }
+        .cert-year { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 1.2rem; }
+        .cert-link {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            color: var(--accent); text-decoration: none; font-size: 0.82rem; font-weight: 500;
+            border-top: 1px solid var(--glass-border); padding-top: 1rem; width: 100%;
+            transition: gap 0.2s;
         }
+        .cert-link:hover { gap: 0.7rem; }
 
-        .cert-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--cor-principal);
-            margin-bottom: 0.5rem;
-        }
-
-        .cert-issuer {
-            color: var(--cor-acento);
-            font-weight: 500;
-            margin-bottom: 0.3rem;
-        }
-
-        .cert-year {
-            color: var(--cor-text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .cert-verify {
-            padding-top: 1rem;
-            border-top: 1px solid var(--cor-background);
-        }
-
-        .cert-verify a {
-            color: var(--cor-acento);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .cert-verify a:hover {
-            color: var(--cor-detalhes);
-        }
-
-        /* ===== EXPERIÊNCIA ===== */
-        .experiencia {
-            background: white;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 3rem;
-        }
-
+        /* ─── EXPERIÊNCIA ─── */
+        .timeline { margin-top: 3rem; position: relative; }
         .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--cor-background);
+            content: ''; position: absolute; left: 0; top: 12px; bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+        }
+        .tl-item { padding-left: 2.5rem; padding-bottom: 3rem; position: relative; }
+        .tl-dot {
+            position: absolute; left: -6px; top: 6px;
+            width: 13px; height: 13px; border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 3px var(--bg1), 0 0 12px var(--accent);
+        }
+        .tl-card {
+            padding: 1.8rem 2rem; border-radius: 18px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: var(--blur);
+            transition: all 0.3s;
+        }
+        .tl-card:hover { background: var(--glass-bg-hover); border-color: rgba(96,165,250,0.2); transform: translateX(6px); }
+        .tl-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 0.5rem; }
+        .tl-title { font-family: 'Funnel Display', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--text); }
+        .tl-company { color: var(--accent); font-weight: 600; font-size: 1rem; margin-bottom: 0.2rem; }
+        .tl-meta { display: flex; gap: 1.2rem; color: var(--text-dim); font-size: 0.8rem; flex-wrap: wrap; }
+        .tl-meta i { color: var(--accent); }
+        .tl-list { list-style: none; margin: 1.2rem 0; }
+        .tl-list li {
+            color: var(--text-muted); font-size: 0.92rem; margin-bottom: 0.6rem;
+            padding-left: 1.2rem; position: relative; line-height: 1.7;
+        }
+        .tl-list li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 0.7rem; top: 0.2rem; }
+
+        /* ─── TAGS ─── */
+        .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
+        .tag {
+            padding: 0.3rem 0.7rem; border-radius: 6px;
+            background: rgba(96,165,250,0.08);
+            border: 1px solid rgba(96,165,250,0.18);
+            color: var(--accent); font-size: 0.75rem; font-weight: 500;
         }
 
-        .timeline-item {
-            position: relative;
-            padding-bottom: 3rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -3.5rem;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            background: var(--cor-acento);
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px var(--cor-background);
-        }
-
-        .timeline-content {
-            background: var(--cor-background);
-            padding: 2rem;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-content:hover {
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transform: translateX(10px);
-        }
-
-        .timeline-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .timeline-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--cor-principal);
-        }
-
-        .timeline-company {
-            color: var(--cor-acento);
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .timeline-meta {
-            display: flex;
-            gap: 1.5rem;
-            color: var(--cor-text-light);
-            font-size: 0.9rem;
-        }
-
-        .timeline-description ul {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-
-        .timeline-description li {
-            color: var(--cor-text-light);
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
+        /* ─── PORTFOLIO ─── */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+        .port-card {
+            border-radius: 20px; overflow: hidden;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: var(--blur);
+            cursor: pointer; transition: all 0.35s;
             position: relative;
         }
-
-        .timeline-description li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--cor-acento);
-            font-weight: bold;
+        .port-card:hover { transform: translateY(-8px); border-color: rgba(96,165,250,0.3); box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 40px rgba(96,165,250,0.1); }
+        .port-img {
+            height: 220px; overflow: hidden; position: relative;
+            background: linear-gradient(135deg, #1e3a6e, #0f2d5c);
         }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
+        .port-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .port-card:hover .port-img img { transform: scale(1.05); }
+        .port-img-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(6,12,31,0.9) 0%, transparent 60%);
         }
-
-        .tech-tag {
-            background: white;
-            color: var(--cor-acento);
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 500;
+        .port-cat {
+            position: absolute; top: 1rem; left: 1rem;
+            padding: 0.3rem 0.8rem; border-radius: 100px;
+            background: rgba(6,12,31,0.7); backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            font-size: 0.75rem; color: var(--accent); font-weight: 600;
         }
+        .port-body { padding: 1.5rem; }
+        .port-title { font-family: 'Funnel Display', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: 0.6rem; }
+        .port-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem; }
+        .port-meta { display: flex; gap: 1rem; color: var(--text-dim); font-size: 0.78rem; margin-bottom: 0.8rem; }
+        .port-meta i { color: var(--accent); }
 
-        /* ===== COMPETÊNCIAS ===== */
-        .competencias-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .competencia-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .competencia-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .competencia-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--cor-acento), var(--cor-detalhes));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-
-        .competencia-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--cor-principal);
-            margin-bottom: 1rem;
-        }
-
-        .competencia-list {
-            list-style: none;
-        }
-
-        .competencia-item {
-            color: var(--cor-text-light);
-            padding: 0.6rem 0;
-            border-bottom: 1px solid var(--cor-background);
-            font-size: 0.95rem;
-        }
-
-        .competencia-item:last-child {
-            border-bottom: none;
-        }
-
-        /* ===== PORTFOLIO ===== */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .portfolio-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            cursor: pointer;
-        }
-
-        .portfolio-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--cor-acento);
-            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.15);
-        }
-
-        .portfolio-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, var(--cor-acento), var(--cor-detalhes));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .portfolio-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .portfolio-image-placeholder {
-            color: white;
-            font-size: 3rem;
-            opacity: 0.3;
-        }
-
-        .portfolio-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
-            display: flex;
-            align-items: flex-end;
+        /* ─── MODALS ─── */
+        .modal {
+            display: none; position: fixed; inset: 0; z-index: 2000;
+            background: rgba(3,7,20,0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            align-items: center; justify-content: center;
             padding: 1.5rem;
         }
-
-        .portfolio-category {
-            background: var(--cor-acento);
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .portfolio-info {
-            padding: 2rem;
-        }
-
-        .portfolio-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--cor-principal);
-            margin-bottom: 0.8rem;
-        }
-
-        .portfolio-description {
-            color: var(--cor-text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .portfolio-meta {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            color: var(--cor-text-light);
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-        }
-
-        .portfolio-meta i {
-            color: var(--cor-acento);
-        }
-
-        /* ===== MODAL ===== */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            overflow-y: auto;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 16px;
-            max-width: 900px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
+        .modal.active { display: flex; animation: fadeIn 0.25s ease; }
+        @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+        .modal-box {
+            background: rgba(13,21,53,0.95);
+            border: 1px solid var(--glass-border-bright);
+            border-radius: 24px; max-width: 860px; width: 100%;
+            max-height: 90vh; overflow-y: auto;
             position: relative;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08);
             animation: slideUp 0.3s ease;
         }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        @keyframes slideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+        .modal-box::-webkit-scrollbar { width: 4px; }
+        .modal-box::-webkit-scrollbar-track { background: transparent; }
+        .modal-box::-webkit-scrollbar-thumb { background: var(--glass-border); border-radius: 2px; }
 
         .modal-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            width: 40px;
-            height: 40px;
-            background: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--cor-principal);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-            transition: all 0.3s ease;
+            position: absolute; top: 1.2rem; right: 1.2rem; z-index: 10;
+            width: 38px; height: 38px; border-radius: 50%;
+            background: var(--glass-bg); border: 1px solid var(--glass-border);
+            color: var(--text); font-size: 1.2rem; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.25s; backdrop-filter: blur(10px);
+        }
+        .modal-close:hover { background: rgba(239,68,68,0.2); border-color: rgba(239,68,68,0.4); transform: rotate(90deg); }
+
+        .modal-hero-img { height: 320px; overflow: hidden; border-radius: 24px 24px 0 0; position: relative; }
+        .modal-hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+        .modal-hero-img::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(13,21,53,1) 0%, transparent 50%);
         }
 
-        .modal-close:hover {
-            background: var(--cor-acento);
-            color: white;
-            transform: rotate(90deg);
-        }
-
-        .modal-header {
-            position: relative;
-            height: 400px;
-            background: linear-gradient(135deg, var(--cor-acento), var(--cor-detalhes));
-            overflow: hidden;
-        }
-
-        .modal-header img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .modal-body {
-            padding: 3rem;
-        }
-
-        .modal-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--cor-principal);
-            margin-bottom: 1rem;
-        }
-
-        .modal-subtitle {
-            color: var(--cor-acento);
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-        }
-
-        .modal-section {
-            margin-bottom: 2.5rem;
-        }
-
+        .modal-body { padding: 2.5rem; }
+        .modal-title { font-family: 'Funnel Display', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--text); margin-bottom: 0.3rem; }
+        .modal-sub { color: var(--accent); font-size: 0.9rem; font-weight: 500; margin-bottom: 2rem; }
+        .modal-section { margin-bottom: 2rem; }
         .modal-section h3 {
-            font-size: 1.3rem;
-            color: var(--cor-principal);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-family: 'Funnel Display', sans-serif; font-size: 1rem; font-weight: 700;
+            color: var(--text); margin-bottom: 1rem;
+            display: flex; align-items: center; gap: 0.5rem;
         }
-
-        .modal-section h3 i {
-            color: var(--cor-acento);
+        .modal-section h3 i { color: var(--accent); font-size: 0.9rem; }
+        .modal-list { list-style: none; }
+        .modal-list li {
+            color: var(--text-muted); font-size: 0.92rem; padding-left: 1.2rem;
+            position: relative; margin-bottom: 0.6rem; line-height: 1.7;
         }
+        .modal-list li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 0.7rem; top: 0.2rem; }
+        .modal-list li strong { color: var(--accent); font-weight: 500; }
 
-        .modal-section p,
-        .modal-section li {
-            color: var(--cor-text-light);
-            line-height: 1.8;
+        .results-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.8rem; }
+        .result-pill {
+            padding: 1rem 1.5rem; border-radius: 14px; text-align: center; flex: 1; min-width: 120px;
+            background: rgba(96,165,250,0.07); border: 1px solid rgba(96,165,250,0.2);
         }
+        .result-num { font-family: 'Funnel Display', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+        .result-lbl { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.2rem; }
 
-        .modal-section ul {
-            list-style: none;
-            padding-left: 0;
+        .modal-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.8rem; margin-top: 0.8rem; }
+        .gallery-item { height: 130px; border-radius: 10px; overflow: hidden; cursor: zoom-in; border: 1px solid var(--glass-border); transition: all 0.3s; }
+        .gallery-item:hover { transform: scale(1.03); border-color: var(--accent); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* ─── COMPETÊNCIAS ─── */
+        .comp-section { background: rgba(255,255,255,0.01); }
+        .comp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+        .comp-card {
+            padding: 2rem; border-radius: 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: var(--blur);
+            transition: all 0.3s; position: relative; overflow: hidden;
         }
-
-        .modal-section li {
-            padding-left: 1.5rem;
-            position: relative;
-            margin-bottom: 0.8rem;
+        .comp-card::after {
+            content: ''; position: absolute; bottom: -40px; right: -40px;
+            width: 120px; height: 120px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(96,165,250,0.06), transparent 70%);
         }
-
-        .modal-section li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--cor-acento);
-            font-weight: bold;
+        .comp-card:hover { transform: translateY(-5px); border-color: rgba(96,165,250,0.25); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+        .comp-icon {
+            width: 52px; height: 52px; border-radius: 12px; margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, rgba(96,165,250,0.15), rgba(167,139,250,0.15));
+            border: 1px solid rgba(96,165,250,0.2);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem; color: var(--accent);
         }
-
-        .modal-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
+        .comp-title { font-family: 'Funnel Display', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 1.2rem; }
+        .comp-list { list-style: none; }
+        .comp-item {
+            color: var(--text-muted); font-size: 0.88rem;
+            padding: 0.55rem 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+            display: flex; align-items: center; gap: 0.5rem;
         }
+        .comp-item:last-child { border-bottom: none; }
+        .comp-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
 
-        .modal-gallery-item {
-            height: 150px;
-            background: var(--cor-background);
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .modal-gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .modal-gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .result-box {
-            background: var(--cor-background);
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .result-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--cor-acento);
-            margin-bottom: 0.5rem;
-        }
-
-        .result-label {
-            font-size: 0.85rem;
-            color: var(--cor-text-light);
-        }
-
-        /* ===== CONTATO ===== */
-        .contato {
-            background: linear-gradient(135deg, var(--cor-principal), var(--cor-secundaria));
-            color: white;
-        }
-
-        .contato .section-tag,
-        .contato .section-title,
-        .contato .section-description {
-            color: white;
-        }
-
-        .contato .section-description {
-            opacity: 0.9;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .contact-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .contact-card:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .contact-icon {
-            font-size: 2rem;
-            color: var(--cor-destaque);
-            margin-bottom: 1rem;
-        }
-
-        .contact-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-value {
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .contact-value a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-value a:hover {
-            color: var(--cor-destaque);
-        }
-
-        /* ===== FOOTER ===== */
+        /* ─── FOOTER ─── */
         footer {
-            background: var(--cor-principal);
-            color: rgba(255, 255, 255, 0.8);
-            padding: 3rem 2rem;
+            padding: 2.5rem 2rem;
+            border-top: 1px solid var(--glass-border);
+            background: rgba(6,12,31,0.8);
+            backdrop-filter: blur(20px);
+            position: relative; z-index: 1;
         }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 2rem;
-            flex-wrap: wrap;
+        .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+        .footer-brand { font-family: 'Funnel Display', sans-serif; font-weight: 800; font-size: 1.1rem; background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .footer-copy { font-size: 0.8rem; color: var(--text-dim); }
+        .footer-links { display: flex; gap: 0.8rem; }
+        .footer-icon {
+            width: 38px; height: 38px; border-radius: 10px;
+            background: var(--glass-bg); border: 1px solid var(--glass-border);
+            color: var(--text-muted); display: flex; align-items: center; justify-content: center;
+            text-decoration: none; font-size: 1rem; transition: all 0.25s;
         }
+        .footer-icon:hover { background: rgba(96,165,250,0.15); border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
-        .footer-left {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+        /* ─── SCROLL REVEAL ─── */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ─── LIGHTBOX ─── */
+        .lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.96); align-items: center; justify-content: center; }
+        .lightbox.active { display: flex; animation: fadeIn 0.2s ease; }
+        .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 8px; }
+        .lb-close { position: fixed; top: 1.5rem; right: 1.5rem; width: 44px; height: 44px; background: rgba(255,255,255,0.1); border: none; border-radius: 50%; color: #fff; font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.25s; }
+        .lb-close:hover { background: rgba(239,68,68,0.4); }
+        .lb-nav { position: fixed; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; background: rgba(255,255,255,0.08); border: none; border-radius: 50%; color: #fff; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.25s; }
+        .lb-nav:hover { background: rgba(96,165,250,0.3); }
+        .lb-prev { left: 1.5rem; }
+        .lb-next { right: 1.5rem; }
+        .lb-count { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            .sobre-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; position: fixed; top: 68px; left: 0; right: 0; flex-direction: column; background: rgba(6,12,31,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); padding: 1.5rem 2rem; gap: 1.2rem; }
+            .nav-links.open { display: flex; }
+            .menu-toggle { display: flex; }
+            .hero-stats { grid-template-columns: 1fr 1fr; display: grid; }
         }
-
-        .footer-logo {
-            width: 40px;
-            height: 40px;
-            background: var(--cor-acento);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .footer-text {
-            font-size: 0.95rem;
-        }
-
-        .footer-right {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .footer-social {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-
-        .footer-social:hover {
-            background: var(--cor-acento);
-            transform: translateY(-3px);
-        }
-
-        footer a {
-            color: var(--cor-acento);
-            text-decoration: none;
-        }
-
-        /* ===== ANIMAÇÕES ===== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ===== RESPONSIVO ===== */
-        @media (max-width: 968px) {
-
-            /* MODAL MOBILE */
-            .modal.active {
-                padding: 1rem;
-                align-items: flex-end;
-            }
-
-            .modal-content {
-                max-height: 95vh;
-                border-radius: 16px 16px 0 0;
-            }
-
-            .modal-body {
-                padding: 1.5rem;
-            }
-
-            .modal-title {
-                font-size: 1.4rem;
-            }
-
-            .modal-subtitle {
-                font-size: 0.95rem;
-            }
-
-            .modal-section h3 {
-                font-size: 1.1rem;
-            }
-
-            .modal-section p,
-            .modal-section li {
-                font-size: 0.9rem;
-            }
-
-            .modal-header {
-                height: 220px;
-            }
-
-            .result-number {
-                font-size: 1.5rem;
-            }
-
-            .result-label {
-                font-size: 0.8rem;
-            }
-
-            .modal-close {
-                top: 1rem;
-                right: 1rem;
-            }
-
-            .nav-links {
-                position: fixed;
-                right: -100%;
-                top: 72px;
-                flex-direction: column;
-                background: white;
-                width: 100%;
-                padding: 2rem;
-                transition: 0.3s;
-                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .hero {
-                padding: 6rem 1.5rem 3rem;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .hero-text h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .sobre-content {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline {
-                padding-left: 2rem;
-            }
-
-            .timeline-item::before {
-                left: -2.5rem;
-            }
-
-            section {
-                padding: 3rem 1.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-left {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-text h1 {
-                font-size: 1.8rem;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .modal-body {
-                padding: 1rem;
-            }
-
-            .modal-title {
-                font-size: 1.2rem;
-            }
-
-            .tech-tag {
-                font-size: 0.75rem;
-                padding: 0.3rem 0.6rem;
-            }
-
-        }
-
-        /* ===== LIGHTBOX ===== */
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.95);
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .lightbox.active {
-            display: flex;
-        }
-
-        .lightbox-img {
-            max-width: 90vw;
-            max-height: 90vh;
-            border-radius: 8px;
-            object-fit: contain;
-            animation: slideUp 0.3s ease;
-            box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
-        }
-
-        .lightbox-close {
-            position: fixed;
-            top: 1.5rem;
-            right: 1.5rem;
-            width: 44px;
-            height: 44px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            border-radius: 50%;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 10000;
-        }
-
-        .lightbox-close:hover {
-            background: var(--cor-acento);
-            transform: rotate(90deg);
-        }
-
-        .lightbox-prev,
-        .lightbox-next {
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 48px;
-            height: 48px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            border-radius: 50%;
-            color: white;
-            font-size: 1.3rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 10000;
-        }
-
-        .lightbox-prev {
-            left: 1.5rem;
-        }
-
-        .lightbox-next {
-            right: 1.5rem;
-        }
-
-        .lightbox-prev:hover,
-        .lightbox-next:hover {
-            background: var(--cor-acento);
-        }
-
-        .lightbox-counter {
-            position: fixed;
-            bottom: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-            font-family: 'Inter', sans-serif;
+        @media (max-width: 600px) {
+            .hero { padding: 5.5rem 1.5rem 3rem; }
+            section { padding: 4rem 1.5rem; }
+            .hero-stats { grid-template-columns: 1fr 1fr; }
+            .modal-body { padding: 1.5rem; }
+            .modal-hero-img { height: 200px; }
         }
     </style>
 </head>
-
 <body>
-    <!-- HEADER -->
-    <header>
-        <nav>
-            <div class="logo">
-                <span>Lucas Bonavina</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#certificacoes">Certificações</a></li>
-                <li><a href="#experiencia">Experiência</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#competencias">Competências</a></li>
-            </ul>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
 
-    <!-- HERO -->
-    <section class="hero" id="home">
-        <div class="hero-particles">
-            <span></span><span></span><span></span>
-            <span></span><span></span><span></span>
+<!-- Background -->
+<div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-logo">Lucas Bonavina</div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#certificacoes">Certificações</a></li>
+        <li><a href="#experiencia">Experiência</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#competencias">Competências</a></li>
+    </ul>
+    <div class="menu-toggle" id="menuToggle">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-inner">
+        <div class="hero-eyebrow">
+            <span class="hero-eyebrow-dot"></span>
+            Disponível para novas oportunidades
         </div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Lucas Bonavina</h1>
-                <div class="hero-subtitle"><span id="typing-text"></span><span class="cursor"></span></div>
-                <p class="hero-description">
-                    Profissional de TI com 8+ anos de experiência evoluindo de desenvolvedor full stack a líder técnico.
-                    Atuo na intersecção entre tecnologia e negócio, gerenciando equipes, definindo roadmaps e garantindo
-                    que soluções digitais gerem resultados reais.
+        <h1><span class="name-grad">Lucas Bonavina</span></h1>
+        <div class="hero-typing-wrap">
+            <span id="typed"></span><span class="cursor"></span>
+        </div>
+        <p class="hero-desc">
+            Desenvolvedor Full-Stack com 9 anos de experiência em PHP, WordPress e Laravel. Especialista em liderança técnica de equipes, arquitetura de soluções digitais e entrega de produtos escaláveis para agências e clientes corporativos.
+        </p>
+        <div class="hero-badges">
+            <span class="badge-pill"><i class="fas fa-certificate"></i> Google PM Certificate</span>
+            <span class="badge-pill"><i class="fas fa-certificate"></i> SFPC™ — CertiProf</span>
+            <span class="badge-pill"><i class="fas fa-map-marker-alt"></i> São Paulo, SP</span>
+            <span class="badge-pill"><i class="fas fa-language"></i> Inglês B2</span>
+        </div>
+        <div class="hero-cta">
+            <a href="#portfolio" class="btn-glass btn-primary">Ver Projetos</a>
+            <a href="#experiencia" class="btn-glass btn-outline">Ver Experiência</a>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat"><div class="hero-stat-num">9+</div><div class="hero-stat-label">Anos de Experiência</div></div>
+            <div class="hero-stat"><div class="hero-stat-num">3+</div><div class="hero-stat-label">Anos em Liderança</div></div>
+            <div class="hero-stat"><div class="hero-stat-num">2</div><div class="hero-stat-label">Certificações</div></div>
+            <div class="hero-stat"><div class="hero-stat-num">B2</div><div class="hero-stat-label">Inglês</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+    <div class="container">
+        <div class="section-label">Sobre Mim</div>
+        <h2 class="section-title">Conectando Tecnologia e Negócio</h2>
+        <p class="section-subtitle">Profissional experiente em liderar times técnicos e entregar soluções que geram valor real — sem abrir mão do operacional.</p>
+        <div class="sobre-grid">
+            <div class="sobre-text reveal">
+                <p>
+                    Desenvolvedor Full-Stack e líder técnico com <strong>9 anos de experiência</strong> construindo e escalando produtos digitais para agências e clientes corporativos nas áreas de seguros, saúde, imóveis, e-commerce e notícias.
                 </p>
-                <div class="hero-badges">
-                    <span class="badge"><i class="fas fa-certificate"></i>Google PM Certificate</span>
-                    <span class="badge"><i class="fas fa-certificate"></i>SFPC™ — CertiProf</span>
-                </div>
-                <div class="cta-buttons">
-                    <a href="#portfolio" class="btn btn-primary">Ver Projetos</a>
-                    <a href="#experiencia" class="btn btn-secondary">Ver Experiência</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOBRE -->
-    <section class="sobre" id="sobre">
-        <div class="section-container">
-            <div class="section-header">
-                <div class="section-tag">Sobre Mim</div>
-                <h2 class="section-title">Conectando Tecnologia e Negócios</h2>
-                <p class="section-description">
-                    Profissional experiente em liderar equipes técnicas e entregar soluções que geram valor real. Sem
-                    abrir mão do operacional, com sólida experiência em desenvolvimento.
+                <p>
+                    Estruturo times de desenvolvimento do zero, estabeleço <strong>padrões técnicos e processos ágeis</strong>, e lidero entregas end-to-end da arquitetura à produção. Com experiência em automação de processos com <strong>n8n e integração com LLMs</strong>, conecto execução técnica ao planejamento estratégico.
                 </p>
-            </div>
-            <div class="sobre-content">
-                <div class="sobre-text fade-in">
-                    <p>
-                        Líder de desenvolvimento e engenheiro full-stack WordPress com 8 anos de experiência construindo
-                        e escalando produtos digitais com performance para agências e clientes corporativos (seguros,
-                        saúde, imóveis, e-commerce e notícias). Estruturo times de desenvolvimento do zero, estabeleço
-                        padrões técnicos e lidero entregas end-to-end da arquitetura à produção.
-                    </p>
-                    <p>
-                        Foco em liderança: Processos de code review, workflows ágeis, mentoria de desenvolvedores,
-                        colaboração multifuncional com times de produto e negócio. Conecto execução técnica e
-                        planejamento estratégico, garantindo soluções escaláveis e sustentáveis.
-                    </p>
-                </div>
-                <div class="stats fade-in">
-                    <div class="stat-box">
-                        <div class="stat-number">8+</div>
-                        <div class="stat-label">Anos de Experiência</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">3+</div>
-                        <div class="stat-label">Anos em Liderança</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">2</div>
-                        <div class="stat-label">Certificações</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">B2</div>
-                        <div class="stat-label">Inglês</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CERTIFICAÇÕES -->
-    <section class="certificacoes" id="certificacoes">
-        <div class="section-container">
-            <div class="section-header">
-                <div class="section-tag">Certificações</div>
-                <h2 class="section-title">Desenvolvimento Profissional Contínuo</h2>
-                <p class="section-description">
-                    Certificações em gestão de produtos, metodologias ágeis e liderança de projetos
+                <p>
+                    Foco em liderança: code review, workflows ágeis (Scrum/Kanban), mentoria de desenvolvedores e colaboração multifuncional com produto e negócio.
                 </p>
             </div>
-            <div class="cert-grid">
-                <div class="cert-card fade-in">
-                    <div class="cert-badge">
-                        <img src="badges/googlepm-badge.webp" alt="Google Certificate">
-                    </div>
-                    <h3 class="cert-title">Google Project Management Certificate</h3>
-                    <p class="cert-issuer">Coursera</p>
-                    <p class="cert-year">2026</p>
-                    <div class="cert-verify">
-                        <a href="https://www.credly.com/badges/a5e84b9b-97d8-423d-88f0-1113f7d6e802" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> Verificar Certificação
-                        </a>
-                    </div>
-                </div>
-
-                <div class="cert-card fade-in">
-                    <div class="cert-badge">
-                        <img src="badges/sfpc-badge.webp" alt="SFPC Certificate">
-                    </div>
-                    <h3 class="cert-title">Scrum Foundation Professional Certificate (SFPC™)</h3>
-                    <p class="cert-issuer">CertiProf</p>
-                    <p class="cert-year">2026</p>
-                    <div class="cert-verify">
-                        <a href="https://my-certificates.com/certificates/699753425e5ce0c4c7f96e93" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> Verificar Certificação
-                        </a>
-                    </div>
-                </div>
+            <div class="stats-glass reveal">
+                <div class="stat-cell"><div class="stat-val">9+</div><div class="stat-lbl">Anos de Experiência</div></div>
+                <div class="stat-cell"><div class="stat-val">3+</div><div class="stat-lbl">Anos em Liderança</div></div>
+                <div class="stat-cell"><div class="stat-val">2</div><div class="stat-lbl">Certificações</div></div>
+                <div class="stat-cell"><div class="stat-val">B2</div><div class="stat-lbl">Inglês</div></div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- EXPERIÊNCIA -->
-    <section class="experiencia" id="experiencia">
-        <div class="section-container">
-            <div class="section-header">
-                <div class="section-tag">Experiência Profissional</div>
-                <h2 class="section-title">Trajetória de Liderança e Inovação</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3 class="timeline-title">Líder de Equipe de Desenvolvimento / Full Stack</h3>
-                                <div class="timeline-company">Studio Visual</div>
-                            </div>
-                            <div class="timeline-meta">
-                                <span><i class="far fa-calendar"></i> fev 2020 - fev 2026</span>
-                                <span><i class="fas fa-building"></i> Remoto</span>
-                            </div>
-                        </div>
-                        <div class="timeline-description">
-                            <ul>
-                                <li>Lidero time de desenvolvimento em projetos WordPress de média escala (multisites,
-                                    e-commerce, integrações corporativas)</li>
-                                <li>Estabeleço arquitetura técnica, padrões de código e processos para reduzir
-                                    retrabalho e incidentes em produção</li>
-                                <li>Conduzo otimizações de performance e Core Web Vitals, elevando Lighthouse scores e
-                                    melhorando SEO de sites-chave</li>
-                                <li>Atuo próximo a clientes e times internos em discovery técnico, estimativa de esforço
-                                    e planejamento de roadmap</li>
-                                <li>Presto suporte ao time de desenvolvimento e otimização contínua dos processos</li>
-                            </ul>
-                            <div class="tech-tags">
-                                <span class="tech-tag">WordPress</span>
-                                <span class="tech-tag">PHP</span>
-                                <span class="tech-tag">Laravel</span>
-                                <span class="tech-tag">WooCommerce</span>
-                                <span class="tech-tag">Tailwind CSS</span>
-                                <span class="tech-tag">Sage Framework</span>
-                                <span class="tech-tag">Docker</span>
-                                <span class="tech-tag">AWS</span>
-                                <span class="tech-tag">CI/CD</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3 class="timeline-title">Web Developer</h3>
-                                <div class="timeline-company">Mufasa Creative Agency</div>
-                            </div>
-                            <div class="timeline-meta">
-                                <span><i class="far fa-calendar"></i> 2018 - 2020</span>
-                                <span><i class="fas fa-building"></i> Remoto</span>
-                            </div>
-                        </div>
-                        <div class="timeline-description">
-                            <ul>
-                                <li>Desenvolvedor Fullstack PHP, trabalhando com desenvolvimento de sites
-                                    institucionais, e-commerces, landing pages e sistemas corporativos com foco em
-                                    WordPress</li>
-                                <li>Implementação de soluções custom com temas e plugins personalizados</li>
-                                <li>Otimização de performance e SEO técnico para melhorar rankeamento</li>
-                                <li>Integração com APIs de terceiros e desenvolvimento de REST APIs</li>
-                            </ul>
-                            <div class="tech-tags">
-                                <span class="tech-tag">WordPress</span>
-                                <span class="tech-tag">PHP</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Bootstrap</span>
-                                <span class="tech-tag">MySQL</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item fade-in">
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div>
-                                <h3 class="timeline-title">Analista de TI</h3>
-                                <div class="timeline-company">TI Tech Solutions</div>
-                            </div>
-                            <div class="timeline-meta">
-                                <span><i class="far fa-calendar"></i> 2017 - 2018</span>
-                                <span><i class="fas fa-building"></i> Presencial</span>
-                            </div>
-                        </div>
-                        <div class="timeline-description">
-                            <ul>
-                                <li>Desenvolvimento de aplicações para uso interno e uso em coletores de dados /
-                                    dispositivos mobile</li>
-                                <li>Gerência do ambiente/infraestrutura local e suporte ao cliente N3 focado em
-                                    dispositivos mobile (Coletores de dados / Impressoras)</li>
-                                <li>Pré/Pós-venda de software e soluções em AC/AIDC</li>
-                                <li>Especialista em Bitdefender, Ivanti Speakeasy & Aruba Networking</li>
-                                <li>Manutenção das redes sociais e desenvolvimento de artes gráficas</li>
-                            </ul>
-                            <div class="tech-tags">
-                                <span class="tech-tag">Infraestrutura</span>
-                                <span class="tech-tag">Mobile</span>
-                                <span class="tech-tag">Networking</span>
-                                <span class="tech-tag">Suporte N3</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PORTFOLIO -->
-    <section class="portfolio" id="portfolio">
-        <div class="section-container">
-            <div class="section-header">
-                <div class="section-tag">Portfolio</div>
-                <h2 class="section-title">Projetos em Destaque</h2>
-                <p class="section-description">
-                    Alguns dos projetos que liderei ou desenvolvi ao longo da minha carreira
-                </p>
-            </div>
-            <div class="portfolio-grid">
-                <!-- Projeto 1 -->
-                <div class="portfolio-card fade-in" onclick="openModal('modal1')">
-                    <div class="portfolio-image">
-                        <img src="projetos/dny.webp" alt="Projeto Dicas Nova York">
-                        <div class="portfolio-overlay">
-                            <span class="portfolio-category">Portal de Notícias</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3 class="portfolio-title">Dicas Nova York</h3>
-                        <p class="portfolio-description">
-                            Guia turístico completo sobre Nova York desenvolvido em WordPress com Sage 10 e Tailwind
-                            CSS. Projeto com migração de infraestrutura para Cloudways, otimização avançada de
-                            performance e SEO técnico — atingindo 90+ no Lighthouse em mobile e desktop.
-                        </p>
-                        <div class="portfolio-meta">
-                            <span><i class="fas fa-user-tie"></i> Team Lead</span>
-                            <span><i class="fas fa-calendar"></i> 2024</span>
-                        </div>
-                        <div class="tech-tags">
-                            <span class="tech-tag">WordPress</span>
-                            <span class="tech-tag">Sage 10</span>
-                            <span class="tech-tag">Tailwind CSS</span>
-                            <span class="tech-tag">Cloudways</span>
-                            <span class="tech-tag">SEO Técnico</span>
-                            <span class="tech-tag">Core Web Vitals</span>
-                            <span class="tech-tag">Performance 90+</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projeto 2 -->
-                <div class="portfolio-card fade-in" onclick="openModal('modal2')">
-                    <div class="portfolio-image">
-                        <img src="projetos/gab1.webp" alt="Projeto GAB">
-                        <div class="portfolio-overlay">
-                            <span class="portfolio-category">Portal do Cliente</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3 class="portfolio-title">Grupo Águas do Brasil — Agência Virtual</h3>
-                        <p class="portfolio-description">
-                            Agência virtual desenvolvida para o Grupo Águas do Brasil. Portal de autoatendimento para
-                            clientes consultarem contas, realizarem pagamentos e acessarem serviços online. Sistema
-                            crítico com autenticação segura via API interna, sessões persistentes e alta exigência de
-                            estabilidade, além de infraestrutura configurada do zero em Oracle Linux.
-                        </p>
-                        <div class="portfolio-meta">
-                            <span><i class="fas fa-code"></i> Full Stack</span>
-                            <span><i class="fas fa-calendar"></i> 2023</span>
-                        </div>
-                        <div class="tech-tags">
-                            <span class="tech-tag">WordPress</span>
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">Sage 9</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projeto 3 -->
-                <div class="portfolio-card fade-in" onclick="openModal('modal3')">
-                    <div class="portfolio-image">
-                        <img src="projetos/too1.webp" alt="Projeto Universidade Too">
-                        <div class="portfolio-overlay">
-                            <span class="portfolio-category">Plataforma de Treinamento</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3 class="portfolio-title">Universidade Too Seguros</h3>
-                        <p class="portfolio-description">
-                            Plataforma de treinamento corporativo desenvolvida para a Too Seguros e Banco Pan, voltada à
-                            capacitação de operadores comerciais. O sistema oferece cursos online com emissão de
-                            certificados, sistema de gamificação customizado com badges e pontuação progressiva, e uma
-                            biblioteca de conteúdos para download de materiais de apoio — tudo integrado em um ambiente
-                            WordPress com LearnDash.
-                        </p>
-                        <div class="portfolio-meta">
-                            <span><i class="fas fa-users"></i> Team Lead / Full Stack</span>
-                            <span><i class="fas fa-calendar"></i> 2025</span>
-                        </div>
-                        <div class="tech-tags">
-                            <span class="tech-tag">WordPress</span>
-                            <span class="tech-tag">LearnDash</span>
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">ACF</span>
-                            <span class="tech-tag">Plugin Customizado</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MODALS -->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal1')">&times;</button>
-            <div class="modal-header">
-                <img src="projetos/dny.webp" style="object-position: top;" alt="Projeto Dicas Nova York">
-            </div>
-            <div class="modal-body">
-                <a style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;"
-                    href="https://dicasnovayork.com.br" target="_blank">
-                    <h2 class="modal-title">Dicas Nova York</h2>
-                    <i class="fas fa-external-link-alt"
-                        style="font-size: 1.2rem; color: var(--cor-principal); margin-top: -15px; margin-left: 10px;"></i>
+<!-- CERTIFICAÇÕES -->
+<section id="certificacoes" class="certs-section">
+    <div class="container">
+        <div class="section-label">Certificações</div>
+        <h2 class="section-title">Desenvolvimento Profissional</h2>
+        <p class="section-subtitle">Certificações em gestão de projetos, metodologias ágeis e liderança técnica.</p>
+        <div class="certs-grid">
+            <div class="cert-card reveal">
+                <div class="cert-icon-wrap">🎯</div>
+                <div class="cert-name">Google Project Management Certificate</div>
+                <div class="cert-issuer">Coursera / Google</div>
+                <div class="cert-year">Fevereiro 2026</div>
+                <a href="https://www.credly.com/badges/a5e84b9b-97d8-423d-88f0-1113f7d6e802" target="_blank" class="cert-link">
+                    <i class="fas fa-external-link-alt"></i> Verificar Certificação
                 </a>
+            </div>
+            <div class="cert-card reveal">
+                <div class="cert-icon-wrap">⚡</div>
+                <div class="cert-name">Scrum Foundation Professional Certificate (SFPC™)</div>
+                <div class="cert-issuer">CertiProf</div>
+                <div class="cert-year">Fevereiro 2026</div>
+                <a href="https://profiles.badgeclaimed.com/lbonavina/badges/urn:uuid:ff4a9ecf-0f29-422b-ad98-1fbd688a3d9e.html" target="_blank" class="cert-link">
+                    <i class="fas fa-external-link-alt"></i> Verificar Certificação
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
-                <p class="modal-subtitle">Blog de viagem · SEO · Performance · WordPress</p>
+<!-- EXPERIÊNCIA -->
+<section id="experiencia">
+    <div class="container">
+        <div class="section-label">Experiência Profissional</div>
+        <h2 class="section-title">Trajetória de Liderança</h2>
+        <div class="timeline">
 
-                <div class="modal-section">
-                    <h3><i class="fas fa-bullseye"></i> Desafio</h3>
-                    <ul>
-                        <li>Desenvolver tema performático e componentizado em nicho competitivo de viagens</li>
-                        <li>Migrar infraestrutura com zero downtime, preservando SEO e indexação existentes</li>
-                        <li>Atingir 90+ no Lighthouse em mobile — ambiente mais restritivo que desktop</li>
-                        <li>Aplicar SEO técnico completo para competir com portais de grande porte no Google</li>
-                    </ul>
-                </div>
-
-                <div class="modal-section">
-                    <h3><i class="fas fa-cog"></i> Solução Implementada</h3>
-                    <ul>
-                        <li>Tema customizado com <strong>Sage 10 + Tailwind CSS</strong> — código limpo, componentizado
-                            e sem CSS não utilizado</li>
-                        <li>Migração de infraestrutura para <strong>Cloudways</strong> com configuração de servidor,
-                            DNS, SSL e cache de servidor</li>
-                        <li>Otimização de performance: lazy loading, minificação de assets, compressão de imagens e
-                            estratégia de cache avançada</li>
-                        <li>SEO técnico: schema markup, Core Web Vitals, estrutura de URLs canônicas, sitemap e
-                            otimização de indexação</li>
-                    </ul>
-                </div>
-
-                <div class="modal-section">
-                    <h3><i class="fas fa-chart-line"></i> Resultados</h3>
-                    <div class="results-grid">
-                        <div class="result-box">
-                            <div class="result-number">90+</div>
-                            <div class="result-label">Lighthouse Mobile</div>
+            <div class="tl-item reveal">
+                <div class="tl-dot"></div>
+                <div class="tl-card">
+                    <div class="tl-top">
+                        <div>
+                            <div class="tl-title">Full-Stack Developer & Team Lead</div>
+                            <div class="tl-company">Studio Visual</div>
                         </div>
-                        <div class="result-box">
-                            <div class="result-number">90+</div>
-                            <div class="result-label">Lighthouse Desktop</div>
-                        </div>
-                        <div class="result-box">
-                            <div class="result-number">0</div>
-                            <div class="result-label">Downtime na Migração</div>
+                        <div class="tl-meta">
+                            <span><i class="far fa-calendar"></i> 2020 – 2026</span>
+                            <span><i class="fas fa-wifi"></i> Remoto</span>
                         </div>
                     </div>
-                </div>
-                <div class="modal-section">
-                    <h3><i class="fas fa-tools"></i> Tecnologias</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag">WordPress</span>
-                        <span class="tech-tag">Sage 10</span>
-                        <span class="tech-tag">Redis Cache</span>
-                        <span class="tech-tag">Tailwind CSS</span>
-                        <span class="tech-tag">Cloudways</span>
-                        <span class="tech-tag">SEO Técnico</span>
-                        <span class="tech-tag">PHP</span>
-                        <span class="tech-tag">Javascript</span>
+                    <ul class="tl-list">
+                        <li>Desenvolvimento de temas e plugins customizados em WordPress com Sage Framework, ACF e WooCommerce</li>
+                        <li>Integração com APIs externas (HubSpot, RD Station) e sistemas corporativos via REST API</li>
+                        <li>Configuração e manutenção de ambientes Docker, pipelines CI/CD e infraestrutura em cloud (AWS, Digital Ocean)</li>
+                        <li>Otimização de performance (Core Web Vitals, Lighthouse, caching) com impacto direto em SEO</li>
+                        <li>Desenvolvimento de soluções com IA aplicada, automação de workflows com n8n e integração com LLMs</li>
+                        <li>Liderança técnica em projetos de multisites, e-commerce e sistemas corporativos</li>
+                        <li>Definição de arquitetura técnica, padrões de código e processos ágeis, reduzindo retrabalho em produção</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">WordPress</span><span class="tag">PHP</span><span class="tag">Laravel</span>
+                        <span class="tag">WooCommerce</span><span class="tag">Tailwind CSS</span><span class="tag">Sage</span>
+                        <span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">CI/CD</span>
+                        <span class="tag">n8n</span><span class="tag">LLMs</span>
                     </div>
                 </div>
+            </div>
 
-                <div class="modal-section">
-                    <h3><i class="fas fa-images"></i> Galeria</h3>
-                    <div class="modal-gallery">
-                        <div class="modal-gallery-item">
-                            <div
-                                style="width:100%;height:100%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#999;">
-                                <img src="projetos/dny.webp" alt="Dicas Nova York">
-                            </div>
+            <div class="tl-item reveal">
+                <div class="tl-dot"></div>
+                <div class="tl-card">
+                    <div class="tl-top">
+                        <div>
+                            <div class="tl-title">Desenvolvedor Full-Stack WordPress</div>
+                            <div class="tl-company">Mufasa Creative Agency</div>
                         </div>
-                        <div class="modal-gallery-item">
-                            <div
-                                style="width:100%;height:100%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#999;">
-                                <img src="projetos/dny2.webp" alt="Dicas Nova York">
-                            </div>
+                        <div class="tl-meta">
+                            <span><i class="far fa-calendar"></i> 2018 – 2020</span>
+                            <span><i class="fas fa-wifi"></i> Remoto</span>
                         </div>
-                        <div class="modal-gallery-item">
-                            <div
-                                style="width:100%;height:100%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#999;">
-                                <img src="projetos/dny3.webp" alt="Dicas Nova York">
-                            </div>
+                    </div>
+                    <ul class="tl-list">
+                        <li>Desenvolvimento de sites institucionais, e-commerces, landing pages e sistemas corporativos com WordPress e PHP</li>
+                        <li>Criação de temas e plugins customizados com foco em performance e escalabilidade</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">WordPress</span><span class="tag">PHP</span><span class="tag">JavaScript</span><span class="tag">MySQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tl-item reveal">
+                <div class="tl-dot"></div>
+                <div class="tl-card">
+                    <div class="tl-top">
+                        <div>
+                            <div class="tl-title">Analista de TI</div>
+                            <div class="tl-company">TI Tech Solutions</div>
                         </div>
-                        <div class="modal-gallery-item">
-                            <div
-                                style="width:100%;height:100%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#999;">
-                                <img src="projetos/dny4.webp" alt="Dicas Nova York">
-                            </div>
+                        <div class="tl-meta">
+                            <span><i class="far fa-calendar"></i> 2017 – 2018</span>
+                            <span><i class="fas fa-building"></i> Presencial</span>
                         </div>
+                    </div>
+                    <ul class="tl-list">
+                        <li>Desenvolvimento de aplicações internas e mobile (coletores de dados)</li>
+                        <li>Gerenciamento de infraestrutura local, suporte N3 e administração de redes (Aruba) e segurança (Bitdefender)</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Infraestrutura</span><span class="tag">Mobile</span><span class="tag">Networking</span><span class="tag">Suporte N3</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tl-item reveal">
+                <div class="tl-dot"></div>
+                <div class="tl-card">
+                    <div class="tl-top">
+                        <div>
+                            <div class="tl-title">Analista de Infraestrutura Cloud Jr.</div>
+                            <div class="tl-company">BMSIX (atual BRQ)</div>
+                        </div>
+                        <div class="tl-meta">
+                            <span><i class="far fa-calendar"></i> Fev – Ago 2017</span>
+                        </div>
+                    </div>
+                    <ul class="tl-list">
+                        <li>Provisionamento e administração de máquinas virtuais em ambientes cloud (Azure e AWS)</li>
+                        <li>Desenvolvimento de scripts PowerShell para automação de processos internos</li>
+                        <li>Manutenção e suporte técnico em ambientes WordPress</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Azure</span><span class="tag">AWS</span><span class="tag">PowerShell</span><span class="tag">WordPress</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal2')">&times;</button>
-            <div class="modal-header">
-                <img src="projetos/gab1.webp" style="object-position: top;" alt="Projeto Dicas Nova York">
+<!-- PORTFOLIO -->
+<section id="portfolio" style="background: rgba(255,255,255,0.01);">
+    <div class="container">
+        <div class="section-label">Portfolio</div>
+        <h2 class="section-title">Projetos em Destaque</h2>
+        <p class="section-subtitle">Projetos que liderei ou desenvolvi ao longo da carreira.</p>
+        <div class="portfolio-grid">
+
+            <div class="port-card reveal" onclick="openModal('m1')">
+                <div class="port-img">
+                    <img src="projetos/dny.webp" alt="Dicas Nova York">
+                    <div class="port-img-overlay"></div>
+                    <span class="port-cat">Portal de Viagem</span>
+                </div>
+                <div class="port-body">
+                    <h3 class="port-title">Dicas Nova York</h3>
+                    <p class="port-desc">Guia turístico desenvolvido com Sage 10 + Tailwind CSS. Migração de infraestrutura para Cloudways e SEO técnico avançado — atingindo 90+ no Lighthouse mobile e desktop.</p>
+                    <div class="port-meta">
+                        <span><i class="fas fa-user-tie"></i> Team Lead</span>
+                        <span><i class="fas fa-calendar"></i> 2024</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">WordPress</span><span class="tag">Sage 10</span><span class="tag">Tailwind</span><span class="tag">SEO</span><span class="tag">Cloudways</span>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-                <a style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;"
-                    href="https://agenciavirtual.grupoaguasdobrasil.com.br" target="_blank">
-                    <h2 class="modal-title">Grupo Águas do Brasil - Agência Virtual</h2>
-                    <i class="fas fa-external-link-alt"
-                        style="font-size: 1.2rem; color: var(--cor-principal); margin-top: -15px; margin-left: 10px;"></i>
-                </a>
-                <p class="modal-subtitle">Portal do Cliente · WordPress · API Integration · Infraestrutura</p>
 
-                <div class="modal-section">
-                    <h3><i class="fas fa-exclamation-triangle"></i> Desafios</h3>
-                    <ul>
-                        <li>Desenvolver portal de autoatendimento crítico em paralelo com o time de API, sem bloqueios
-                            de dependência</li>
-                        <li>Implementar autenticação segura e persistência de sessão para acesso a dados financeiros dos
-                            clientes</li>
-                        <li>Garantir estabilidade e experiência consistente mesmo em instabilidades pontuais da API</li>
-                        <li>Configurar infraestrutura do zero em Oracle Linux com Nginx para ambiente de produção
-                            crítico</li>
-                    </ul>
+            <div class="port-card reveal" onclick="openModal('m2')">
+                <div class="port-img">
+                    <img src="projetos/gab1.webp" alt="GAB Agência Virtual">
+                    <div class="port-img-overlay"></div>
+                    <span class="port-cat">Portal do Cliente</span>
                 </div>
-
-                <div class="modal-section">
-                    <h3><i class="fas fa-cogs"></i> Soluções Aplicadas</h3>
-                    <ul>
-                        <li>Tema customizado com <strong>Sage 9 + PHP</strong> — separação entre camada de integração e
-                            camada de apresentação</li>
-                        <li>Desenvolvimento com <strong>mock data</strong> inicial, substituído pela API real sem
-                            refatoração</li>
-                        <li><strong>PHP Sessions</strong> para autenticação segura e persistência de login com
-                            tratamento centralizado de erros da API</li>
-                        <li>Configuração completa de servidor <strong>Oracle Linux + Nginx</strong> com otimizações de
-                            segurança, performance e disponibilidade</li>
-                        <li>Integração com API de dados do cliente (contas, faturas, pagamentos) com fallback em caso de
-                            instabilidade</li>
-                    </ul>
-                </div>
-
-                <div class="modal-section">
-                    <h3><i class="fas fa-chart-line"></i> Resultados</h3>
-                    <div class="results-grid">
-                        <div class="result-box">
-                            <div class="result-number">✓</div>
-                            <div class="result-label">Entrega no prazo</div>
-                        </div>
-                        <div class="result-box">
-                            <div class="result-number">0</div>
-                            <div class="result-label">Downtime em produção</div>
-                        </div>
-                        <div class="result-box">
-                            <div class="result-number">100%</div>
-                            <div class="result-label">Infra configurada do zero</div>
-                        </div>
+                <div class="port-body">
+                    <h3 class="port-title">Grupo Águas do Brasil — Agência Virtual</h3>
+                    <p class="port-desc">Portal de autoatendimento crítico com autenticação segura via API, sessões persistentes e infraestrutura configurada do zero em Oracle Linux + Nginx.</p>
+                    <div class="port-meta">
+                        <span><i class="fas fa-code"></i> Full Stack</span>
+                        <span><i class="fas fa-calendar"></i> 2023</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">WordPress</span><span class="tag">PHP</span><span class="tag">Sage 9</span><span class="tag">Oracle Linux</span>
                     </div>
                 </div>
-
-                <div class="modal-section">
-                    <h3><i class="fas fa-tools"></i> Tecnologias</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag">WordPress</span>
-                        <span class="tech-tag">Sage 9</span>
-                        <span class="tech-tag">PHP</span>
-                        <span class="tech-tag">Oracle Linux</span>
-                        <span class="tech-tag">Nginx</span>
-                        <span class="tech-tag">REST API</span>
-                        <span class="tech-tag">PHP Sessions</span>
-                        <span class="tech-tag">JavaScript</span>
-                    </div>
-                </div>
-
-                <div class="modal-section">
-                    <h3><i class="fas fa-images"></i> Galeria</h3>
-                    <div class="modal-gallery">
-                        <div class="modal-gallery-item">
-                            <img src="projetos/gab1.webp" alt="GAB - Tela de Login">
-                        </div>
-                        <div class="modal-gallery-item">
-                            <img src="projetos/gab2.webp" alt="GAB - Dashboard do Cliente">
-                        </div>
-                        <div class="modal-gallery-item">
-                            <img src="projetos/gab3.webp" alt="GAB - Consulta de Conta">
-                        </div>
-                    </div>
-                </div>
-
             </div>
+
+            <div class="port-card reveal" onclick="openModal('m3')">
+                <div class="port-img">
+                    <img src="projetos/too1.webp" alt="Universidade Too Seguros">
+                    <div class="port-img-overlay"></div>
+                    <span class="port-cat">Plataforma LMS</span>
+                </div>
+                <div class="port-body">
+                    <h3 class="port-title">Universidade Too Seguros</h3>
+                    <p class="port-desc">Plataforma de treinamento corporativo com LearnDash, gamificação customizada via plugin próprio (badges e pontuação), e biblioteca de conteúdos para dois clientes corporativos.</p>
+                    <div class="port-meta">
+                        <span><i class="fas fa-users"></i> Team Lead / Full Stack</span>
+                        <span><i class="fas fa-calendar"></i> 2025</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">WordPress</span><span class="tag">LearnDash</span><span class="tag">PHP</span><span class="tag">Gamificação</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
+</section>
 
-    <div id="modal3" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal3')">&times;</button>
-            <div class="modal-header">
-                <img src="projetos/too1.webp" style="object-position: top;" alt="Projeto Universidade TOo">
+<!-- MODALS -->
+<div id="m1" class="modal">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('m1')">×</button>
+        <div class="modal-hero-img"><img src="projetos/dny.webp" alt="Dicas Nova York"></div>
+        <div class="modal-body">
+            <a href="https://dicasnovayork.com.br" target="_blank" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem;">
+                <h2 class="modal-title">Dicas Nova York</h2>
+                <i class="fas fa-external-link-alt" style="color:var(--accent); font-size:1rem; margin-top:-10px;"></i>
+            </a>
+            <p class="modal-sub">Blog de Viagem · WordPress · SEO · Performance</p>
+            <div class="modal-section">
+                <h3><i class="fas fa-bullseye"></i> Desafio</h3>
+                <ul class="modal-list">
+                    <li>Tema performático e componentizado em nicho competitivo de viagens</li>
+                    <li>Migração de infraestrutura com zero downtime, preservando SEO e indexação</li>
+                    <li>Atingir 90+ no Lighthouse em mobile — ambiente mais restritivo</li>
+                    <li>SEO técnico completo para competir com portais de grande porte</li>
+                </ul>
             </div>
-            <div class="modal-body">
-                <h2 class="modal-title">Universidade Too Seguros</h2>
-                <p class="modal-subtitle">LMS · LearnDash · WordPress · Gamificação</p>
-
-                <div class="modal-section">
-                    <h3><i class="fas fa-exclamation-triangle"></i> Desafios</h3>
-                    <ul>
-                        <li>Desenvolver plataforma LMS robusta capaz de atender operadores de duas empresas diferentes
-                            (Too Seguros e Banco Pan)</li>
-                        <li>Criar sistema de gamificação customizado — badges e pontuação progressiva — além do que o
-                            LearnDash oferece nativamente</li>
-                        <li>Construir módulo independente de biblioteca de conteúdos com gestão de arquivos (PDFs,
-                            imagens, materiais)</li>
-                        <li>Garantir experiência fluida e intuitiva para usuários não técnicos (operadores comerciais)
-                        </li>
-                    </ul>
+            <div class="modal-section">
+                <h3><i class="fas fa-cog"></i> Solução</h3>
+                <ul class="modal-list">
+                    <li>Tema customizado com <strong>Sage 10 + Tailwind CSS</strong> — sem CSS não utilizado</li>
+                    <li>Migração para <strong>Cloudways</strong> com configuração de DNS, SSL e cache de servidor</li>
+                    <li>Performance: lazy loading, minificação de assets, compressão de imagens e Redis Cache</li>
+                    <li>SEO técnico: schema markup, Core Web Vitals, URLs canônicas, sitemap</li>
+                </ul>
+            </div>
+            <div class="modal-section">
+                <h3><i class="fas fa-chart-line"></i> Resultados</h3>
+                <div class="results-row">
+                    <div class="result-pill"><div class="result-num">90+</div><div class="result-lbl">Lighthouse Mobile</div></div>
+                    <div class="result-pill"><div class="result-num">90+</div><div class="result-lbl">Lighthouse Desktop</div></div>
+                    <div class="result-pill"><div class="result-num">0</div><div class="result-lbl">Downtime na Migração</div></div>
                 </div>
-
-                <div class="modal-section">
-                    <h3><i class="fas fa-cogs"></i> Soluções Aplicadas</h3>
-                    <ul>
-                        <li>Plataforma LMS com <strong>LearnDash</strong> — cursos, trilhas de aprendizado e emissão
-                            automática de certificados</li>
-                        <li>Sistema de gamificação <strong>customizado via plugin próprio</strong> — badges
-                            desbloqueáveis e pontuação acumulada por conclusão de cursos</li>
-                        <li>Módulo <strong>Biblioteca de Conteúdos</strong> desenvolvido do zero — upload e download de
-                            PDFs, imagens e materiais segmentados por categoria</li>
-                        <li>Controle de acesso por perfil de usuário — separação entre operadores Too Seguros e Banco
-                            Pan</li>
-                        <li>Integração entre o sistema de pontuação e o progresso dos cursos no LearnDash</li>
-                    </ul>
+            </div>
+            <div class="modal-section">
+                <h3><i class="fas fa-tools"></i> Tecnologias</h3>
+                <div class="tags">
+                    <span class="tag">WordPress</span><span class="tag">Sage 10</span><span class="tag">Tailwind CSS</span>
+                    <span class="tag">Redis Cache</span><span class="tag">Cloudways</span><span class="tag">PHP</span><span class="tag">JavaScript</span>
                 </div>
-
-                <div class="modal-section">
-                    <h3><i class="fas fa-chart-line"></i> Resultados</h3>
-                    <div class="results-grid">
-                        <div class="result-box">
-                            <div class="result-number">✓</div>
-                            <div class="result-label">Certificação automatizada</div>
-                        </div>
-                        <div class="result-box">
-                            <div class="result-number">✓</div>
-                            <div class="result-label">Gamificação customizada</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal-section">
-                    <h3><i class="fas fa-tools"></i> Tecnologias</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag">WordPress</span>
-                        <span class="tech-tag">LearnDash</span>
-                        <span class="tech-tag">PHP</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">ACF</span>
-                        <span class="tech-tag">MySQL</span>
-                        <span class="tech-tag">Plugin Customizado</span>
-                        <span class="tech-tag">Gestão de Arquivos</span>
-                    </div>
-                </div>
-
-                <div class="modal-section">
-                    <h3><i class="fas fa-images"></i> Galeria</h3>
-                    <div class="modal-gallery">
-                        <div class="modal-gallery-item">
-                            <img src="projetos/too1.webp" alt="Universidade Too Seguros - Home">
-                        </div>
-                        <div class="modal-gallery-item">
-                            <img src="projetos/too2.webp" alt="Universidade Too Seguros - Cursos">
-                        </div>
-                        <div class="modal-gallery-item">
-                            <img src="projetos/too3.webp" alt="Universidade Too Seguros - Gamificação">
-                        </div>
-                        <div class="modal-gallery-item">
-                            <img src="projetos/too4.webp" alt="Universidade Too Seguros - Gamificação">
-                        </div>
-                    </div>
+            </div>
+            <div class="modal-section">
+                <h3><i class="fas fa-images"></i> Galeria</h3>
+                <div class="modal-gallery">
+                    <div class="gallery-item"><img src="projetos/dny.webp" alt="DNY 1"></div>
+                    <div class="gallery-item"><img src="projetos/dny2.webp" alt="DNY 2"></div>
+                    <div class="gallery-item"><img src="projetos/dny3.webp" alt="DNY 3"></div>
+                    <div class="gallery-item"><img src="projetos/dny4.webp" alt="DNY 4"></div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- COMPETÊNCIAS -->
-    <section class="competencias" id="competencias">
-        <div class="section-container">
-            <div class="section-header">
-                <div class="section-tag">Competências</div>
-                <h2 class="section-title">Áreas de Especialização</h2>
+<div id="m2" class="modal">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('m2')">×</button>
+        <div class="modal-hero-img"><img src="projetos/gab1.webp" alt="GAB"></div>
+        <div class="modal-body">
+            <a href="https://agenciavirtual.grupoaguasdobrasil.com.br" target="_blank" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem;">
+                <h2 class="modal-title">Grupo Águas do Brasil — Agência Virtual</h2>
+                <i class="fas fa-external-link-alt" style="color:var(--accent); font-size:1rem; margin-top:-10px;"></i>
+            </a>
+            <p class="modal-sub">Portal do Cliente · API Integration · Infraestrutura · Oracle Linux</p>
+            <div class="modal-section">
+                <h3><i class="fas fa-exclamation-triangle"></i> Desafios</h3>
+                <ul class="modal-list">
+                    <li>Portal de autoatendimento crítico em paralelo com o time de API, sem bloqueios</li>
+                    <li>Autenticação segura e persistência de sessão para dados financeiros</li>
+                    <li>Estabilidade em eventuais instabilidades da API externa</li>
+                    <li>Infraestrutura do zero em Oracle Linux com Nginx para produção</li>
+                </ul>
             </div>
-            <div class="competencias-grid">
-                <div class="competencia-card fade-in">
-                    <div class="competencia-icon">
-                        <i class="fas fa-users-cog"></i>
-                    </div>
-                    <h3 class="competencia-title">Gestão & Produto</h3>
-                    <ul class="competencia-list">
-                        <li class="competencia-item">Gestão de equipes de desenvolvimento</li>
-                        <li class="competencia-item">Product Owner (PSPO certificado)</li>
-                        <li class="competencia-item">Metodologias ágeis (Scrum, Kanban)</li>
-                        <li class="competencia-item">Planejamento estratégico de TI</li>
-                        <li class="competencia-item">Stakeholder management</li>
-                        <li class="competencia-item">Code review e padrões técnicos</li>
-                        <li class="competencia-item">Mentoria de desenvolvedores</li>
-                    </ul>
+            <div class="modal-section">
+                <h3><i class="fas fa-cogs"></i> Soluções</h3>
+                <ul class="modal-list">
+                    <li>Tema com <strong>Sage 9 + PHP</strong> — separação entre camada de integração e apresentação</li>
+                    <li>Desenvolvimento com <strong>mock data</strong> substituído pela API real sem refatoração</li>
+                    <li><strong>PHP Sessions</strong> para autenticação segura e tratamento centralizado de erros</li>
+                    <li>Configuração completa de <strong>Oracle Linux + Nginx</strong> com segurança e performance</li>
+                </ul>
+            </div>
+            <div class="modal-section">
+                <h3><i class="fas fa-chart-line"></i> Resultados</h3>
+                <div class="results-row">
+                    <div class="result-pill"><div class="result-num">✓</div><div class="result-lbl">Entrega no prazo</div></div>
+                    <div class="result-pill"><div class="result-num">0</div><div class="result-lbl">Downtime em produção</div></div>
+                    <div class="result-pill"><div class="result-num">100%</div><div class="result-lbl">Infra do zero</div></div>
                 </div>
-
-                <div class="competencia-card fade-in">
-                    <div class="competencia-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h3 class="competencia-title">Infraestrutura & Cloud</h3>
-                    <ul class="competencia-list">
-                        <li class="competencia-item">AWS (provisionamento e administração)</li>
-                        <li class="competencia-item">Azure (máquinas virtuais)</li>
-                        <li class="competencia-item">Digital Ocean</li>
-                        <li class="competencia-item">Docker e CI/CD pipelines</li>
-                        <li class="competencia-item">Segurança de endpoints</li>
-                        <li class="competencia-item">Gestão de redes</li>
-                        <li class="competencia-item">Automação (PowerShell)</li>
-                    </ul>
+            </div>
+            <div class="modal-section">
+                <h3><i class="fas fa-tools"></i> Tecnologias</h3>
+                <div class="tags">
+                    <span class="tag">WordPress</span><span class="tag">Sage 9</span><span class="tag">PHP</span>
+                    <span class="tag">Oracle Linux</span><span class="tag">Nginx</span><span class="tag">REST API</span><span class="tag">JavaScript</span>
                 </div>
-
-                <div class="competencia-card fade-in">
-                    <div class="competencia-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 class="competencia-title">Desenvolvimento</h3>
-                    <ul class="competencia-list">
-                        <li class="competencia-item">PHP & Laravel</li>
-                        <li class="competencia-item">JavaScript (ES6+, React)</li>
-                        <li class="competencia-item">WordPress (temas, plugins, headless)</li>
-                        <li class="competencia-item">WooCommerce & ACF</li>
-                        <li class="competencia-item">REST APIs & integrações</li>
-                        <li class="competencia-item">Otimização de performance</li>
-                        <li class="competencia-item">SEO técnico</li>
-                    </ul>
+            </div>
+            <div class="modal-section">
+                <h3><i class="fas fa-images"></i> Galeria</h3>
+                <div class="modal-gallery">
+                    <div class="gallery-item"><img src="projetos/gab1.webp" alt="GAB 1"></div>
+                    <div class="gallery-item"><img src="projetos/gab2.webp" alt="GAB 2"></div>
+                    <div class="gallery-item"><img src="projetos/gab3.webp" alt="GAB 3"></div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-left">
-                <div class="footer-logo">LB</div>
-                <div class="footer-text">
-                    <strong>Lucas Bonavina</strong><br>
-                    IT Manager & Product Owner
-                </div>
-            </div>
-            <div class="footer-text">
-                &copy; 2026 Lucas Bonavina. Todos os direitos reservados.
-            </div>
-            <div class="footer-right">
-                <a href="https://www.linkedin.com/in/lbonavina/" target="_blank" class="footer-social"
-                    aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/lbonavina" target="_blank" class="footer-social" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:lbonavin@gmail.com" class="footer-social" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JAVASCRIPT -->
-    <script>
-        // Menu Mobile
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Scroll Reveal
-        const fadeElements = document.querySelectorAll('.fade-in');
-
-        const revealOnScroll = () => {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('visible');
-                }
-            });
-        };
-
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const headerHeight = 72;
-                    const targetPosition = target.offsetTop - headerHeight;
-
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Modal Functions
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal on outside click
-        document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    closeModal(modal.id);
-                }
-            });
-        });
-
-        // Close modal on ESC key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.modal.active').forEach(modal => {
-                    closeModal(modal.id);
-                });
-            }
-        });
-
-        // Typing Effect
-        const phrases = [
-            "Full-Stack Developer",
-            "Development Team Lead",
-            "Product Owner / Gestão"
-        ];
-
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingEl = document.getElementById("typing-text");
-
-        function type() {
-            const current = phrases[phraseIndex];
-            if (!isDeleting) {
-                typingEl.textContent = current.substring(0, charIndex + 1);
-                charIndex++;
-                if (charIndex === current.length) {
-                    isDeleting = true;
-                    setTimeout(type, 1800);
-                    return;
-                }
-            } else {
-                typingEl.textContent = current.substring(0, charIndex - 1);
-                charIndex--;
-                if (charIndex === 0) {
-                    isDeleting = false;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                }
-            }
-            setTimeout(type, isDeleting ? 60 : 100);
-        }
-
-        type();
-
-        // ===== LIGHTBOX =====
-        let lightboxImages = [];
-        let lightboxIndex = 0;
-
-        function openLightbox(imgs, index) {
-            lightboxImages = imgs;
-            lightboxIndex = index;
-            updateLightbox();
-            document.getElementById('lightbox').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function closeLightboxOnBackdrop(e) {
-            if (e.target === document.getElementById('lightbox')) closeLightbox();
-        }
-
-        function lightboxNav(dir) {
-            lightboxIndex = (lightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
-            updateLightbox();
-        }
-
-        function updateLightbox() {
-            document.getElementById('lightbox-img').src = lightboxImages[lightboxIndex];
-            document.getElementById('lightbox-counter').textContent =
-                (lightboxIndex + 1) + ' / ' + lightboxImages.length;
-        }
-
-        // Ativa lightbox em todas as galerias dos modais
-        document.querySelectorAll('.modal-gallery').forEach(gallery => {
-            const items = gallery.querySelectorAll('.modal-gallery-item img');
-            const srcs = Array.from(items).map(img => img.src);
-            items.forEach((img, i) => {
-                img.parentElement.style.cursor = 'zoom-in';
-                img.parentElement.onclick = (e) => {
-                    e.stopPropagation();
-                    openLightbox(srcs, i);
-                };
-            });
-        });
-
-        // ESC fecha lightbox também
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowLeft') lightboxNav(-1);
-            if (e.key === 'ArrowRight') lightboxNav(1);
-        });
-
-    </script>
-
-    <!-- LIGHTBOX -->
-    <div id="lightbox" class="lightbox" onclick="closeLightboxOnBackdrop(event)">
-        <button class="lightbox-close" onclick="closeLightbox()">×</button>
-        <button class="lightbox-prev" onclick="lightboxNav(-1)">&#8249;</button>
-        <img class="lightbox-img" id="lightbox-img" src="" alt="">
-        <button class="lightbox-next" onclick="lightboxNav(1)">&#8250;</button>
-        <div class="lightbox-counter" id="lightbox-counter"></div>
     </div>
+</div>
 
+<div id="m3" class="modal">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('m3')">×</button>
+        <div class="modal-hero-img"><img src="projetos/too1.webp" alt="Universidade Too"></div>
+        <div class="modal-body">
+            <h2 class="modal-title">Universidade Too Seguros</h2>
+            <p class="modal-sub">LMS · LearnDash · Gamificação · WordPress</p>
+            <div class="modal-section">
+                <h3><i class="fas fa-exclamation-triangle"></i> Desafios</h3>
+                <ul class="modal-list">
+                    <li>Plataforma LMS robusta para dois clientes distintos (Too Seguros e Banco Pan)</li>
+                    <li>Gamificação customizada além do que o LearnDash oferece nativamente</li>
+                    <li>Módulo independente de biblioteca de conteúdos com gestão de arquivos</li>
+                    <li>Experiência intuitiva para usuários não técnicos (operadores comerciais)</li>
+                </ul>
+            </div>
+            <div class="modal-section">
+                <h3><i class="fas fa-cogs"></i> Soluções</h3>
+                <ul class="modal-list">
+                    <li><strong>LearnDash</strong> — cursos, trilhas de aprendizado e emissão automática de certificados</li>
+                    <li>Sistema de gamificação via <strong>plugin próprio</strong> — badges e pontuação acumulada</li>
+                    <li>Módulo <strong>Biblioteca de Conteúdos</strong> do zero — upload/download por categoria</li>
+                    <li>Controle de acesso por perfil — separação entre operadores das duas empresas</li>
+                </ul>
+            </div>
+            <div class="modal-section">
+                <h3><i class="fas fa-chart-line"></i> Resultados</h3>
+                <div class="results-row">
+                    <div class="result-pill"><div class="result-num">✓</div><div class="result-lbl">Certificação automatizada</div></div>
+                    <div class="result-pill"><div class="result-num">✓</div><div class="result-lbl">Gamificação customizada</div></div>
+                </div>
+            </div>
+            <div class="modal-section">
+                <h3><i class="fas fa-tools"></i> Tecnologias</h3>
+                <div class="tags">
+                    <span class="tag">WordPress</span><span class="tag">LearnDash</span><span class="tag">PHP</span>
+                    <span class="tag">JavaScript</span><span class="tag">ACF</span><span class="tag">MySQL</span><span class="tag">Plugin Customizado</span>
+                </div>
+            </div>
+            <div class="modal-section">
+                <h3><i class="fas fa-images"></i> Galeria</h3>
+                <div class="modal-gallery">
+                    <div class="gallery-item"><img src="projetos/too1.webp" alt="Too 1"></div>
+                    <div class="gallery-item"><img src="projetos/too2.webp" alt="Too 2"></div>
+                    <div class="gallery-item"><img src="projetos/too3.webp" alt="Too 3"></div>
+                    <div class="gallery-item"><img src="projetos/too4.webp" alt="Too 4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- COMPETÊNCIAS -->
+<section id="competencias" class="comp-section">
+    <div class="container">
+        <div class="section-label">Competências</div>
+        <h2 class="section-title">Áreas de Especialização</h2>
+        <div class="comp-grid">
+            <div class="comp-card reveal">
+                <div class="comp-icon"><i class="fas fa-users-cog"></i></div>
+                <h3 class="comp-title">Gestão & Produto</h3>
+                <ul class="comp-list">
+                    <li class="comp-item">Gestão de equipes de desenvolvimento</li>
+                    <li class="comp-item">Metodologias ágeis (Scrum, Kanban)</li>
+                    <li class="comp-item">OKRs e planejamento estratégico de TI</li>
+                    <li class="comp-item">Stakeholder management</li>
+                    <li class="comp-item">Code review e padrões técnicos</li>
+                    <li class="comp-item">Mentoria de desenvolvedores</li>
+                    <li class="comp-item">Gestão de Projetos (Google PM Certified)</li>
+                </ul>
+            </div>
+            <div class="comp-card reveal">
+                <div class="comp-icon"><i class="fas fa-cloud"></i></div>
+                <h3 class="comp-title">Infraestrutura & Cloud</h3>
+                <ul class="comp-list">
+                    <li class="comp-item">AWS (provisionamento e administração)</li>
+                    <li class="comp-item">Azure (máquinas virtuais)</li>
+                    <li class="comp-item">Digital Ocean & Cloudways</li>
+                    <li class="comp-item">Docker e CI/CD pipelines</li>
+                    <li class="comp-item">Linux (Oracle Linux, Ubuntu)</li>
+                    <li class="comp-item">Nginx e segurança de servidores</li>
+                    <li class="comp-item">PowerShell e automação</li>
+                </ul>
+            </div>
+            <div class="comp-card reveal">
+                <div class="comp-icon"><i class="fas fa-code"></i></div>
+                <h3 class="comp-title">Desenvolvimento</h3>
+                <ul class="comp-list">
+                    <li class="comp-item">PHP & Laravel</li>
+                    <li class="comp-item">JavaScript (ES6+, TypeScript)</li>
+                    <li class="comp-item">WordPress (temas, plugins, headless)</li>
+                    <li class="comp-item">WooCommerce, ACF, LearnDash</li>
+                    <li class="comp-item">REST APIs & integrações</li>
+                    <li class="comp-item">Tailwind CSS & Sage Framework</li>
+                    <li class="comp-item">SEO técnico & Core Web Vitals</li>
+                </ul>
+            </div>
+            <div class="comp-card reveal">
+                <div class="comp-icon"><i class="fas fa-robot"></i></div>
+                <h3 class="comp-title">IA & Automação</h3>
+                <ul class="comp-list">
+                    <li class="comp-item">n8n — automação de workflows</li>
+                    <li class="comp-item">Prompt Engineering</li>
+                    <li class="comp-item">Integração com LLMs (ChatGPT API)</li>
+                    <li class="comp-item">IA aplicada a produtos digitais</li>
+                    <li class="comp-item">Automação de processos internos</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div>
+            <div class="footer-brand">Lucas Bonavina</div>
+            <div class="footer-copy" style="margin-top:0.3rem;">Full-Stack Developer & Team Lead · São Paulo, SP</div>
+        </div>
+        <div class="footer-copy">© 2026 Lucas Bonavina</div>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/lbonavina/" target="_blank" class="footer-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/lbonavina" target="_blank" class="footer-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:lbonavin@gmail.com" class="footer-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://lbonavina.github.io" target="_blank" class="footer-icon" aria-label="Site"><i class="fas fa-globe"></i></a>
+        </div>
+    </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" onclick="if(event.target===this)closeLb()">
+    <button class="lb-close" onclick="closeLb()">×</button>
+    <button class="lb-nav lb-prev" onclick="lbNav(-1)">‹</button>
+    <img id="lb-img" src="" alt="">
+    <button class="lb-nav lb-next" onclick="lbNav(1)">›</button>
+    <div class="lb-count" id="lb-count"></div>
+</div>
+
+<script>
+// Nav mobile
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); window.scrollTo({ top: target.offsetTop - 68, behavior: 'smooth' }); }
+    });
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+reveals.forEach(el => revealObs.observe(el));
+
+// Typing
+const phrases = ['Full-Stack Developer', 'Development Team Lead', 'WordPress & PHP Specialist', 'IA & Automação'];
+let pi = 0, ci = 0, del = false;
+const typedEl = document.getElementById('typed');
+function type() {
+    const cur = phrases[pi];
+    typedEl.textContent = del ? cur.slice(0, --ci) : cur.slice(0, ++ci);
+    if (!del && ci === cur.length) { del = true; setTimeout(type, 1800); return; }
+    if (del && ci === 0) { del = false; pi = (pi + 1) % phrases.length; }
+    setTimeout(type, del ? 55 : 95);
+}
+type();
+
+// Modal
+function openModal(id) { document.getElementById(id).classList.add('active'); document.body.style.overflow = 'hidden'; }
+function closeModal(id) { document.getElementById(id).classList.remove('active'); document.body.style.overflow = ''; }
+document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', e => { if (e.target === m) closeModal(m.id); }));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.querySelectorAll('.modal.active').forEach(m => closeModal(m.id)); closeLb(); } });
+
+// Lightbox
+let lbImgs = [], lbIdx = 0;
+function openLb(imgs, i) { lbImgs = imgs; lbIdx = i; updLb(); document.getElementById('lb').classList.add('active'); document.body.style.overflow = 'hidden'; }
+function closeLb() { document.getElementById('lb').classList.remove('active'); }
+function lbNav(d) { lbIdx = (lbIdx + d + lbImgs.length) % lbImgs.length; updLb(); }
+function updLb() { document.getElementById('lb-img').src = lbImgs[lbIdx]; document.getElementById('lb-count').textContent = (lbIdx+1) + ' / ' + lbImgs.length; }
+document.querySelectorAll('.modal-gallery').forEach(g => {
+    const imgs = [...g.querySelectorAll('img')].map(i => i.src);
+    g.querySelectorAll('.gallery-item').forEach((item, i) => {
+        item.addEventListener('click', e => { e.stopPropagation(); openLb(imgs, i); });
+    });
+});
+document.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') lbNav(-1); if (e.key === 'ArrowRight') lbNav(1); });
+</script>
 </body>
-
 </html>
