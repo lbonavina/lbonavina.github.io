@@ -141,6 +141,289 @@
             box-shadow: 0 6px 18px rgba(3, 174, 110, .35) !important;
         }
 
+        /* ── MOBILE HAMBURGER BUTTON ── */
+        .ham-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            border: 1.5px solid var(--border);
+            background: var(--white);
+            cursor: pointer;
+            z-index: 300;
+            transition: background .2s, border-color .2s;
+        }
+
+        .ham-btn span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transform-origin: center;
+            transition: transform .35s cubic-bezier(.77, 0, .175, 1), opacity .2s, width .25s;
+        }
+
+        .ham-btn.open {
+            background: var(--brand-light);
+            border-color: var(--brand-mid);
+        }
+
+        .ham-btn.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .ham-btn.open span:nth-child(2) {
+            opacity: 0;
+            width: 10px;
+        }
+
+        .ham-btn.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* ── MOBILE DRAWER ── */
+        .mob-drawer {
+            position: fixed;
+            inset: 0;
+            z-index: 250;
+            pointer-events: none;
+        }
+
+        .mob-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 28, 20, 0);
+            transition: background .4s ease;
+        }
+
+        .mob-drawer.open .mob-backdrop {
+            background: rgba(10, 28, 20, .5);
+            pointer-events: all;
+        }
+
+        .mob-panel {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: min(300px, 82vw);
+            height: 100%;
+            background: var(--white);
+            transform: translateX(100%);
+            transition: transform .42s cubic-bezier(.77, 0, .175, 1);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            box-shadow: -8px 0 40px rgba(0, 0, 0, .12);
+        }
+
+        .mob-drawer.open .mob-panel {
+            transform: translateX(0);
+            pointer-events: all;
+        }
+
+        .mob-band {
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-deep), var(--brand), #5bddaa);
+            flex-shrink: 0;
+        }
+
+        .mob-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 20px 0;
+        }
+
+        .mob-header .nav-brand {
+            font-size: 15px;
+        }
+
+        .mob-close {
+            width: 32px;
+            height: 32px;
+            border-radius: 9px;
+            background: var(--off);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--text-3);
+            transition: background .18s, color .18s;
+        }
+
+        .mob-close:hover {
+            background: var(--brand-light);
+            color: var(--brand-dark);
+        }
+
+        .mob-nav {
+            padding: 16px 12px;
+            flex: 1;
+        }
+
+        .mob-section-label {
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--text-3);
+            padding: 0 8px;
+            margin: 16px 0 6px;
+        }
+
+        .mob-section-label:first-child {
+            margin-top: 0;
+        }
+
+        .mob-link {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            padding: 12px 10px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 14.5px;
+            font-weight: 500;
+            transition: background .18s, color .18s,
+                opacity .4s ease, transform .4s ease;
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        .mob-drawer.open .mob-link {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .mob-link:nth-child(1) {
+            transition-delay: .05s;
+        }
+
+        .mob-link:nth-child(2) {
+            transition-delay: .09s;
+        }
+
+        .mob-link:nth-child(3) {
+            transition-delay: .13s;
+        }
+
+        .mob-link:nth-child(4) {
+            transition-delay: .17s;
+        }
+
+        .mob-link:nth-child(5) {
+            transition-delay: .21s;
+        }
+
+        .mob-link:nth-child(6) {
+            transition-delay: .25s;
+        }
+
+        .mob-link:nth-child(7) {
+            transition-delay: .29s;
+        }
+
+        .mob-link:hover {
+            background: var(--subtle);
+            color: var(--brand-dark);
+        }
+
+        .mob-link-ico {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            background: var(--off);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            flex-shrink: 0;
+            transition: background .18s;
+        }
+
+        .mob-link:hover .mob-link-ico {
+            background: var(--brand-mid);
+        }
+
+        .mob-link-arrow {
+            margin-left: auto;
+            font-size: 12px;
+            color: var(--text-3);
+            transition: transform .2s, color .2s;
+        }
+
+        .mob-link:hover .mob-link-arrow {
+            transform: translateX(3px);
+            color: var(--brand);
+        }
+
+        .mob-sep {
+            height: 1px;
+            background: var(--border2);
+            margin: 10px 8px;
+        }
+
+        .mob-cta-wrap {
+            padding: 14px;
+            border-top: 1px solid var(--border2);
+            flex-shrink: 0;
+        }
+
+        .mob-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 12px;
+            background: var(--brand);
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 6px 20px rgba(3, 174, 110, .3);
+            transition: background .2s, transform .2s, box-shadow .2s,
+                opacity .4s ease .3s, transform .4s ease .3s;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .mob-drawer.open .mob-cta {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mob-cta:hover {
+            background: var(--brand-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(3, 174, 110, .38);
+        }
+
+        /* show ham, hide desktop links on mobile */
+        @media (max-width: 960px) {
+            .nav {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .ham-btn {
+                display: flex;
+            }
+        }
+
         /* HERO */
         .hero {
             min-height: 100vh;
@@ -1473,7 +1756,68 @@
             <li><a href="#">Central de Ajuda</a></li>
             <li><a href="https://solicitecartao.niodigital.com.br/" class="nav-cta">Peça seu Cartão</a></li>
         </ul>
+        <!-- hamburguer mobile -->
+        <button class="ham-btn" id="hamBtn" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
+
+    <!-- DRAWER MOBILE -->
+    <div class="mob-drawer" id="mobDrawer">
+        <div class="mob-backdrop" id="mobBackdrop"></div>
+        <div class="mob-panel">
+            <div class="mob-band"></div>
+            <div class="mob-header">
+                <a href="https://niodigital.com.br" class="nav-brand">
+                    <img src="logo.png" style="height: 40px;" class="logo" alt="Logo Nio Digital">
+                </a>
+                <button class="mob-close" id="mobClose">✕</button>
+            </div>
+            <div class="mob-nav">
+                <div class="mob-section-label">Navegação</div>
+                <a href="#" class="mob-link">
+                    <div class="mob-link-ico">🏠</div>
+                    Início
+                    <span class="mob-link-arrow">›</span>
+                </a>
+                <a href="#" class="mob-link">
+                    <div class="mob-link-ico">👥</div>
+                    Sobre nós
+                    <span class="mob-link-arrow">›</span>
+                </a>
+                <a href="#" class="mob-link">
+                    <div class="mob-link-ico">👤</div>
+                    Área do Cliente
+                    <span class="mob-link-arrow">›</span>
+                </a>
+                <a href="#" class="mob-link">
+                    <div class="mob-link-ico">❓</div>
+                    Central de Ajuda
+                    <span class="mob-link-arrow">›</span>
+                </a>
+                <div class="mob-sep"></div>
+                <div class="mob-section-label">Produtos</div>
+                <a href="https://niodigital.com.br/cartao-consignado-nio-digital/" class="mob-link">
+                    <div class="mob-link-ico">💳</div>
+                    Cartão Consignado
+                    <span class="mob-link-arrow">›</span>
+                </a>
+                <a href="https://niodigital.com.br/cartao-beneficio-consignado-nio-digital/" class="mob-link">
+                    <div class="mob-link-ico">🎁</div>
+                    Cartão Benefício
+                    <span class="mob-link-arrow">›</span>
+                </a>
+                <a href="https://niodigital.com.br/siape/" class="mob-link">
+                    <div class="mob-link-ico">🏛</div>
+                    Cartão SIAPE
+                    <span class="mob-link-arrow">›</span>
+                </a>
+            </div>
+            <div class="mob-cta-wrap">
+                <a href="https://solicitecartao.niodigital.com.br/" class="mob-cta">Peça seu Cartão →</a>
+            </div>
+        </div>
+    </div>
 
     <!-- HERO -->
     <section class="hero">
@@ -1783,6 +2127,19 @@
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
         }, { threshold: 0.08 });
         document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+        // Mobile menu
+        const hamBtn = document.getElementById('hamBtn');
+        const mobDrawer = document.getElementById('mobDrawer');
+        const mobBackdrop = document.getElementById('mobBackdrop');
+        const mobClose = document.getElementById('mobClose');
+
+        function openMenu() { mobDrawer.classList.add('open'); hamBtn.classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeMenu() { mobDrawer.classList.remove('open'); hamBtn.classList.remove('open'); document.body.style.overflow = ''; }
+
+        hamBtn.addEventListener('click', () => mobDrawer.classList.contains('open') ? closeMenu() : openMenu());
+        mobBackdrop.addEventListener('click', closeMenu);
+        mobClose.addEventListener('click', closeMenu);
     </script>
 </body>
 
