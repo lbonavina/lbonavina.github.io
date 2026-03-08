@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Para Grazielli 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Dancing+Script:wght@600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose: #e8477a;
+  --rose-light: #f78fae;
+  --rose-pale: #fce4ec;
+  --rose-deep: #c2185b;
+  --gold: #f4a261;
+  --cream: #fffaf8;
+  --pink-soft: #fff0f5;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#particleCanvas {
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 60px 24px 100px;
+  background: linear-gradient(160deg, #fff0f5 0%, #fce4ec 50%, #ffd6e7 100%);
+  z-index: 1;
+}
+
+.wave-bg { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+.wave {
+  position: absolute; border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,71,122,0.08) 0%, transparent 70%);
+  animation: waveExpand ease-out infinite;
+}
+.wave:nth-child(1) { width:280px;height:280px;top:50%;left:50%;transform:translate(-50%,-50%);animation-duration:4s; }
+.wave:nth-child(2) { width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);animation-duration:4s;animation-delay:1.2s; }
+.wave:nth-child(3) { width:720px;height:720px;top:50%;left:50%;transform:translate(-50%,-50%);animation-duration:4s;animation-delay:2.4s; }
+
+@keyframes waveExpand {
+  0%   { transform:translate(-50%,-50%) scale(0.4); opacity:0.8; }
+  100% { transform:translate(-50%,-50%) scale(2.2); opacity:0; }
+}
+
+.hero-hearts { position:absolute;inset:0;pointer-events:none;z-index:1; }
+.h-heart {
+  position:absolute;
+  animation: floatBob ease-in-out infinite;
+  filter: drop-shadow(0 2px 6px rgba(232,71,122,0.3));
+}
+@keyframes floatBob {
+  0%,100% { transform:translateY(0) rotate(-8deg) scale(1); }
+  50%      { transform:translateY(-18px) rotate(8deg) scale(1.1); }
+}
+
+.hero-content { position:relative;z-index:2;text-align:center; }
+
+.date-pill {
+  display:inline-block;
+  background:rgba(255,255,255,0.75);
+  border:1px solid rgba(232,71,122,0.25);
+  backdrop-filter:blur(10px);
+  color:var(--rose);
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(1rem,3.5vw,1.2rem);
+  padding:9px 24px; border-radius:40px;
+  margin-bottom:28px; letter-spacing:1px;
+  opacity:0;
+  animation:popIn 0.7s cubic-bezier(.175,.885,.32,1.275) 0.4s forwards;
+}
+@keyframes popIn {
+  from { opacity:0;transform:scale(0.5) translateY(20px); }
+  to   { opacity:1;transform:scale(1) translateY(0); }
+}
+
+.hero-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3.2rem,14vw,7rem);
+  font-style:italic; color:var(--rose-deep);
+  line-height:1; opacity:0;
+  animation:slideUp 0.9s ease 0.8s forwards;
+  text-shadow:0 4px 30px rgba(194,24,91,0.15);
+}
+
+.hero-name {
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(3rem,13vw,6rem);
+  background:linear-gradient(135deg,#e8477a 0%,#f4a261 50%,#e8477a 100%);
+  background-size:300%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-top:4px; opacity:0;
+  animation:slideUp 0.9s ease 1.1s forwards, shimmer 4s linear 2s infinite;
+}
+@keyframes shimmer { 0%{background-position:0% 50%} 100%{background-position:300% 50%} }
+
+.hero-line {
+  width:0; height:2px;
+  background:linear-gradient(90deg,transparent,var(--rose),transparent);
+  margin:20px auto;
+  animation:expandLine 1s ease 1.5s forwards;
+}
+@keyframes expandLine { to{width:140px} }
+
+.hero-sub {
+  font-size:clamp(1.05rem,3.5vw,1.3rem);
+  color:#ad5070; font-style:italic;
+  line-height:1.9; max-width:340px;
+  opacity:0;
+  animation:slideUp 0.9s ease 1.7s forwards;
+}
+
+@keyframes slideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+.scroll-down {
+  position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  opacity:0; animation:fadeIn 1s ease 2.5s forwards; z-index:2;
+}
+.scroll-down span { font-family:'Dancing Script',cursive;font-size:0.85rem;color:var(--rose-light);letter-spacing:2px; }
+.chevrons { display:flex;flex-direction:column;gap:2px;align-items:center; }
+.chev {
+  width:14px;height:14px;
+  border-right:2px solid var(--rose-light);
+  border-bottom:2px solid var(--rose-light);
+  transform:rotate(45deg);
+  animation:chevBounce 1.4s ease-in-out infinite;
+}
+.chev:nth-child(2){animation-delay:0.15s;opacity:0.6}
+.chev:nth-child(3){animation-delay:0.3s;opacity:0.3}
+@keyframes chevBounce {
+  0%,100%{transform:rotate(45deg) translate(0,0)}
+  50%{transform:rotate(45deg) translate(3px,3px)}
+}
+
+/* ── SECTIONS ── */
+section { position:relative;z-index:1; }
+.sec-pad { padding:80px 24px; }
+.inner { max-width:680px;margin:0 auto;text-align:center; }
+
+.sec-tag {
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(0.95rem,3vw,1.1rem);
+  color:var(--rose-light); letter-spacing:3px;
+  display:block; margin-bottom:14px;
+}
+.sec-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.9rem,6vw,3.2rem);
+  color:var(--rose-deep); font-style:italic;
+  line-height:1.25; margin-bottom:24px;
+}
+.sec-body {
+  font-size:clamp(1.05rem,3.5vw,1.2rem);
+  color:#7a4a5a; line-height:2; font-weight:300;
+}
+.bg-rose  { background:linear-gradient(180deg,#fff0f5 0%,#fce4ec 100%); }
+.bg-white { background:#fffaf8; }
+
+.ribbon { display:flex;align-items:center;gap:16px;justify-content:center;margin:20px 0 28px; }
+.rib-line { flex:1;max-width:90px;height:1px;background:linear-gradient(90deg,transparent,var(--rose-light)); }
+.rib-line.r { background:linear-gradient(90deg,var(--rose-light),transparent); }
+.rib-heart { color:var(--rose);font-size:1.1rem;animation:heartbeat 1.5s ease-in-out infinite; }
+@keyframes heartbeat {
+  0%,100%{transform:scale(1)} 14%{transform:scale(1.3)} 28%{transform:scale(1)} 42%{transform:scale(1.15)}
+}
+
+/* ── CARDS ── */
+.cards-grid {
+  display:grid; grid-template-columns:1fr;
+  gap:18px; margin-top:40px;
+}
+@media(min-width:520px){ .cards-grid{grid-template-columns:repeat(3,1fr)} }
+
+.card {
+  background:white; border-radius:24px;
+  padding:32px 20px;
+  box-shadow:0 6px 30px rgba(232,71,122,0.1);
+  border:1px solid rgba(232,71,122,0.1);
+  position:relative; overflow:hidden;
+  transition:transform 0.35s cubic-bezier(.175,.885,.32,1.275),box-shadow 0.35s ease;
+  cursor:default;
+}
+.card::before {
+  content:''; position:absolute;
+  top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--rose),var(--gold));
+}
+.card:hover,.card.touched {
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 20px 50px rgba(232,71,122,0.2);
+}
+.card-icon { font-size:2.6rem;margin-bottom:14px;display:block;animation:iconWiggle 3s ease-in-out infinite; }
+@keyframes iconWiggle { 0%,100%{transform:rotate(-5deg)} 50%{transform:rotate(5deg) scale(1.1)} }
+.card-title { font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--rose-deep);font-style:italic;margin-bottom:10px; }
+.card-text { font-size:0.95rem;color:#ad5070;line-height:1.75; }
+
+/* ── QUOTE ── */
+.quote-sec {
+  background:linear-gradient(135deg,var(--rose-deep),#e8477a 60%,#f78fae);
+  padding:90px 28px; text-align:center;
+  position:relative; overflow:hidden; z-index:1;
+}
+.quote-sec::before {
+  content:'❝'; position:absolute;
+  font-size:240px; color:rgba(255,255,255,0.06);
+  top:-40px;left:10px; font-family:serif;
+  line-height:1; pointer-events:none;
+}
+.quote-orb {
+  position:absolute; border-radius:50%;
+  filter:blur(60px); pointer-events:none;
+  animation:orbDrift ease-in-out infinite alternate;
+}
+@keyframes orbDrift { from{transform:translate(0,0)} to{transform:translate(30px,20px)} }
+.quote-text {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.4rem,5vw,2.5rem);
+  color:white; font-style:italic;
+  line-height:1.6; max-width:620px;
+  margin:0 auto 24px; position:relative;z-index:1;
+}
+.quote-author { font-family:'Dancing Script',cursive;color:rgba(255,255,255,0.7);font-size:clamp(1.1rem,4vw,1.3rem);position:relative;z-index:1; }
+
+/* ── CONTADOR ── */
+.counter-sec { background:var(--pink-soft);padding:80px 24px;position:relative;z-index:1; }
+.counter-grid {
+  display:grid; grid-template-columns:repeat(2,1fr);
+  gap:16px; margin-top:40px;
+  max-width:500px; margin-left:auto; margin-right:auto;
+}
+.counter-card {
+  background:white; border-radius:20px;
+  padding:28px 16px;
+  box-shadow:0 4px 20px rgba(232,71,122,0.12);
+  text-align:center;
+  transition:transform 0.3s ease;
+}
+.counter-card:hover,.counter-card.touched { transform:scale(1.04); }
+.counter-num {
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(2.5rem,8vw,3.5rem);
+  color:var(--rose); line-height:1; display:block;
+  animation:countPulse 2s ease-in-out infinite;
+}
+@keyframes countPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.06)} }
+.counter-label { font-size:0.82rem;color:#ad5070;margin-top:6px;letter-spacing:0.5px;text-transform:uppercase; }
+
+/* ── BOTÃO ── */
+.btn-sec {
+  padding:90px 24px;
+  background:linear-gradient(180deg,#fce4ec 0%,#fff0f5 100%);
+  text-align:center; position:relative;z-index:1;
+}
+.btn-wrapper {
+  display:inline-flex; flex-direction:column;
+  align-items:center; gap:20px; position:relative;
+}
+.pulse-ring {
+  position:absolute; inset:-14px; border-radius:999px;
+  border:2px solid rgba(232,71,122,0.35);
+  animation:pRing 2s ease-out infinite; pointer-events:none;
+}
+.pulse-ring:nth-child(2){animation-delay:0.65s}
+.pulse-ring:nth-child(3){animation-delay:1.3s}
+@keyframes pRing { 0%{transform:scale(1);opacity:0.7} 100%{transform:scale(1.55);opacity:0} }
+
+.heart-btn {
+  position:relative;
+  background:linear-gradient(135deg,#e8477a 0%,#c2185b 100%);
+  color:white; border:none;
+  padding:22px 40px;
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(1.3rem,5vw,1.8rem);
+  border-radius:999px; cursor:pointer;
+  box-shadow:0 10px 40px rgba(232,71,122,0.45);
+  transition:transform 0.2s cubic-bezier(.175,.885,.32,1.275),box-shadow 0.2s;
+  outline:none; letter-spacing:0.5px;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation; white-space:nowrap;
+  user-select:none;
+}
+.heart-btn::before {
+  content:''; position:absolute; inset:-2px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#f78fae,#f4a261,#e8477a,#f78fae);
+  background-size:300%; z-index:-1;
+  animation:borderSpin 3s linear infinite;
+}
+@keyframes borderSpin { 0%{background-position:0% 50%} 100%{background-position:300% 50%} }
+.heart-btn:active { transform:scale(0.93); }
+.heart-btn:hover  { transform:scale(1.06);box-shadow:0 18px 55px rgba(232,71,122,0.55); }
+
+.click-count {
+  font-family:'Dancing Script',cursive;
+  font-size:1.1rem; color:var(--rose);
+  min-height:28px; transition:transform 0.2s;
+}
+.btn-hint { font-size:0.9rem;color:var(--rose-light);font-style:italic;letter-spacing:0.5px; }
+
+/* ── CORAÇÕES VOADORES ── */
+.flying-heart {
+  position:fixed; pointer-events:none;
+  z-index:9998;
+  animation:flyUp ease-out forwards;
+  line-height:1; user-select:none;
+}
+@keyframes flyUp {
+  0%   { opacity:1;transform:translate(0,0) scale(0.4) rotate(0deg); }
+  60%  { opacity:1; }
+  100% { opacity:0;transform:translate(var(--tx),var(--ty)) scale(1.6) rotate(var(--tr)); }
+}
+.love-flash {
+  position:fixed;inset:0;
+  background:radial-gradient(circle,rgba(248,144,174,0.35) 0%,transparent 70%);
+  pointer-events:none;z-index:9997;
+  animation:flashOut 0.55s ease forwards;
+}
+@keyframes flashOut { 0%{opacity:1;transform:scale(0.6)} 60%{opacity:0.7;transform:scale(1.1)} 100%{opacity:0;transform:scale(1.4)} }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--rose-deep); color:rgba(255,255,255,0.8);
+  text-align:center; padding:50px 24px;
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(1.2rem,4vw,1.5rem);
+  line-height:2; position:relative;z-index:1;
+}
+footer .accent { color:#f78fae; }
+footer .small {
+  font-family:'Lato',sans-serif;font-size:0.72rem;
+  letter-spacing:2px;opacity:0.45;display:block;
+  margin-top:8px;text-transform:uppercase;
+}
+
+/* ── REVEAL ── */
+.reveal      { opacity:0;transform:translateY(40px);transition:opacity 0.75s ease,transform 0.75s ease; }
+.reveal-left { opacity:0;transform:translateX(-40px);transition:opacity 0.75s ease,transform 0.75s ease; }
+.reveal-right{ opacity:0;transform:translateX(40px);transition:opacity 0.75s ease,transform 0.75s ease; }
+.reveal-pop  { opacity:0;transform:scale(0.7);transition:opacity 0.6s cubic-bezier(.175,.885,.32,1.275),transform 0.6s cubic-bezier(.175,.885,.32,1.275); }
+.reveal.visible,.reveal-left.visible,.reveal-right.visible,.reveal-pop.visible { opacity:1;transform:none; }
+
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+</style>
+</head>
+<body>
+
+<canvas id="particleCanvas"></canvas>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wave-bg"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div>
+  <div class="hero-hearts" id="heroHearts"></div>
+  <div class="hero-content">
+    <div class="date-pill">✦ 8 de Março · Dia das Mulheres ✦</div>
+    <h1 class="hero-title">Para você,</h1>
+    <h2 class="hero-name">Grazielli</h2>
+    <div class="hero-line"></div>
+    <p class="hero-sub">Neste dia tão especial, quero que você saiba o quanto você significa para mim 🌸</p>
+  </div>
+  <div class="scroll-down">
+    <span>role para baixo</span>
+    <div class="chevrons"><div class="chev"></div><div class="chev"></div><div class="chev"></div></div>
+  </div>
+</section>
+
+<!-- MENSAGEM -->
+<section class="sec-pad bg-white">
+  <div class="inner">
+    <span class="sec-tag reveal">— uma mensagem do coração —</span>
+    <h2 class="sec-title reveal">Eu te amo demais,<br>Grazielli</h2>
+    <div class="ribbon reveal">
+      <div class="rib-line"></div><div class="rib-heart">❤</div><div class="rib-line r"></div>
+    </div>
+    <p class="sec-body reveal">Existem palavras que parecem pequenas demais para o que sinto, mas preciso dizer: você é incrível. Sua força, sua beleza, sua leveza — tudo em você me encanta todos os dias. Neste Dia das Mulheres, quero celebrar quem você é e o quanto te amo.</p>
+  </div>
+</section>
+
+<!-- CARDS -->
+<section class="sec-pad bg-rose">
+  <div class="inner">
+    <span class="sec-tag reveal">— o que você é para mim —</span>
+    <h2 class="sec-title reveal">Tudo que admiro em você</h2>
+    <div class="cards-grid">
+      <div class="card reveal-pop" style="transition-delay:.05s">
+        <span class="card-icon">✨</span>
+        <div class="card-title">Sua leveza</div>
+        <p class="card-text">Você ilumina tudo ao redor com uma presença que só você tem.</p>
+      </div>
+      <div class="card reveal-pop" style="transition-delay:.15s">
+        <span class="card-icon">💪</span>
+        <div class="card-title">Sua força</div>
+        <p class="card-text">A coragem e determinação que você carrega me inspiram cada dia.</p>
+      </div>
+      <div class="card reveal-pop" style="transition-delay:.25s">
+        <span class="card-icon">🌸</span>
+        <div class="card-title">Sua beleza</div>
+        <p class="card-text">Por dentro e por fora, você é uma das pessoas mais bonitas que já vi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-sec">
+  <div class="quote-orb" style="width:300px;height:300px;background:rgba(255,255,255,0.06);top:-100px;right:-80px;animation-duration:6s;"></div>
+  <div class="quote-orb" style="width:200px;height:200px;background:rgba(244,162,97,0.1);bottom:-60px;left:-60px;animation-duration:8s;animation-delay:2s;"></div>
+  <p class="quote-text reveal">"Amar você é a coisa mais natural e bonita que já me aconteceu."</p>
+  <div class="quote-author reveal" style="transition-delay:.2s">— com todo o meu amor, para Grazielli 💕</div>
+</div>
+
+<!-- CONTADOR -->
+<section class="counter-sec">
+  <div class="inner">
+    <span class="sec-tag reveal">— em números —</span>
+    <h2 class="sec-title reveal">O amor que sinto por você</h2>
+    <div class="counter-grid">
+      <div class="counter-card reveal-pop" style="transition-delay:.05s">
+        <span class="counter-num" data-target="365">0</span>
+        <div class="counter-label">dias por ano que penso em você</div>
+      </div>
+      <div class="counter-card reveal-pop" style="transition-delay:.15s">
+        <span class="counter-num" data-target="100">0</span>
+        <div class="counter-label">% do meu coração é seu</div>
+      </div>
+      <div class="counter-card reveal-pop" style="transition-delay:.25s">
+        <span class="counter-num" data-target="1">0</span>
+        <div class="counter-label">pessoa igual a você no mundo</div>
+      </div>
+      <div class="counter-card reveal-pop" style="transition-delay:.35s">
+        <span class="counter-num" data-target="INF">0</span>
+        <div class="counter-label">amor que tenho por você</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENSAGEM FINAL -->
+<section class="sec-pad bg-white">
+  <div class="inner">
+    <span class="sec-tag reveal">— e que fique registrado —</span>
+    <h2 class="sec-title reveal">Todos os dias, não só hoje</h2>
+    <p class="sec-body reveal">O Dia das Mulheres é especial, mas o meu amor por você é para todos os dias do ano. Cada momento ao seu lado é um presente. Obrigado por existir, por ser você, por me fazer sentir tanto.</p>
+    <br>
+    <p class="sec-body reveal" style="font-family:'Dancing Script',cursive;font-size:clamp(1.4rem,5vw,1.8rem);color:var(--rose);transition-delay:.2s">Te amo mais do que as palavras conseguem dizer. 🌹</p>
+  </div>
+</section>
+
+<!-- BOTÃO -->
+<div class="btn-sec">
+  <div class="inner reveal">
+    <span class="sec-tag">— um presentinho para você —</span>
+    <h2 class="sec-title">Toque aqui, Grazielli 🎁</h2>
+    <p class="sec-body" style="margin-bottom:48px">Aperte o botão e sinta todo o amor que tenho por você ✨</p>
+    <div class="btn-wrapper">
+      <div class="pulse-ring"></div><div class="pulse-ring"></div><div class="pulse-ring"></div>
+      <button class="heart-btn" id="heartBtn">💖 Clique e sinta meu amor 💖</button>
+    </div>
+    <div class="click-count" id="clickCount" style="margin-top:16px"></div>
+    <p class="btn-hint" style="margin-top:8px">(pode apertar quantas vezes quiser 😉)</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  Feito com <span class="accent">💕 amor infinito</span> para a incrível <span class="accent">Grazielli</span>
+  <span class="small">8 de Março · Dia Internacional das Mulheres</span>
+</footer>
+
+<script>
+/* ── CORAÇÕES FLUTUANTES HERO ── */
+const heroHearts = document.getElementById('heroHearts');
+const hEmojis = ['💕','💗','🌸','💖','✨','🌹','💝','💞'];
+[
+  {top:'10%',left:'6%',size:'2rem',dur:'4s',delay:'0s'},
+  {top:'16%',right:'7%',size:'1.6rem',dur:'5.5s',delay:'0.8s'},
+  {top:'44%',left:'4%',size:'1.3rem',dur:'3.8s',delay:'1.5s'},
+  {top:'36%',right:'5%',size:'1.5rem',dur:'4.5s',delay:'0.3s'},
+  {bottom:'22%',left:'9%',size:'1.8rem',dur:'5s',delay:'2s'},
+  {bottom:'16%',right:'8%',size:'1.2rem',dur:'3.5s',delay:'1s'},
+  {top:'64%',left:'14%',size:'1rem',dur:'6s',delay:'1.8s'},
+  {top:'58%',right:'12%',size:'1rem',dur:'4.8s',delay:'0.5s'},
+].forEach((p,i)=>{
+  const h=document.createElement('div');
+  h.className='h-heart';
+  h.textContent=hEmojis[i%hEmojis.length];
+  let css=`font-size:${p.size};animation-duration:${p.dur};animation-delay:${p.delay};opacity:0.28;`;
+  Object.keys(p).filter(k=>!['size','dur','delay'].includes(k)).forEach(k=>css+=`${k}:${p[k]};`);
+  h.style.cssText=css;
+  heroHearts.appendChild(h);
+});
+
+/* ── CANVAS PÉTALAS ── */
+const canvas=document.getElementById('particleCanvas');
+const ctx=canvas.getContext('2d');
+let W,H;
+function resize(){ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; }
+resize();
+window.addEventListener('resize',resize);
+
+class Petal {
+  constructor(){ this.init(true); }
+  init(rand){
+    this.x=Math.random()*W;
+    this.y=rand?Math.random()*H:-20;
+    this.size=5+Math.random()*9;
+    this.vy=0.5+Math.random()*1.3;
+    this.vx=(Math.random()-0.5)*0.7;
+    this.rot=Math.random()*Math.PI*2;
+    this.rs=(Math.random()-0.5)*0.05;
+    this.alpha=0.08+Math.random()*0.18;
+    this.color=['#f78fae','#e8477a','#fce4ec','#f4a261','#ffd6e7'][Math.floor(Math.random()*5)];
+    this.wob=Math.random()*Math.PI*2;
+    this.ws=0.018+Math.random()*0.025;
+  }
+  update(){
+    this.wob+=this.ws;
+    this.x+=this.vx+Math.sin(this.wob)*0.5;
+    this.y+=this.vy;
+    this.rot+=this.rs;
+    if(this.y>H+30) this.init(false);
+  }
+  draw(){
+    ctx.save();
+    ctx.translate(this.x,this.y);
+    ctx.rotate(this.rot);
+    ctx.globalAlpha=this.alpha;
+    ctx.fillStyle=this.color;
+    ctx.beginPath();
+    ctx.ellipse(0,0,this.size,this.size*1.6,0,0,Math.PI*2);
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+const petals=Array.from({length:45},()=>new Petal());
+(function loop(){ ctx.clearRect(0,0,W,H); petals.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(loop); })();
+
+/* ── TOUCH FEEDBACK CARDS ── */
+document.querySelectorAll('.card,.counter-card').forEach(c=>{
+  c.addEventListener('touchstart',()=>c.classList.add('touched'),{passive:true});
+  c.addEventListener('touchend',()=>setTimeout(()=>c.classList.remove('touched'),400));
+});
+
+/* ── SCROLL REVEAL ── */
+const allReveal=document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-pop');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.1});
+allReveal.forEach(el=>obs.observe(el));
+
+/* ── CONTADORES ANIMADOS ── */
+function animCount(el,target){
+  if(target==='INF'){ setTimeout(()=>el.textContent='∞',700); return; }
+  const n=parseInt(target), dur=1500, t0=performance.now();
+  (function step(now){
+    const p=Math.min((now-t0)/dur,1);
+    el.textContent=Math.floor(p*n);
+    if(p<1) requestAnimationFrame(step); else el.textContent=n;
+  })(t0);
+}
+const cObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const num=e.target.querySelector('.counter-num');
+      if(num&&!num.dataset.done){ num.dataset.done='1'; animCount(num,num.dataset.target); }
+    }
+  });
+},{threshold:0.3});
+document.querySelectorAll('.counter-card').forEach(c=>cObs.observe(c));
+
+/* ── BOTÃO EXPLOSÃO ── */
+const heartSyms=['💖','💕','💗','💝','💞','🌸','✨','💓','❤️','🌹','💘','🫶'];
+const msgs=[
+  '1 clique = amor infinito! 💕',
+  'Mais um toque cheio de amor! 🌸',
+  'Você é incrível, Grazielli! ✨',
+  'Meu coração disparou! 💖',
+  'Te amo cada vez mais! 🌹',
+  'Impossível parar de te amar! 💞',
+  'Só mais um... mentira, vários! 😘',
+  'Cada clique = um beijo! 💋',
+  'Você é o meu tudo! 🌟',
+];
+let clicks=0;
+const btn=document.getElementById('heartBtn');
+const countEl=document.getElementById('clickCount');
+
+function boom(cx,cy){
+  clicks++;
+  const amount=Math.min(14+clicks*2,45);
+  for(let i=0;i<amount;i++){
+    setTimeout(()=>{
+      const h=document.createElement('div');
+      h.className='flying-heart';
+      h.textContent=heartSyms[Math.floor(Math.random()*heartSyms.length)];
+      const angle=Math.random()*Math.PI*2;
+      const dist=60+Math.random()*260;
+      const tx=Math.cos(angle)*dist;
+      const ty=Math.sin(angle)*dist-70;
+      const tr=(Math.random()-0.5)*90+'deg';
+      const sz=1.1+Math.random()*2.2;
+      const dur=0.65+Math.random()*0.95;
+      h.style.cssText=`left:${cx}px;top:${cy}px;font-size:${sz}rem;--tx:${tx}px;--ty:${ty}px;--tr:${tr};animation-duration:${dur}s;`;
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(),dur*1000+120);
+    },i*30);
+  }
+  const flash=document.createElement('div');
+  flash.className='love-flash';
+  document.body.appendChild(flash);
+  setTimeout(()=>flash.remove(),650);
+  if(navigator.vibrate) navigator.vibrate([40,15,40]);
+  countEl.textContent=msgs[(clicks-1)%msgs.length];
+  countEl.style.transform='scale(1.35)';
+  setTimeout(()=>countEl.style.transform='scale(1)',220);
+}
+
+btn.addEventListener('click',e=>{
+  const r=btn.getBoundingClientRect();
+  boom(r.left+r.width/2, r.top+r.height/2);
+});
+
+btn.addEventListener('touchend',e=>{
+  e.preventDefault();
+  const t=e.changedTouches[0];
+  boom(t.clientX, t.clientY);
+},{passive:false});
+</script>
+</body>
+</html>
