@@ -336,41 +336,6 @@ nav a.cta:hover { background: #333; color: #fff; }
 }
 .stat-item .stat-l { font-size: .75rem; color: var(--muted); margin-top: .2rem; font-weight: 400; }
 
-.about-certs {
-  grid-column: 1 / -1;
-  background: var(--card);
-  border-radius: var(--r);
-  padding: 1.8rem 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.about-certs .ac-label {
-  font-size: .65rem;
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-right: .5rem;
-  flex-shrink: 0;
-}
-.cert-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: .55rem;
-  padding: .55rem 1.1rem;
-  border: 1px solid var(--rule);
-  border-radius: 100px;
-  text-decoration: none;
-  transition: border-color .2s, background .2s;
-  background: var(--card2);
-}
-.cert-pill:hover { border-color: var(--ink); background: #fff; }
-.cert-pill .cn { font-size: .78rem; font-weight: 500; color: var(--ink); }
-.cert-pill .cd { font-size: .68rem; color: var(--muted); }
-.cert-pill .ca { font-size: .7rem; color: var(--muted); }
-
 /* ── PROJECTS ── */
 .proj-grid {
   display: grid;
@@ -750,8 +715,9 @@ nav a.cta:hover { background: #333; color: #fff; }
 
     <div class="hero-grid">
 
+      <!-- BIO — foco em dev, sem mencionar PM/gestão -->
       <div class="hero-bio">
-        <p><strong>Full-Stack Developer e Team Lead</strong> com 9 anos conectando código e negócio. Especialista em WordPress, Laravel e liderança técnica — da arquitetura ao código em produção. <strong>Google PM Certified.</strong> Inglês B2.</p>
+        <p><strong>Full-Stack Developer</strong> com 9 anos entregando projetos reais — do rascunho ao deploy. Especialista em <strong>WordPress, PHP e Laravel</strong>, com vivência em infra, integrações de API e automações com n8n e LLMs. Inglês B2.</p>
         <div class="hero-bio-foot">
           <div class="chips">
             <span class="chip on">PHP</span>
@@ -761,7 +727,7 @@ nav a.cta:hover { background: #333; color: #fff; }
             <span class="chip">AWS</span>
             <span class="chip">n8n</span>
             <span class="chip">LLMs</span>
-            <span class="chip">Scrum</span>
+            <span class="chip">REST API</span>
           </div>
         </div>
       </div>
@@ -770,7 +736,7 @@ nav a.cta:hover { background: #333; color: #fff; }
         <div class="lbl">Anos de experiência</div>
         <div>
           <div class="num">9<em>anos</em></div>
-          <div class="lbl" style="margin-top:.8rem">3+ em liderança</div>
+          <div class="lbl" style="margin-top:.8rem">projetos reais em produção</div>
         </div>
       </div>
 
@@ -799,10 +765,10 @@ nav a.cta:hover { background: #333; color: #fff; }
     <div class="about-grid rv">
 
       <div class="about-main">
-        <p>Full-Stack e líder técnico com <strong>9 anos</strong> construindo produtos digitais para agências e clientes corporativos — seguros, saúde, imóveis, e-commerce e portais de notícias.</p>
-        <p>Estruturo times do zero, defino <strong>arquitetura técnica</strong>, padrões de código e processos ágeis. Com experiência em automação via <strong>n8n</strong> e integração com LLMs, conecto execução técnica ao planejamento estratégico.</p>
+        <p>Comecei na área de infra, passei por cloud e fui migrando para o desenvolvimento — e foi lá que fiquei. Hoje tenho <strong>9 anos</strong> construindo sites e sistemas para agências e clientes de segmentos variados: seguros, saúde, imóveis, e-commerce e portais de notícias.</p>
+        <p>Gosto especialmente de projetos que têm alguma complexidade técnica por baixo: integrações que não são triviais, infra que precisou ser pensada do zero, automações com <strong>n8n</strong> que eliminaram trabalho manual de vez. Também tenho alguma experiência com <strong>LLMs</strong> aplicados a produtos — seja para geração de conteúdo, classificação ou chat interno.</p>
         <div class="chips" style="margin-top:1.8rem">
-          <span class="chip on">PHP</span><span class="chip on">WordPress</span><span class="chip on">Laravel</span><span class="chip">WooCommerce</span><span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">n8n</span><span class="chip">LLMs</span><span class="chip">Scrum</span><span class="chip">CI/CD</span><span class="chip">Tailwind</span><span class="chip">Sage</span>
+          <span class="chip on">PHP</span><span class="chip on">WordPress</span><span class="chip on">Laravel</span><span class="chip">WooCommerce</span><span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">n8n</span><span class="chip">LLMs</span><span class="chip">REST API</span><span class="chip">CI/CD</span><span class="chip">Tailwind</span><span class="chip">Sage</span>
         </div>
       </div>
 
@@ -811,7 +777,7 @@ nav a.cta:hover { background: #333; color: #fff; }
           <div class="mc-label">Experiência</div>
           <div class="stat-pair">
             <div class="stat-item"><div class="stat-n">9+</div><div class="stat-l">anos</div></div>
-            <div class="stat-item"><div class="stat-n">3+</div><div class="stat-l">liderança</div></div>
+            <div class="stat-item"><div class="stat-n">5+</div><div class="stat-l">projetos abaixo</div></div>
           </div>
           <div class="avail-row" style="display:flex;align-items:center;gap:.5rem;margin-top:1.2rem;font-size:.72rem;font-weight:500;color:#3d8c3d">
             <div class="dot-green"></div> Disponível agora
@@ -822,22 +788,6 @@ nav a.cta:hover { background: #333; color: #fff; }
           <div style="font-family:var(--serif);font-size:1.2rem;font-weight:500;letter-spacing:-.01em;margin-bottom:.3rem">São Paulo, SP</div>
           <div style="font-size:.82rem;color:var(--muted);line-height:1.65">Remoto ou Híbrido<br>PT — Nativo &nbsp;·&nbsp; EN — B2</div>
         </div>
-      </div>
-
-      <div class="about-certs">
-        <span class="ac-label">Certificações</span>
-        <a class="cert-pill" href="https://www.credly.com/badges/a5e84b9b-97d8-423d-88f0-1113f7d6e802" target="_blank">
-          <span class="cn">Google Project Management</span>
-          <span class="cd">·</span>
-          <span class="cd">Fev 2026</span>
-          <span class="ca">↗</span>
-        </a>
-        <a class="cert-pill" href="https://profiles.badgeclaimed.com/lbonavina/badges/urn:uuid:ff4a9ecf-0f29-422b-ad98-1fbd688a3d9e.html" target="_blank">
-          <span class="cn">SFPC™ — Scrum Foundation</span>
-          <span class="cd">·</span>
-          <span class="cd">Fev 2026</span>
-          <span class="ca">↗</span>
-        </a>
       </div>
 
     </div>
@@ -863,7 +813,7 @@ nav a.cta:hover { background: #333; color: #fff; }
             <span class="proj-year">2025</span>
           </div>
           <div class="proj-title">Taskletto</div>
-          <p class="proj-desc">App desktop <strong>leve e 100% offline</strong> — sem conta, sem servidor, dados ficam no seu computador. Editor rich text com Tiptap, gestão de tarefas, atalhos de teclado e tema persistente. Open source e gratuito para Windows 10+.</p>
+          <p class="proj-desc">App desktop construído com <strong>Electron + Laravel 12</strong> — sem conta, sem servidor, tudo fica local. Editor rich text com Tiptap, gestão de tarefas, atalhos de teclado e tema persistente. Open source, gratuito, roda no Windows 10+.</p>
           <div class="proj-foot">
             <div class="chips"><span class="chip on">Electron</span><span class="chip on">Laravel 12</span><span class="chip on">Tiptap</span><span class="chip">JavaScript</span></div>
             <a href="https://lbonavina.github.io/taskletto/" target="_blank" class="proj-link">Ver projeto ↗</a>
@@ -885,7 +835,7 @@ nav a.cta:hover { background: #333; color: #fff; }
             <span class="proj-year">2024</span>
           </div>
           <div class="proj-title">Dicas Nova York</div>
-          <p class="proj-desc">Tema performático em nicho competitivo. <strong>90+ Lighthouse</strong> em mobile, migração zero downtime, SEO técnico completo com Sage 10 + Tailwind.</p>
+          <p class="proj-desc">Tema custom em nicho competitivo de viagens. Migração feita sem downtime, <strong>90+ no Lighthouse mobile</strong> e SEO técnico do começo ao fim — tudo com Sage 10 + Tailwind.</p>
           <div class="proj-foot">
             <div class="chips"><span class="chip on">WordPress</span><span class="chip on">Sage 10</span><span class="chip">Tailwind</span></div>
             <a href="https://dicasnovayork.com.br" target="_blank" class="proj-link">Ver ↗</a>
@@ -902,11 +852,11 @@ nav a.cta:hover { background: #333; color: #fff; }
         <div class="proj-img"><img src="projetos/riva1.webp" alt="Riva" onerror="this.closest('.proj-img').style.background='#e0ddd7'"></div>
         <div class="proj-body">
           <div class="proj-meta">
-            <span class="proj-cat">Imobiliário · Team Lead</span>
+            <span class="proj-cat">Imobiliário</span>
             <span class="proj-year">2024</span>
           </div>
           <div class="proj-title">Riva Incorporadora</div>
-          <p class="proj-desc">Site para uma das maiores incorporadoras do Brasil — <strong>Grupo Direcional</strong>. Sage 10 + Tailwind, filtros dinâmicos por empreendimento e SEO técnico completo.</p>
+          <p class="proj-desc">Site para uma das maiores incorporadoras do Brasil, parte do <strong>Grupo Direcional</strong>. Sage 10 + Tailwind com filtros dinâmicos por empreendimento, integração com CRM e SEO técnico completo.</p>
           <div class="proj-foot">
             <div class="chips"><span class="chip on">WordPress</span><span class="chip on">Sage 10</span><span class="chip">ACF</span></div>
             <a href="https://www.rivaincorporadora.com.br" target="_blank" class="proj-link">Ver ↗</a>
@@ -923,7 +873,7 @@ nav a.cta:hover { background: #333; color: #fff; }
             <span class="proj-year">2023</span>
           </div>
           <div class="proj-title">Grupo Águas do Brasil</div>
-          <p class="proj-desc">Portal crítico desenvolvido em paralelo com time de API. Mock data substituído sem refatoração. Infra <strong>Oracle Linux + Nginx</strong> do zero, zero downtime em produção.</p>
+          <p class="proj-desc">A API ainda não estava pronta quando o front precisava avançar. Desenvolvi com <strong>mock data</strong> estruturado de forma que a substituição pela API real não exigiu refatoração. Infra do zero em <strong>Oracle Linux + Nginx</strong>, zero downtime na virada.</p>
           <div class="proj-foot">
             <div class="chips"><span class="chip on">Sage 9</span><span class="chip on">PHP</span><span class="chip">Oracle Linux</span></div>
             <a href="https://agenciavirtual.grupoaguasdobrasil.com.br" target="_blank" class="proj-link">Ver ↗</a>
@@ -940,11 +890,11 @@ nav a.cta:hover { background: #333; color: #fff; }
         <div class="proj-img"><img src="projetos/too1.webp" alt="Too Seguros" onerror="this.closest('.proj-img').style.background='#e0ddd7'"></div>
         <div class="proj-body">
           <div class="proj-meta">
-            <span class="proj-cat">LMS · Team Lead</span>
+            <span class="proj-cat">LMS Corporativo</span>
             <span class="proj-year">2025</span>
           </div>
           <div class="proj-title">Universidade Too Seguros</div>
-          <p class="proj-desc">LMS corporativo para Too Seguros e Banco Pan. Plugin de <strong>gamificação proprietário</strong>, certificados automáticos e controle de acesso por empresa.</p>
+          <p class="proj-desc">LMS corporativo para Too Seguros e Banco Pan, sobre LearnDash. Desenvolvi um <strong>plugin de gamificação proprietário</strong>, certificados automáticos e controle de acesso separado por empresa — tudo custom, nada de solução genérica.</p>
           <div class="proj-foot">
             <div class="chips"><span class="chip on">LearnDash</span><span class="chip on">PHP</span><span class="chip">MySQL</span></div>
           </div>
@@ -970,14 +920,14 @@ nav a.cta:hover { background: #333; color: #fff; }
 
       <div class="xp-card">
         <div class="xp-period">2020</div>
-        <div class="xp-role">Full-Stack Dev & Team Lead</div>
+        <div class="xp-role">Full-Stack Developer</div>
         <div class="xp-company">Studio Visual <span style="color:#ddd">·</span> Remoto <span class="xp-dur">6 anos</span></div>
         <ul class="xp-list">
-          <li>Temas e plugins em <strong>WordPress</strong> — Sage, ACF e WooCommerce</li>
-          <li>Integrações REST API — <strong>HubSpot</strong>, RD Station</li>
-          <li>Docker, CI/CD, <strong>AWS</strong> / Digital Ocean</li>
-          <li>Automação com <strong>n8n</strong> e integração com LLMs</li>
-          <li>Liderança técnica: code review, mentoria e arquitetura</li>
+          <li>Temas e plugins custom em <strong>WordPress</strong> — Sage, ACF e WooCommerce</li>
+          <li>Integrações REST API com <strong>HubSpot</strong>, RD Station e outros CRMs</li>
+          <li>Docker, CI/CD, <strong>AWS</strong> e Digital Ocean</li>
+          <li>Automação de processos com <strong>n8n</strong> e integração com LLMs</li>
+          <li>Code review, definição de padrões e arquitetura de projetos</li>
         </ul>
         <div class="chips"><span class="chip on">WordPress</span><span class="chip on">PHP</span><span class="chip on">Laravel</span><span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">n8n</span></div>
       </div>
@@ -988,7 +938,7 @@ nav a.cta:hover { background: #333; color: #fff; }
         <div class="xp-company">Mufasa Creative Agency <span style="color:#ddd">·</span> Remoto <span class="xp-dur">2 anos</span></div>
         <ul class="xp-list">
           <li>Sites institucionais, e-commerces e landing pages</li>
-          <li>Temas e plugins customizados com foco em <strong>performance</strong></li>
+          <li>Temas e plugins customizados com foco em <strong>performance e manutenibilidade</strong></li>
         </ul>
         <div class="chips" style="margin-top:auto"><span class="chip on">WordPress</span><span class="chip on">PHP</span><span class="chip">JavaScript</span><span class="chip">MySQL</span></div>
       </div>
@@ -998,7 +948,7 @@ nav a.cta:hover { background: #333; color: #fff; }
         <div class="xp-role">Analista de TI</div>
         <div class="xp-company">TI Tech Solutions <span style="color:#ddd">·</span> Presencial <span class="xp-dur">1 ano</span></div>
         <ul class="xp-list">
-          <li>Aplicações internas e mobile (coletores de dados)</li>
+          <li>Desenvolvimento de aplicações internas e mobile (coletores de dados)</li>
           <li>Infraestrutura local, suporte N3 e redes <strong>Aruba</strong></li>
         </ul>
         <div class="chips" style="margin-top:auto"><span class="chip">Infraestrutura</span><span class="chip">Mobile</span><span class="chip">Networking</span></div>
@@ -1009,7 +959,7 @@ nav a.cta:hover { background: #333; color: #fff; }
         <div class="xp-role">Analista Cloud Infra Jr.</div>
         <div class="xp-company">BMSIX (atual BRQ) <span class="xp-dur">6 meses</span></div>
         <ul class="xp-list">
-          <li>VMs em <strong>Azure</strong> e AWS — provisionamento e administração</li>
+          <li>Provisionamento e administração de VMs em <strong>Azure</strong> e AWS</li>
           <li>Scripts <strong>PowerShell</strong> para automação de processos internos</li>
           <li>Suporte técnico em ambientes WordPress</li>
         </ul>
@@ -1029,27 +979,54 @@ nav a.cta:hover { background: #333; color: #fff; }
     <div class="skills-grid rv">
       <div class="sk-card">
         <div class="sk-num">01</div>
-        <div class="sk-cat">Gestão & Produto</div>
-        <div class="sk-name">Leadership</div>
-        <ul class="sk-list"><li>Gestão de equipes dev</li><li>Scrum · Kanban · OKRs</li><li>Code review e padrões</li><li>Mentoria de devs</li><li>Stakeholder management</li><li>Google PM Certified</li></ul>
+        <div class="sk-cat">Backend</div>
+        <div class="sk-name">Development</div>
+        <ul class="sk-list">
+          <li>PHP & Laravel</li>
+          <li>WordPress — temas e plugins</li>
+          <li>WooCommerce · ACF</li>
+          <li>REST APIs e integrações</li>
+          <li>JavaScript ES6+</li>
+          <li>MySQL · Redis</li>
+        </ul>
       </div>
       <div class="sk-card">
         <div class="sk-num">02</div>
-        <div class="sk-cat">Backend</div>
-        <div class="sk-name">Development</div>
-        <ul class="sk-list"><li>PHP & Laravel</li><li>WordPress (temas, plugins)</li><li>WooCommerce · ACF</li><li>REST APIs · integrações</li><li>JavaScript ES6+</li><li>MySQL · Redis</li></ul>
+        <div class="sk-cat">CMS & Frontend</div>
+        <div class="sk-name">WordPress</div>
+        <ul class="sk-list">
+          <li>Sage 9 · Sage 10</li>
+          <li>Tailwind CSS</li>
+          <li>ACF · Custom Post Types</li>
+          <li>WooCommerce</li>
+          <li>LearnDash (LMS)</li>
+          <li>Gutenberg blocks</li>
+        </ul>
       </div>
       <div class="sk-card">
         <div class="sk-num">03</div>
         <div class="sk-cat">Infra & Cloud</div>
         <div class="sk-name">Infrastructure</div>
-        <ul class="sk-list"><li>AWS · Azure · DO</li><li>Docker · CI/CD</li><li>Oracle Linux · Ubuntu</li><li>Nginx · segurança</li><li>Cloudways · Kinsta</li><li>PowerShell</li></ul>
+        <ul class="sk-list">
+          <li>AWS · Azure · DO</li>
+          <li>Docker · CI/CD</li>
+          <li>Oracle Linux · Ubuntu</li>
+          <li>Nginx · segurança</li>
+          <li>Cloudways · Kinsta</li>
+          <li>PowerShell</li>
+        </ul>
       </div>
       <div class="sk-card">
         <div class="sk-num">04</div>
         <div class="sk-cat">IA & Automação</div>
         <div class="sk-name">AI & Auto.</div>
-        <ul class="sk-list"><li>n8n — workflows</li><li>Prompt Engineering</li><li>ChatGPT API / LLMs</li><li>IA aplicada a produtos</li><li>Automação de processos</li></ul>
+        <ul class="sk-list">
+          <li>n8n — workflows</li>
+          <li>Prompt Engineering</li>
+          <li>ChatGPT API / LLMs</li>
+          <li>IA aplicada a produtos</li>
+          <li>Automação de processos</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -1059,7 +1036,7 @@ nav a.cta:hover { background: #333; color: #fff; }
 <section id="contato" class="section" style="padding-bottom:2rem">
   <div class="page">
     <div class="contact-card rv">
-      <div class="contact-head">Vamos<br><em>construir</em><br>algo?</div>
+      <div class="contact-head">Tem um<br><em>projeto</em><br>em mente?</div>
       <div class="contact-right">
         <a href="mailto:lbonavin@gmail.com" class="contact-mail">lbonavin@gmail.com</a>
         <div class="contact-socs">
@@ -1067,11 +1044,11 @@ nav a.cta:hover { background: #333; color: #fff; }
           <a href="https://github.com/lbonavina" target="_blank" class="contact-soc">GitHub</a>
           <a href="https://wa.me/5511999906996" target="_blank" class="contact-soc">Whatsapp</a>
         </div>
-        <a href="mailto:lbonavin@gmail.com" class="btn-white">Entrar em contato →</a>
+        <a href="https://wa.me/5511999906996" target="_blank" class="btn-white">Bora conversar →</a>
       </div>
       <div class="contact-footer" style="grid-column:1/-1">
         <span class="cf-copy">© 2026 Lucas Bonavina · São Paulo, SP</span>
-        <span class="cf-copy">Full-Stack Developer & Team Lead</span>
+        <span class="cf-copy">Full-Stack Developer</span>
       </div>
     </div>
   </div>
