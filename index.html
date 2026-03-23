@@ -52,11 +52,23 @@
 
 <!-- ── Favicon ── -->
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="preload" as="image" href="projetos/taskletto.webp" fetchpriority="high">
 
-<!-- ── Fonts ── -->
+<!-- Preconnect mantém -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,500;1,9..144,700&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Troque o <link> normal por media=print + onload -->
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,500;1,9..144,700&family=Geist:wght@300;400;500;600&display=swap"
+  media="print"
+  onload="this.media='all'"
+>
+<!-- Fallback para JS desativado -->
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,500;1,9..144,700&family=Geist:wght@300;400;500;600&display=swap">
+</noscript>
 
 <style>
 
@@ -855,7 +867,7 @@ nav a.cta:hover { background: #333; color: #fff; }
 
       <!-- 01 Taskletto — featured -->
       <div class="proj-card proj-card--featured">
-        <div class="proj-img"><img src="projetos/taskletto.webp" alt="Taskletto — App desktop de tarefas e notas offline" onerror="this.closest('.proj-img').style.background='#e0ddd7'"></div>
+        <div class="proj-img"><img src="projetos/taskletto.webp" loading="lazy" alt="Taskletto — App desktop de tarefas e notas offline" onerror="this.closest('.proj-img').style.background='#e0ddd7'"></div>
         <div class="proj-body">
           <div class="proj-meta">
             <span class="proj-cat">App Desktop · Open Source</span>
@@ -877,7 +889,7 @@ nav a.cta:hover { background: #333; color: #fff; }
 
       <!-- 02 Dicas Nova York -->
       <div class="proj-card">
-        <div class="proj-img"><img src="projetos/dny.webp" alt="Dicas Nova York — Portal de viagem" onerror="this.closest('.proj-img').style.background='#e0ddd7'"></div>
+        <div class="proj-img"><img src="projetos/dny.webp" loading="lazy" alt="Dicas Nova York — Portal de viagem" onerror="this.closest('.proj-img').style.background='#e0ddd7'"></div>
         <div class="proj-body">
           <div class="proj-meta">
             <span class="proj-cat">Portal de Viagem</span>
@@ -898,7 +910,7 @@ nav a.cta:hover { background: #333; color: #fff; }
 
       <!-- 03 Riva -->
       <div class="proj-card">
-        <div class="proj-img"><img src="projetos/riva1.webp" alt="Riva Incorporadora — Site institucional" onerror="this.closest('.proj-img').style.background='#e0ddd7'"></div>
+        <div class="proj-img"><img src="projetos/riva1.webp" loading="lazy" loading="lazy" alt="Riva Incorporadora — Site institucional" onerror="this.closest('.proj-img').style.background='#e0ddd7'"></div>
         <div class="proj-body">
           <div class="proj-meta">
             <span class="proj-cat">Imobiliário</span>
@@ -915,7 +927,7 @@ nav a.cta:hover { background: #333; color: #fff; }
 
       <!-- 04 GAB -->
       <div class="proj-card">
-        <div class="proj-img"><img src="projetos/gab1.webp" alt="Grupo Águas do Brasil — Portal do cliente" onerror="this.closest('.proj-img').style.background='#e0ddd7'"></div>
+        <div class="proj-img"><img src="projetos/gab1.webp" loading="lazy" alt="Grupo Águas do Brasil — Portal do cliente" onerror="this.closest('.proj-img').style.background='#e0ddd7'"></div>
         <div class="proj-body">
           <div class="proj-meta">
             <span class="proj-cat">Portal do Cliente · Full Stack</span>
@@ -936,7 +948,7 @@ nav a.cta:hover { background: #333; color: #fff; }
 
       <!-- 05 Too Seguros -->
       <div class="proj-card">
-        <div class="proj-img"><img src="projetos/too1.webp" alt="Universidade Too Seguros — LMS corporativo" onerror="this.closest('.proj-img').style.background='#e0ddd7'"></div>
+        <div class="proj-img"><img src="projetos/too1.webp" loading="lazy" alt="Universidade Too Seguros — LMS corporativo" onerror="this.closest('.proj-img').style.background='#e0ddd7'"></div>
         <div class="proj-body">
           <div class="proj-meta">
             <span class="proj-cat">LMS Corporativo</span>
