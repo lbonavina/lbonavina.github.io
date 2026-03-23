@@ -1140,17 +1140,6 @@ nav a.cta:hover { background: #333; color: #fff; }
 </main>
 
 <script>
-/* cursor */
-const cur = document.getElementById('cur');
-document.addEventListener('mousemove', e => {
-  cur.style.left = e.clientX + 'px';
-  cur.style.top  = e.clientY + 'px';
-});
-document.querySelectorAll('a, button, .proj-card, .xp-card, .sk-card, .bcard, .cert-pill, .chip').forEach(el => {
-  el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
-  el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
-});
-
 /* scroll */
 window.addEventListener('scroll', () => {}, { passive: true });
 
@@ -1180,6 +1169,17 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     const t = document.querySelector(a.getAttribute('href'));
     if (t) { e.preventDefault(); window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' }); }
   });
+});
+
+/* cursor */
+const cur = document.getElementById('cur');
+document.addEventListener('mousemove', e => {
+  cur.style.left = e.clientX + 'px';
+  cur.style.top  = e.clientY + 'px';
+});
+document.querySelectorAll('a, button, .proj-card, .xp-card, .sk-card, .bcard, .cert-pill, .chip').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
 });
 </script>
 </body>
