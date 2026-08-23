@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ── SEO Básico ── -->
-<title>Lucas Bonavina — Full-Stack Developer | Python, Flask & SQL Server</title>
-<meta name="description" content="Full-Stack Developer com 9 anos de experiência. Especialista em Python, Flask, PHP, Laravel e SQL Server. Focado em integrações bancárias e automações com IA.">
-<meta name="keywords" content="Full-Stack Developer, Python, Flask, SQL Server, PHP, Laravel, n8n, LLMs, Docker, AWS, São Paulo">
+<title>Lucas Bonavina — Fullstack & AI Engineer | Python, Flask & Integrações Bancárias</title>
+<meta name="description" content="Fullstack & AI Engineer com 10 anos de experiência. Integrações bancárias, consignado e cartões. Também trabalho com RAG, LLMs e harness engineering.">
+<meta name="keywords" content="Fullstack Engineer, AI Engineer, Python, Flask, FastAPI, SQL Server, RAG, LLMs, integrações bancárias, fintech, consignado, Docker, AWS, São Paulo">
 <meta name="author" content="Lucas Bonavina">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://lucasbonavina.win/">
@@ -15,16 +15,16 @@
 <!-- ── Open Graph (LinkedIn, Facebook, WhatsApp) ── -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lucasbonavina.win/">
-<meta property="og:title" content="Lucas Bonavina — Full-Stack Developer">
-<meta property="og:description" content="Full-Stack Developer com 9 anos de experiência. Especialista em Python, Flask, PHP, Laravel e SQL Server. Focado em integrações bancárias e automações com IA.">
+<meta property="og:title" content="Lucas Bonavina — Fullstack & AI Engineer">
+<meta property="og:description" content="10 anos construindo software. Hoje no mercado financeiro: integrações bancárias, consignado e cartões, mais a parte de IA dos sistemas.">
 <meta property="og:image" content="https://lucasbonavina.win/og-image.jpg">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Lucas Bonavina">
 
 <!-- ── Twitter / X Card ── -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Lucas Bonavina — Full-Stack Developer">
-<meta name="twitter:description" content="Full-Stack Developer com 9 anos de experiência em PHP, WordPress e Laravel.">
+<meta name="twitter:title" content="Lucas Bonavina — Fullstack & AI Engineer">
+<meta name="twitter:description" content="10 anos de carreira. Integrações bancárias, sistemas de crédito e IA aplicada a produto.">
 <meta name="twitter:image" content="https://lucasbonavina.win/og-image.jpg">
 
 <!-- ── Schema.org (Rich Results no Google) ── -->
@@ -33,7 +33,7 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Lucas Bonavina",
-  "jobTitle": "Full-Stack Developer",
+  "jobTitle": "Fullstack & AI Engineer",
   "url": "https://lucasbonavina.win/",
   "email": "lbonavin@gmail.com",
   "address": {
@@ -46,7 +46,7 @@
     "https://www.linkedin.com/in/lbonavina/",
     "https://github.com/lbonavina"
   ],
-  "knowsAbout": ["Python", "Flask", "SQL Server", "PHP", "Laravel", "Docker", "AWS", "n8n", "LLMs"]
+  "knowsAbout": ["Python", "Flask", "FastAPI", "SQL Server", "PostgreSQL", "PHP", "Laravel", "Docker", "AWS", "LLMs", "RAG", "Integrações bancárias", "Consignado", "CNAB"]
 }
 </script>
 
@@ -326,6 +326,7 @@ nav a.cta:hover { background: #333; color: #fff; }
   align-items: flex-end;
   justify-content: space-between;
   margin-bottom: 2rem;
+  gap: 2rem;
 }
 .s-title {
   font-family: var(--serif);
@@ -340,6 +341,9 @@ nav a.cta:hover { background: #333; color: #fff; }
   font-weight: 500;
   color: var(--muted);
   letter-spacing: .04em;
+  text-align: right;
+  max-width: 340px;
+  line-height: 1.6;
 }
 
 /* ── SECTION SPACING ── */
@@ -600,13 +604,13 @@ nav a.cta:hover { background: #333; color: #fff; }
 /* ── SKILLS ── */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
 }
 .sk-card {
   background: var(--card);
   border-radius: var(--r);
-  padding: 2rem 1.8rem 2.2rem;
+  padding: 2rem 1.5rem 2.2rem;
   transition: background .25s, transform .25s;
 }
 .sk-card:hover { background: var(--ink); transform: translateY(-3px); }
@@ -625,9 +629,9 @@ nav a.cta:hover { background: #333; color: #fff; }
   transition: color .25s, opacity .25s;
 }
 .sk-cat { font-size: .65rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; transition: color .25s; }
-.sk-name { font-family: var(--serif); font-size: 1.35rem; font-weight: 500; color: var(--ink); margin-bottom: 1.3rem; letter-spacing: -.01em; transition: color .25s; }
+.sk-name { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--ink); margin-bottom: 1.3rem; letter-spacing: -.01em; line-height: 1.1; transition: color .25s; }
 .sk-list { list-style: none; display: flex; flex-direction: column; gap: .42rem; }
-.sk-list li { font-size: .82rem; line-height: 1.55; color: #777; padding-left: .9rem; position: relative; transition: color .25s; }
+.sk-list li { font-size: .8rem; line-height: 1.55; color: #777; padding-left: .9rem; position: relative; transition: color .25s; }
 .sk-list li::before { content: '·'; position: absolute; left: 0; color: var(--ink); transition: color .25s; }
 
 /* ── CONTACT ── */
@@ -717,6 +721,9 @@ nav a.cta:hover { background: #333; color: #fff; }
 @keyframes up   { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:none} }
 
 /* ── RESPONSIVE ── */
+@media(max-width:1180px){
+  .skills-grid { grid-template-columns: repeat(3, 1fr); }
+}
 @media(max-width:1024px){
   .hero-grid { grid-template-columns: 1fr 1fr; }
   .hero-stack { grid-column: span 2; }
@@ -735,6 +742,8 @@ nav a.cta:hover { background: #333; color: #fff; }
   .contact-card { grid-template-columns: 1fr; gap: 2rem; }
   .contact-right { align-items: flex-start; }
   .about-side { flex-direction: column; }
+  .s-header { flex-direction: column; align-items: flex-start; gap: .8rem; }
+  .s-sub { text-align: left; max-width: none; }
   nav .nav-logo { display: none; }
   nav a:not(.cta) { padding: .4rem .7rem; font-size: .68rem; }
 }
@@ -780,17 +789,18 @@ nav a.cta:hover { background: #333; color: #fff; }
     <div class="hero-grid">
 
       <div class="hero-bio">
-        <p><strong>Desenvolvedor Full-Stack</strong> com 9 anos entregando soluções robustas. Especialista em <strong>Python, Flask, SQL Server, PHP e Laravel</strong>, com forte vivência em integrações bancárias, automações com n8n e LLMs. Inglês B2 Intermediário-Avançado. 3 anos liderando times de desenvolvimento.</p>
+        <p><strong>Fullstack & AI Engineer</strong> com 10 anos de carreira. Hoje trabalho no <strong>mercado financeiro</strong>, com integrações bancárias e sistemas de crédito em Python, Flask e SQL Server. A outra parte do meu trabalho é a camada de IA desses sistemas: RAG, harness engineering e automação com LLMs. Inglês B2. 3 anos liderando times de desenvolvimento.</p>
         <div class="hero-bio-foot">
           <div class="chips">
             <span class="chip on">Python</span>
             <span class="chip on">Flask</span>
             <span class="chip on">SQL Server</span>
-            <span class="chip on">PHP</span>
-            <span class="chip on">Laravel</span>
+            <span class="chip on">IA / LLMs</span>
+            <span class="chip on">RAG</span>
+            <span class="chip">PHP</span>
+            <span class="chip">Laravel</span>
             <span class="chip">Docker</span>
             <span class="chip">AWS</span>
-            <span class="chip">N8N</span>
             <span class="chip">REST API</span>
           </div>
         </div>
@@ -799,8 +809,8 @@ nav a.cta:hover { background: #333; color: #fff; }
       <div class="hero-stat">
         <div class="lbl">Anos de experiência na carreira</div>
         <div>
-          <div class="num">9<em>anos</em></div>
-          <div class="lbl" style="margin-top:.8rem">projetos reais em produção e 3 anos liderando times de desenvolvedores</div>
+          <div class="num">10<em>anos</em></div>
+          <div class="lbl" style="margin-top:.8rem">projetos em produção, 3 anos liderando times e os últimos deles em sistemas financeiros</div>
         </div>
       </div>
 
@@ -809,10 +819,10 @@ nav a.cta:hover { background: #333; color: #fff; }
         <div class="stack-items" id="stackEl">
           <div class="si-row"><span class="si-name">Python/Flask</span><div class="si-track"><div class="si-fill" data-w=".95"></div></div></div>
           <div class="si-row"><span class="si-name">SQL Server</span><div class="si-track"><div class="si-fill" data-w=".90"></div></div></div>
+          <div class="si-row"><span class="si-name">IA / LLMs</span><div class="si-track"><div class="si-fill" data-w=".85"></div></div></div>
           <div class="si-row"><span class="si-name">PHP/Laravel</span><div class="si-track"><div class="si-fill" data-w=".92"></div></div></div>
           <div class="si-row"><span class="si-name">WordPress</span><div class="si-track"><div class="si-fill" data-w=".97"></div></div></div>
           <div class="si-row"><span class="si-name">JavaScript</span><div class="si-track"><div class="si-fill" data-w=".85"></div></div></div>
-          <div class="si-row"><span class="si-name">IA</span><div class="si-track"><div class="si-fill" data-w=".75"></div></div></div>
           <div class="si-row"><span class="si-name">n8n</span><div class="si-track"><div class="si-fill" data-w=".65"></div></div></div>
         </div>
       </div>
@@ -831,10 +841,11 @@ nav a.cta:hover { background: #333; color: #fff; }
     <div class="about-grid rv">
 
       <div class="about-main">
-        <p>Comecei na área de infra, passei por cloud e fui migrando para o desenvolvimento e foi lá que fiquei. Hoje tenho <strong>9 anos</strong> construindo sites e sistemas web para agências e clientes de segmentos variados: seguros, saúde, imóveis, e-commerce e portais de notícias.</p>
-        <p>Gosto especialmente de projetos que têm alguma complexidade técnica por baixo: integrações que não são triviais, infra que precisou ser pensada do zero, automações com <strong>n8n</strong> que eliminaram trabalho manual de vez ou até mesmo integrações com IA em sistema próprio. Também tenho experiência com <strong>LLMs</strong> aplicados a produtos e negócios, seja para geração de conteúdo, chatbots ou automações .</p>
+        <p>Comecei na área de infra, passei por cloud e fui migrando para o desenvolvimento. São <strong>10 anos</strong> construindo sites e sistemas web para agências e clientes de segmentos variados: seguros, saúde, imóveis, e-commerce e portais de notícias.</p>
+        <p>Atualmente na NIO Digital trabalho com sistemas internos do mercado financeiro: integrações bancárias e produtos de crédito. Qualquer erro aqui custa dinheiro, Então é extremamente importante arquitetura e escalabilidade.</p>
+        <p>Hoje posso me considerar um Engenheiro de IA. O importante é saber e entender como estruturar a arquitetura para que a IA possa ser usada de forma segura e eficiente: <strong>RAG</strong> sobre base interna, <strong>harness engineering</strong> (orquestração de ferramentas, loops de verificação, contexto versionado, guardrails e observabilidade) e desenvolvimento spec-first. Automação com <strong>n8n</strong> e LLMs em produto entram no mesmo pacote. Na prática é isso que permite conferir o que a IA produziu antes de aquilo virar produção.</p>
         <div class="chips" style="margin-top:1.8rem">
-          <span class="chip on">Python</span><span class="chip on">Flask</span><span class="chip on">SQL Server</span><span class="chip on">PHP</span><span class="chip on">WordPress</span><span class="chip on">Laravel</span><span class="chip">WooCommerce</span><span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">n8n</span><span class="chip">LLMs</span><span class="chip">REST API</span><span class="chip">CI/CD</span><span class="chip">Tailwind</span><span class="chip">Sage</span>
+          <span class="chip on">Python</span><span class="chip on">Flask</span><span class="chip on">FastAPI</span><span class="chip on">SQL Server</span><span class="chip on">RAG</span><span class="chip on">LLMs</span><span class="chip">PostgreSQL</span><span class="chip">PHP</span><span class="chip">Laravel</span><span class="chip">WordPress</span><span class="chip">React</span><span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">n8n</span><span class="chip">REST API</span><span class="chip">CI/CD</span><span class="chip">Tailwind</span>
         </div>
       </div>
 
@@ -842,8 +853,8 @@ nav a.cta:hover { background: #333; color: #fff; }
         <div class="mini-card">
           <div class="mc-label">Experiência</div>
           <div class="stat-pair">
-            <div class="stat-item"><div class="stat-n">9+</div><div class="stat-l">anos</div></div>
-            <div class="stat-item"><div class="stat-n">80+</div><div class="stat-l">projetos na carreira</div></div>
+            <div class="stat-item"><div class="stat-n">10+</div><div class="stat-l">anos</div></div>
+            <div class="stat-item"><div class="stat-n">50+</div><div class="stat-l">projetos na carreira</div></div>
           </div>
           <div class="avail-row" style="display:flex;align-items:center;gap:.5rem;margin-top:1.2rem;font-size:.72rem;font-weight:500;color:#3d8c3d">
             <div class="dot-green"></div> Disponível para freelas. Caso tenha algo em mente pode entrar em contato :)
@@ -865,7 +876,7 @@ nav a.cta:hover { background: #333; color: #fff; }
   <div class="page">
     <div class="s-header rv">
       <h2 class="s-title"><em>Pro</em>jetos</h2>
-      <span class="s-sub">Alguns projetos em que liderei ou participei ativamente.</span>
+      <span class="s-sub">Alguns projetos que liderei ou nos quais participei ativamente. Os sistemas financeiros são internos, então não tem link para mostrar.</span>
     </div>
 
     <div class="proj-grid rv">
@@ -875,11 +886,11 @@ nav a.cta:hover { background: #333; color: #fff; }
         <div class="proj-img"><img src="projetos/taskletto.webp" alt="Taskletto — SaaS web de notas e tarefas" fetchpriority="high" onerror="this.closest('.proj-img').style.background='#e0ddd7'"></div>
         <div class="proj-body">
           <div class="proj-meta">
-            <span class="proj-cat">SaaS Web · Full-stack</span>
+            <span class="proj-cat">SaaS Web · Produto próprio</span>
             <span class="proj-year">2026</span>
           </div>
           <div class="proj-title">Taskletto</div>
-          <p class="proj-desc">SaaS web de produtividade que une um <strong>editor de notas rich text</strong> a um gerenciador de tarefas completo. Backend em <strong>FastAPI + PostgreSQL</strong> e frontend <strong>React/TypeScript</strong> com design Untitled UI. Inclui tarefas com subtarefas, recorrência, lembretes e comentários estilo Trello, <strong>compartilhamento de notas por link público ou e-mail</strong>, anexos em nuvem, lixeira, modo foco e tema claro/escuro. Autenticação JWT com verificação de e-mail e <strong>cobrança recorrente via AbacatePay</strong> — plano Free (50 notas / 100 MB) e Premium ilimitado por R$ 12,99/mês. No ar em taskletto.app.</p>
+          <p class="proj-desc">SaaS de produtividade que construí sozinho. Une um <strong>editor de notas rich text</strong> a um gerenciador de tarefas completo, com <strong>FastAPI + PostgreSQL</strong> no backend e <strong>React/TypeScript</strong> no frontend. Tarefas com subtarefas, recorrência, lembretes e comentários estilo Trello, compartilhamento de notas por link público ou e-mail, anexos em nuvem, lixeira, modo foco e tema claro/escuro. No ar em taskletto.app.</p>
           <div class="proj-foot">
             <div class="chips">
               <span class="chip on">React</span>
@@ -887,7 +898,6 @@ nav a.cta:hover { background: #333; color: #fff; }
               <span class="chip on">FastAPI</span>
               <span class="chip">PostgreSQL</span>
               <span class="chip">Tailwind v4</span>
-              <span class="chip">AbacatePay</span>
               <span class="chip">Docker</span>
             </div>
             <a href="https://taskletto.app" target="_blank" class="proj-link">Ver projeto ↗</a>
@@ -895,13 +905,33 @@ nav a.cta:hover { background: #333; color: #fff; }
         </div>
         <div class="proj-stats">
           <div class="ps"><div class="ps-val">✓</div><div class="ps-key">No ar</div></div>
-          <div class="ps"><div class="ps-val">Full-stack</div><div class="ps-key">FastAPI + React</div></div>
-          <div class="ps"><div class="ps-val">R$12,99</div><div class="ps-key">Premium/mês</div></div>
+          <div class="ps"><div class="ps-val">Solo</div><div class="ps-key">Do backend ao billing</div></div>
+          <div class="ps"><div class="ps-val">R$11,99</div><div class="ps-key">Premium/mês</div></div>
         </div>
       </div>
 
+      <!-- 02 GAB -->
+      <div class="proj-card">
+        <div class="proj-img"><img src="projetos/gab1.webp" loading="lazy" alt="Grupo Águas do Brasil — Portal do cliente" onerror="this.closest('.proj-img').style.background='#e0ddd7'"></div>
+        <div class="proj-body">
+          <div class="proj-meta">
+            <span class="proj-cat">Portal do Cliente · Full Stack</span>
+            <span class="proj-year">2023</span>
+          </div>
+          <div class="proj-title">Grupo Águas do Brasil</div>
+          <p class="proj-desc">A API ainda não estava pronta quando o front precisava avançar. Desenvolvi com <strong>mock data</strong> estruturado de forma que a substituição pela API real não exigiu refatoração. Infra do zero em <strong>Oracle Linux + Nginx</strong>, zero downtime na virada.</p>
+          <div class="proj-foot">
+            <div class="chips"><span class="chip on">Sage 9</span><span class="chip on">PHP</span><span class="chip">Oracle Linux</span></div>
+            <a href="https://agenciavirtual.grupoaguasdobrasil.com.br" target="_blank" class="proj-link">Ver ↗</a>
+          </div>
+        </div>
+        <div class="proj-stats">
+          <div class="ps"><div class="ps-val">0</div><div class="ps-key">Downtime</div></div>
+          <div class="ps"><div class="ps-val">100%</div><div class="ps-key">Infra do zero</div></div>
+        </div>
+      </div>
 
-      <!-- 02 Dicas Nova York -->
+      <!-- 03 Dicas Nova York -->
       <div class="proj-card">
         <div class="proj-img"><img src="projetos/dny.webp" alt="Dicas Nova York — Portal de viagem" loading="lazy" onerror="this.closest('.proj-img').style.background='#e0ddd7'"></div>
         <div class="proj-body">
@@ -928,10 +958,9 @@ nav a.cta:hover { background: #333; color: #fff; }
         </div>
       </div>
 
-
-      <!-- 03 Riva -->
+      <!-- 04 Riva -->
       <div class="proj-card">
-        <div class="proj-img"><img src="projetos/riva1.webp" loading="lazy" loading="lazy" alt="Riva Incorporadora — Site institucional" onerror="this.closest('.proj-img').style.background='#e0ddd7'"></div>
+        <div class="proj-img"><img src="projetos/riva1.webp" loading="lazy" alt="Riva Incorporadora — Site institucional" onerror="this.closest('.proj-img').style.background='#e0ddd7'"></div>
         <div class="proj-body">
           <div class="proj-meta">
             <span class="proj-cat">Imobiliário</span>
@@ -943,27 +972,6 @@ nav a.cta:hover { background: #333; color: #fff; }
             <div class="chips"><span class="chip on">WordPress</span><span class="chip on">Sage 10</span><span class="chip">ACF</span></div>
             <a href="https://www.rivaincorporadora.com.br" target="_blank" class="proj-link">Ver ↗</a>
           </div>
-        </div>
-      </div>
-
-      <!-- 04 GAB -->
-      <div class="proj-card">
-        <div class="proj-img"><img src="projetos/gab1.webp" loading="lazy" alt="Grupo Águas do Brasil — Portal do cliente" onerror="this.closest('.proj-img').style.background='#e0ddd7'"></div>
-        <div class="proj-body">
-          <div class="proj-meta">
-            <span class="proj-cat">Portal do Cliente · Full Stack</span>
-            <span class="proj-year">2023</span>
-          </div>
-          <div class="proj-title">Grupo Águas do Brasil</div>
-          <p class="proj-desc">A API ainda não estava pronta quando o front precisava avançar. Desenvolvi com <strong>mock data</strong> estruturado de forma que a substituição pela API real não exigiu refatoração. Infra do zero em <strong>Oracle Linux + Nginx</strong>, zero downtime na virada.</p>
-          <div class="proj-foot">
-            <div class="chips"><span class="chip on">Sage 9</span><span class="chip on">PHP</span><span class="chip">Oracle Linux</span></div>
-            <a href="https://agenciavirtual.grupoaguasdobrasil.com.br" target="_blank" class="proj-link">Ver ↗</a>
-          </div>
-        </div>
-        <div class="proj-stats">
-          <div class="ps"><div class="ps-val">0</div><div class="ps-key">Downtime</div></div>
-          <div class="ps"><div class="ps-val">100%</div><div class="ps-key">Infra do zero</div></div>
         </div>
       </div>
 
@@ -995,20 +1003,22 @@ nav a.cta:hover { background: #333; color: #fff; }
   <div class="page">
     <div class="s-header rv">
       <h2 class="s-title">Experi<em>ência</em></h2>
-      <span class="s-sub">2017 — 2026</span>
+      <span class="s-sub">2016 — 2026</span>
     </div>
     <div class="xp-grid rv">
 
       <div class="xp-card">
         <div class="xp-period">2026 - Pres.</div>
-        <div class="xp-role">Fullstack Software Engineer</div>
+        <div class="xp-role">AI Fullstack Engineer</div>
         <div class="xp-company">NIO Digital <span style="color:#ddd">·</span> Presencial <span class="xp-dur">Atual</span></div>
         <ul class="xp-list">
-          <li>Melhoria e evolução de sistemas internos com foco em otimização de processos e padronização operacional</li>
-          <li>Desenvolvimento de integrações com sistemas bancários e plataformas de cartões de crédito</li>
-          <li>Implementação de soluções para maior eficiência, segurança e automação em rotinas internas</li>
+          <li>Arquitetura e condução do sistema de automação de <strong>bancarizadoras</strong> nos fluxos de Saque (Consignado) e Rotativo de Cartões</li>
+          <li>Liderança técnica da nova <strong>intranet corporativa</strong>, que junta sistemas de setores diferentes em uma plataforma só</li>
+          <li>Integrações com parceiros bancários e processadoras de cartão: APIs REST, arquivos CNAB, conciliação e rotinas em AWS S3 e Lambda</li>
+          <li><strong>Harness engineering</strong> no ciclo de desenvolvimento: contexto versionado, checks automatizados, guardrails e observabilidade no uso de agentes de IA</li>
+          <li>Spec-first, com CI/CD, lint e type checking como porta de entrada de código</li>
         </ul>
-        <div class="chips"><span class="chip on">Python</span><span class="chip on">Flask</span><span class="chip on">SQL Server</span><span class="chip">Integração Bancária</span><span class="chip">Automação</span></div>
+        <div class="chips"><span class="chip on">Python</span><span class="chip on">Flask</span><span class="chip on">SQL Server</span><span class="chip on">IA</span><span class="chip">Harness Engineering</span><span class="chip">AWS</span><span class="chip">Integração Bancária</span></div>
       </div>
 
       <div class="xp-card">
@@ -1019,7 +1029,7 @@ nav a.cta:hover { background: #333; color: #fff; }
           <li>Temas e plugins custom em <strong>WordPress</strong> — Sage, ACF e WooCommerce</li>
           <li>Integrações REST API com <strong>HubSpot</strong>, RD Station e outros CRMs</li>
           <li>Docker, CI/CD, <strong>AWS</strong> e Digital Ocean</li>
-          <li>Automação de processos com <strong>n8n</strong> e integração com LLMs</li>
+          <li>Automação de processos com <strong>n8n</strong> e integração com LLMs em produtos de clientes</li>
           <li>Code review, definição de padrões, arquitetura de projetos e liderança de times de desenvolvimento</li>
         </ul>
         <div class="chips"><span class="chip on">WordPress</span><span class="chip on">PHP</span><span class="chip on">Liderança</span><span class="chip on">Laravel</span><span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">n8n</span></div>
@@ -1048,7 +1058,7 @@ nav a.cta:hover { background: #333; color: #fff; }
       </div>
 
       <div class="xp-card">
-        <div class="xp-period">2017</div>
+        <div class="xp-period">2016 - 2017</div>
         <div class="xp-role">Analista Cloud Infra Jr.</div>
         <div class="xp-company">BMSIX (atual BRQ) <span class="xp-dur">6 meses</span></div>
         <ul class="xp-list">
@@ -1073,57 +1083,69 @@ nav a.cta:hover { background: #333; color: #fff; }
       <div class="sk-card">
         <div class="sk-num">01</div>
         <div class="sk-cat">Backend</div>
-        <div class="sk-name">Development</div>
+        <div class="sk-name">Backend & dados</div>
         <ul class="sk-list">
-          <li>Python & Flask</li>
+          <li>Python — Flask e FastAPI</li>
           <li>SQL Server</li>
-          <li>PHP & Laravel</li>
-          <li>WordPress — temas e plugins</li>
-          <li>WooCommerce · ACF</li>
+          <li>PostgreSQL · MySQL · Redis</li>
           <li>REST APIs e integrações</li>
+          <li>ETL e processamento de arquivos</li>
+          <li>PHP & Laravel</li>
           <li>JavaScript ES6+</li>
-          <li>MySQL · PostgreSQL · Redis</li>
         </ul>
       </div>
       <div class="sk-card">
         <div class="sk-num">02</div>
-        <div class="sk-cat">CMS & Frontend</div>
-        <div class="sk-name">WordPress</div>
+        <div class="sk-cat">IA aplicada</div>
+        <div class="sk-name">AI & harness</div>
         <ul class="sk-list">
-          <li>Sage 10 / 11 (roots.io)</li>
-          <li>Tailwind CSS · Bootstrap</li>
-          <li>ACF · Custom Post Types</li>
-          <li>WooCommerce</li>
-          <li>LearnDash (LMS)</li>
-          <li>Gutenberg blocks</li>
-          <li>Vue.js</li>
+          <li>RAG sobre bases internas</li>
+          <li>Harness engineering</li>
+          <li>Guardrails e loops de verificação</li>
+          <li>Desenvolvimento spec-first</li>
+          <li>APIs de LLM e agentes</li>
+          <li>Prompt engineering</li>
+          <li>n8n — workflows</li>
         </ul>
       </div>
       <div class="sk-card">
         <div class="sk-num">03</div>
-        <div class="sk-cat">Infra & Cloud</div>
-        <div class="sk-name">Infrastructure</div>
+        <div class="sk-cat">Domínio</div>
+        <div class="sk-name">Mercado financeiro</div>
         <ul class="sk-list">
-          <li>AWS · Azure · Digital Ocean</li>
-          <li>Wordpress.com Infrastructure</li>
-          <li>Docker · CI/CD</li>
-          <li>Oracle Linux · Ubuntu</li>
-          <li>Nginx · Segurança</li>
-          <li>Cloudways · Kinsta</li>
-          <li>PowerShell</li>
+          <li>Integração com bancarizadoras</li>
+          <li>Consignado — saque e refin</li>
+          <li>Cartões e rotativo</li>
+          <li>CCB e arquivos CNAB</li>
+          <li>Conciliação e relatórios</li>
+          <li>Rotinas regulatórias</li>
         </ul>
       </div>
       <div class="sk-card">
         <div class="sk-num">04</div>
-        <div class="sk-cat">IA & Automação</div>
-        <div class="sk-name">AI & Auto.</div>
+        <div class="sk-cat">Infra & Cloud</div>
+        <div class="sk-name">Infraestrutura</div>
         <ul class="sk-list">
-          <li>n8n — workflows</li>
-          <li>Prompt Engineering</li>
-          <li>ChatGPT API / LLMs</li>
-          <li>IA aplicada a produtos</li>
-          <li>Automação de processos</li>
-          <li>RAG</li>
+          <li>AWS — S3, Lambda, IAM</li>
+          <li>Docker · CI/CD</li>
+          <li>Azure · Digital Ocean · Hetzner</li>
+          <li>Nginx · Ubuntu · Oracle Linux</li>
+          <li>Cloudflare — WAF e DNS</li>
+          <li>PowerShell</li>
+        </ul>
+      </div>
+      <div class="sk-card">
+        <div class="sk-num">05</div>
+        <div class="sk-cat">Frontend & CMS</div>
+        <div class="sk-name">Interface</div>
+        <ul class="sk-list">
+          <li>React · TypeScript</li>
+          <li>Tailwind CSS · Bootstrap</li>
+          <li>WordPress — temas e plugins</li>
+          <li>Sage 10 / 11 (roots.io)</li>
+          <li>ACF · WooCommerce</li>
+          <li>LearnDash (LMS)</li>
+          <li>Vue.js</li>
         </ul>
       </div>
     </div>
@@ -1146,7 +1168,7 @@ nav a.cta:hover { background: #333; color: #fff; }
       </div>
       <div class="contact-footer" style="grid-column:1/-1">
         <span class="cf-copy">© 2026 Lucas Bonavina · São Paulo, SP</span>
-        <span class="cf-copy">Desenvolvedor Full-Stack & IA Engineer</span>
+        <span class="cf-copy">Fullstack & AI Engineer · Mercado financeiro</span>
       </div>
     </div>
   </div>
